@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using SellingTree.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,14 +24,23 @@ namespace SellingTree
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        static public MainWindow Instance;
         public MainWindow()
         {
             this.InitializeComponent();
+            Frame1.Navigate(typeof(NavigationBarView));
+            Frame2.Navigate(typeof(MainView));
+            Instance = this;
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        public void SetFrame(Type type, Product product = null)
         {
-            myButton.Content = "Clicked";
+            if (product == null) 
+                Frame2.Navigate(type);
+            else 
+                Frame2.Content = new ProductView(product);
         }
+
+        
     }
 }
