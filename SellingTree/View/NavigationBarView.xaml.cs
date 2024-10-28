@@ -5,7 +5,6 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-using SellingTree.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,27 +19,28 @@ using Windows.Foundation.Collections;
 namespace SellingTree
 {
     /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainWindow : Window
+    public sealed partial class NavigationBarView : Page
     {
-        static public MainWindow Instance;
-        public MainWindow()
+        public NavigationBarView()
         {
             this.InitializeComponent();
-            Frame1.Navigate(typeof(NavigationBarView));
-            Frame2.Navigate(typeof(MainView));
-            Instance = this;
+            DataContext = ShopListViewModel.instance;
         }
 
-        public void SetFrame(Type type, Product product = null)
+        private void ShopListButton_Clicked(object sender, RoutedEventArgs e)
         {
-            if (product == null) 
-                Frame2.Navigate(type);
-            else 
-                Frame2.Content = new ProductView(product);
+            MainWindow.Instance.SetFrame(typeof(ShopCartView));
+            ShopListButton.IsEnabled = false;
+            ShopListButton.Visibility = Visibility.Collapsed;
         }
 
-        
+        private void MainPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.SetFrame(typeof(MainView));
+            ShopListButton.IsEnabled = true;
+            ShopListButton.Visibility = Visibility.Visible;
+        }
     }
 }
