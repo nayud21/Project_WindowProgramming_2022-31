@@ -5,7 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-using SellingTree.Model;
+using SellingTree.View;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,8 +24,8 @@ namespace SellingTree
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        static public MainWindow Instance;
-        public MainWindow()
+       static public MainWindow Instance;
+       public MainWindow()
         {
             this.InitializeComponent();
             Frame1.Navigate(typeof(NavigationBarView));
@@ -33,6 +33,35 @@ namespace SellingTree
             Instance = this;
         }
 
+        private void myButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Content as Frame;
+            if (rootFrame == null)
+            {
+                rootFrame = new Frame();
+                Content = rootFrame;
+            }
+            rootFrame.Navigate(typeof(BlogPage));
+        }
+        private void chatButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Content as Frame;
+            if (rootFrame == null)
+            {
+                rootFrame = new Frame();
+                Content = rootFrame;
+            }
+            rootFrame.Navigate(typeof(ChatPage));
+
+        }
+        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
+        private void Window_Activated(object sender, WindowActivatedEventArgs args)
+        {
+            
+        }
         public void SetFrame(Type type, Product product = null)
         {
             if (product == null) 
@@ -40,7 +69,6 @@ namespace SellingTree
             else 
                 Frame2.Content = new ProductView(product);
         }
-
-        
+       
     }
 }
