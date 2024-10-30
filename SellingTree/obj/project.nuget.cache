@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "YTlpvRr16GE=",
+  "dgSpecHash": "CYv6+Qj50hc=",
   "success": true,
-  "projectFilePath": "D:\\NAM 3_ HK1\\Window\\Project-main\\Project_WindowProgramming_2022-31\\SellingTree\\SellingTree.csproj",
+  "projectFilePath": "D:\\NAM 3_ HK1\\Window\\project-chat-page\\Project_WindowProgramming_2022-31\\SellingTree\\SellingTree.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\fody\\6.6.4\\fody.6.6.4.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.web.webview2\\1.0.2651.64\\microsoft.web.webview2.1.0.2651.64.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.windowsappsdk\\1.6.240923002\\microsoft.windowsappsdk.1.6.240923002.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\propertychanged.fody\\4.1.0\\propertychanged.fody.4.1.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\8.0.10\\microsoft.netcore.app.runtime.win-x86.8.0.10.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.44\\microsoft.windows.sdk.net.ref.10.0.19041.44.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\8.0.10\\microsoft.aspnetcore.app.runtime.win-x86.8.0.10.nupkg.sha512",

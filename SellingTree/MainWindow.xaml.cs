@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using SellingTree.View;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,9 +29,23 @@ namespace SellingTree
             this.InitializeComponent();
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            myButton.Content = "Clicked";
+            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
+        private void Window_Activated(object sender, WindowActivatedEventArgs args)
+        {
+
+        }
+        private void chatButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Content as Frame;
+            if (rootFrame == null)
+            {
+                rootFrame = new Frame();
+                Content = rootFrame;
+            }
+            rootFrame.Navigate(typeof(ChatPage));
         }
     }
 }
