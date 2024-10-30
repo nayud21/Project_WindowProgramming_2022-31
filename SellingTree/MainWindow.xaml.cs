@@ -24,9 +24,13 @@ namespace SellingTree
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        public MainWindow()
+       static public MainWindow Instance;
+       public MainWindow()
         {
             this.InitializeComponent();
+            Frame1.Navigate(typeof(NavigationBarView));
+            Frame2.Navigate(typeof(MainView));
+            Instance = this;
         }
 
         private void myButton_Click(object sender, RoutedEventArgs e)
@@ -57,6 +61,13 @@ namespace SellingTree
         private void Window_Activated(object sender, WindowActivatedEventArgs args)
         {
             
+        }
+        public void SetFrame(Type type, Product product = null)
+        {
+            if (product == null) 
+                Frame2.Navigate(type);
+            else 
+                Frame2.Content = new ProductView(product);
         }
        
     }

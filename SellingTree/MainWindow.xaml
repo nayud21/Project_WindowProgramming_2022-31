@@ -6,12 +6,21 @@
     xmlns:local="using:SellingTree"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Activated="Window_Activated">
-    
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+    mc:Ignorable="d">
+    <ScrollView ContentOrientation="Both">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame x:Name="Frame1" Grid.Row="0"/>
+            <Frame x:Name="Frame2" Grid.Row="1"/>
+        </Grid>
+    </ScrollView>
+  <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
         <Button x:Name="chatButton" Click="chatButton_Click">Chat</Button>
         <Frame x:Name="RootFrame" NavigationFailed="OnNavigationFailed"/>
     </StackPanel>
-    
 </Window>
+
