@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using SellingTree.View;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,7 +31,6 @@ namespace SellingTree
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
-            myButton.Content = "Clicked";
             Frame rootFrame = Content as Frame;
             if (rootFrame == null)
             {
@@ -38,6 +38,17 @@ namespace SellingTree
                 Content = rootFrame;
             }
             rootFrame.Navigate(typeof(BlogPage));
+        }
+        private void chatButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Content as Frame;
+            if (rootFrame == null)
+            {
+                rootFrame = new Frame();
+                Content = rootFrame;
+            }
+            rootFrame.Navigate(typeof(ChatPage));
+
         }
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
