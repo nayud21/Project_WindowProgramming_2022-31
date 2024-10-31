@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using SellingTree.View;
 using SellingTree.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -38,12 +39,14 @@ namespace SellingTree
         {
             // Xử lý khi nhấn nút "Đăng Bài"
             Frame.Navigate(typeof(BlogPostPage));
+            
 
         }
         private void BackMainWindow_Click(object sender, RoutedEventArgs e)
         {
-          
-            
+          Frame.GoBack();
         }
+
+  
     }
 }

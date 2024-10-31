@@ -33,28 +33,6 @@ namespace SellingTree
             Frame2.Navigate(typeof(MainView));
             Instance = this;
         }
-
-        private void myButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Content as Frame;
-            if (rootFrame == null)
-            {
-                rootFrame = new Frame();
-                Content = rootFrame;
-            }
-            rootFrame.Navigate(typeof(BlogPage));
-        }
-        private void chatButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Content as Frame;
-            if (rootFrame == null)
-            {
-                rootFrame = new Frame();
-                Content = rootFrame;
-            }
-            rootFrame.Navigate(typeof(ChatPage));
-
-        }
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);

@@ -27,7 +27,9 @@
                     </TextBlock>
                 </StackPanel>
             </Button>
-
+            <Button x:Name="blogButton" Click="blogButton_Click">Blog</Button>
+            <Button x:Name="chatButton" Click="chatButton_Click">Chat</Button>
+            <Button x:Name="collectionButton" Click="collectionButton_Click">Collection</Button>
         </StackPanel>
     </Grid>
 </Page>

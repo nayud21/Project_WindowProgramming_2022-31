@@ -9,9 +9,10 @@
     Background="LightGray"
     >
 
-    <!-- Bao toàn bộ nội dung trong ScrollViewer -->
+  
+       <!-- Bao toàn bộ nội dung trong ScrollViewer -->
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Margin="10">
+        <Grid Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <!-- ListView -->
@@ -28,7 +29,7 @@
                       Margin="0,10,0,0"
                       Grid.Row="0"
                       BorderThickness="1"
-                      MaxHeight="480"
+                      
                       BorderBrush="{ThemeResource ControlStrongStrokeColorDefaultBrush}"
                       Background="WhiteSmoke"
                       >
@@ -69,8 +70,9 @@
                                     <TextBlock Text="{x:Bind Description}" FontFamily="Segoe UI" FontWeight="Normal"
                                         Style="{ThemeResource BodyTextBlockStyle}"
                                         Foreground="Black"
-                                        TextTrimming="CharacterEllipsis" MaxLines="2" TextWrapping="WrapWholeWords"
+                                        TextTrimming="CharacterEllipsis" MaxLines="2" TextWrapping="WrapWholeWords" MaxWidth="800"
                                         Margin="0,0,0,16"
+                                        x:Name="DescriptionTextBlock"
                                            />
 
                                     <StackPanel Orientation="Horizontal">
@@ -106,12 +108,11 @@
 
             <!-- Button -->
             <Button Style="{StaticResource AccentButtonStyle}" Content="Đăng bài" Background="Green"
-                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                    HorizontalAlignment="Right" Margin="0,10,0,0" Grid.Row="3" Click="PostButton_Click"/>
+                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"  Margin="10"
+                    HorizontalAlignment="Right" Grid.Row="3" Click="PostButton_Click"/>
             <Button Style="{StaticResource AccentButtonStyle}" Content="Quay lại" Background="Green"
                     Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                    HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="3" Click="BackMainWindow_Click"/>   
+                    HorizontalAlignment="Left" Grid.Row="3" Click="BackMainWindow_Click"/>   
         </Grid>
     </ScrollViewer>
-
 </Page>

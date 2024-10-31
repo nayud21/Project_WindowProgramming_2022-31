@@ -16,7 +16,7 @@
         <local:MessageBackgroundConverter x:Key="MessageBackgroundConverter"/>
     </Page.Resources>
 
-    <Grid Padding="12">
+    <Grid Padding="12" >
         <!-- Cấu trúc cột -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -28,13 +28,13 @@
         <!-- Cột thứ nhất: Thông tin người dùng -->
         <StackPanel Grid.Column="0" Background="#003333" Padding="8" CornerRadius="10" Margin="0,0,12,0">
             <TextBlock Text="Danh sách khách hàng" 
-                   FontSize="20" 
-                   FontWeight="Bold" 
-                   Foreground="White"
-                   Margin="0,0,0,10"/>
+            FontSize="20" 
+            FontWeight="Bold" 
+            Foreground="White"
+            Margin="0,0,0,10"/>
             <!-- Thêm nội dung tùy ý, ví dụ danh sách bạn bè hoặc nhóm chat -->
             <ListView x:Name="CustomerListView" 
-            Background="#027c68" Foreground="FloralWhite" SelectionChanged="CustomerListView_SelectionChanged">
+    Background="#027c68" Foreground="FloralWhite" SelectionChanged="CustomerListView_SelectionChanged">
                 <ListViewItem Content="Khách 1"/>
                 <ListViewItem Content="Khách 2"/>
                 <ListViewItem Content="Khách 3"/>
@@ -53,32 +53,32 @@
 
             <!-- Khu vực hiển thị tin nhắn -->
             <ListView x:Name="MessagesListView"
-                  Grid.Row="0"
-                  Background="#003333"
-                  Margin="0,0,0,10"
-                  IsItemClickEnabled="False"
-                  SelectionMode="None"
-                  ItemsSource="{Binding Messages}"
-                  >
+            Grid.Row="0"
+            Background="#003333"
+            Margin="0,0,0,10"
+            IsItemClickEnabled="False"
+            SelectionMode="None"
+            ItemsSource="{Binding Messages}"
+            >
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local2:Message">
                         <StackPanel Orientation="Horizontal"
-                                Margin="{Binding Sender, Converter={StaticResource MarginConverter}}"
-                                HorizontalAlignment="{Binding Sender, Converter={StaticResource HorizontalAlignmentConverter}}"
-                                >
+                        Margin="{Binding Sender, Converter={StaticResource MarginConverter}}"
+                        HorizontalAlignment="{Binding Sender, Converter={StaticResource HorizontalAlignmentConverter}}"
+                        >
                             <Border Background="{x:Bind Sender, Converter={StaticResource MessageBackgroundConverter}}"
-                                CornerRadius="15"
-                                Padding="10"
-                                MaxWidth="250">
+                        CornerRadius="15"
+                        Padding="10"
+                        MaxWidth="250">
                                 <StackPanel>
                                     <TextBlock Text="{x:Bind Content}"
-                                           TextWrapping="Wrap"
-                                           Foreground="White"/>
+                                    TextWrapping="Wrap"
+                                    Foreground="White"/>
                                     <TextBlock Text="{x:Bind Timestamp}"
-                                           FontSize="10"
-                                           Foreground="White"
-                                           HorizontalAlignment="Right"
-                                           Margin="0,5,0,0"/>
+                                    FontSize="10"
+                                    Foreground="White"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,5,0,0"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>
@@ -88,27 +88,29 @@
 
             <!-- Khu vực nhập tin nhắn -->
             <Grid Grid.Row="1" 
-                    Background="#003333" Padding="10" 
-                    CornerRadius="15" >
+            Background="#003333" Padding="10" 
+            CornerRadius="15" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBox 
-                     Grid.Column="0"   
-                     x:Name="MessageTextBox"
-                     PlaceholderText="Type here"
-                     Background="Transparent"
-                     Foreground="#b0e892"
-                     BorderThickness="0"
-                     Margin="5,0,5,0"
-                     VerticalAlignment="Center"
-                     />
+                Grid.Column="0"   
+                x:Name="MessageTextBox"
+                PlaceholderText="Type here"
+                Background="Transparent"
+                Foreground="#b0e892"
+                BorderThickness="0"
+                Margin="5,0,5,0"
+                VerticalAlignment="Center"
+                />
                 <Button Grid.Column="1"
-                Background="#009933" Click="SendButton_Click">
+        Background="#009933" Click="SendButton_Click">
                     <FontIcon Glyph="&#xE724;" FontSize="20" Foreground="#b0e892" FontWeight="Bold" />
                 </Button>
             </Grid>
         </Grid>
     </Grid>
+
+
 </Page>

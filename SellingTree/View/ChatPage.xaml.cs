@@ -8,6 +8,8 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using SellingTree.IDao;
 using SellingTree.ViewModel;
+using SellingTree.View;
+using SellingTree.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +17,9 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+
+
+
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -28,13 +33,14 @@ namespace SellingTree.View
     {
         public MessageViewModel ViewModel { get; set; }
         private MockDaoMessage daoMessage;
-
+        static public ChatPage Instance;
         public ChatPage()
         {
             this.InitializeComponent();
             ViewModel = new MessageViewModel();
             this.DataContext = ViewModel;
             daoMessage = new MockDaoMessage(); // Khởi tạo MockDaoMessage
+            Instance = this;
         }
 
         private void CustomerListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
