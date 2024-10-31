@@ -15,12 +15,13 @@
             </Grid.RowDefinitions>
             <Frame x:Name="Frame1" Grid.Row="0"/>
             <Frame x:Name="Frame2" Grid.Row="1"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
+                <Button x:Name="chatButton" Click="chatButton_Click">Chat</Button>
+                <Frame x:Name="RootFrame" NavigationFailed="OnNavigationFailed"/>
+            </StackPanel>
         </Grid>
     </ScrollView>
-  <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-        <Button x:Name="chatButton" Click="chatButton_Click">Chat</Button>
-        <Frame x:Name="RootFrame" NavigationFailed="OnNavigationFailed"/>
-    </StackPanel>
+  
 </Window>
 

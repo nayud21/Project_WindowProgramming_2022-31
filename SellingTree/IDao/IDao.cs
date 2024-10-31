@@ -22,7 +22,7 @@ namespace SellingTree.IDao
     {
         public  static ObservableCollection<Product> GetAllProduct()
         {
-            return MockDao.GetAllProduct();
+            return MockDaoCollection.GetAllProduct();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace SellingTree.ViewModel
         public List<Blog> Blogs { get; set; }
         public BlogViewModel()
         {
-            SellingTree.IDao.IDao dao = new MockDao();
+            SellingTree.IDao.IDaoBlog dao = new MockDaoBlog();
             Blogs = dao.GetBlogs();
         }
     }

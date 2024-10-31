@@ -20,7 +20,7 @@ namespace SellingTree
         public ObservableCollection<Model.Product> products { get; set; }
         public MainViewViewModel()
         {
-            products = IDao.IDao.GetAllProduct();
+            products = IDao.IDaoCollection.GetAllProduct();
         }
         public void Add(Image image)
         {
