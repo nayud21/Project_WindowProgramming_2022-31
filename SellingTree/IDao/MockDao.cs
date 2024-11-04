@@ -119,25 +119,67 @@ namespace SellingTree.IDao
             {
                 new Product() {Name = "Cây Bàng Cẩm Thạch", ImageSource="ms-appx:///Assets/Picture1.jpg",
                     Price = 400000, Description = "Cây A",
+                    Sold = 420, Stored = 25,
                     ImageSources = new ObservableCollection<string>
                     { "ms-appx:///Assets/Picture5.jpg", "ms-appx:///Assets/Picture6.jpg"}
                 },
                 new Product() {Name = "Cây Dứa Đuôi Phụng", ImageSource="ms-appx:///Assets/Picture2.jpg",
                     Price = 50000, Description= "Cây B",
+                    Sold = 1205, Stored = 73,
                     ImageSources = new ObservableCollection<string>
                     { "ms-appx:///Assets/Picture7.jpg"}
                 },
                 new Product() {Name = "Cây Khuynh Diệp", ImageSource="ms-appx:///Assets/Picture3.jpg",
                     Price = 150000, Description = "Cây C",
+                    Sold = 80, Stored = 120,
                     ImageSources = new ObservableCollection<string>
                     {"ms-appx:///Assets/Picture8.jpg", "ms-appx:///Assets/Picture9.jpg",
                     "ms-appx:///Assets/Picture10.jpg","ms-appx:///Assets/Picture11.jpg"}
                 },
                 new Product() {Name = "Cây Đa Tam Phúc", ImageSource="ms-appx:///Assets/Picture4.jpg",
                     Price = 100000, Description = "Cây D",
+                    Sold = 15, Stored = 443,
                     ImageSources = new ObservableCollection<string>{ "ms-appx:///Assets/Picture12.jpg" } },
             };
 
+        }
+
+        static public List<Review> GetAllReviews(Product product)
+        {
+            switch (product.Name)
+            {
+                case "Cây Bàng Cẩm Thạch":
+                    return new List<Review>() {
+                        new Review() {
+                            AvatarSource = "ms-appx:///Assets/Picture1.jpg",
+                            Username="Random User Guy", Score = 5,
+                            Date = "31/10/2024 11:22:33",
+                            Content = "Cây rất đẹp nhưng trồng khá lâu. " +
+                            "Ủng hộ shop với các sản phẩm tiếp theo nhé!"
+                        },
+
+                        new Review()
+                        {
+                            AvatarSource = "ms-appx:///Assets/Picture1.jpg",
+                            Username ="qwerty123", Score = 4,
+                            Date = "1/11/2024 09:00:01",
+                            Content = "Sản phẩm tạm ổn. Giao hơi lâu nên -1 sao."
+                        }
+                    };
+
+                case "Cây Dứa Đuôi Phụng":
+                    return new List<Review>() {
+                        new Review()
+                        {
+                            AvatarSource = "ms-appx:///Assets/Picture1.jpg",
+                            Username = "charlotte_@#$", Score = 1,
+                            Date = "30/10/2024 23:59:27",
+                            Content = "Hàng không giống như mô tả. Yêu cầu Shop liên hệ và đổi trả."
+                        }
+                    };
+
+                default: return new List<Review>();
+            }
         }
     }
 

@@ -18,7 +18,7 @@ namespace SellingTree
         public List<Image> ImageList = new List<Image>();
         public List<Popup> Popups = new List<Popup>();
         public List<Button> ButtonList = new List<Button>();
-        public ObservableCollection<Model.Product> products { get; set; }
+        public ObservableCollection<Product> products { get; set; }
         public MainViewViewModel()
         {
             products = IDao.IDaoCollection.GetAllProduct();
