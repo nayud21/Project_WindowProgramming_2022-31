@@ -1,4 +1,5 @@
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using SellingTree.Model;
 using System;
 using System.Collections.Generic;
@@ -139,4 +140,188 @@ namespace SellingTree.IDao
 
         }
     }
+
+    public class MockDaoCollectionGroup
+    {
+        public static List<GroupCollection> getInstance()
+        {
+            return new List<GroupCollection>() {
+
+                //spring
+                new GroupCollection()
+                {
+                    ListImages = new List<BitmapImage>()
+                    {
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/dao.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/mai.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/camchuong.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/luuly.jpg")),
+                    },
+                    ListNames = new List<string>()
+                    {
+                        new String("Hoa Đào"),
+                        new String("Hoa Mai"),
+                        new String("Hoa Cẩm Chướng"),
+                        new String("Hoa Lưu Ly"),
+                    },
+                },
+
+                //summer
+                new GroupCollection()
+                {
+                    ListImages = new List<BitmapImage>()
+                    {
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/camtucau.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/phuong.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/bang.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/huongduong.jpg")),
+                    },
+                    ListNames = new List<string>()
+                    {
+                        new String("Hoa Cẩm Tú Cầu"),
+                        new String("Hoa Phượng"),
+                        new String("Hoa/Cây Bàng"),
+                        new String("Hoa Hướng Dương"),
+                    },
+                },
+
+                //autumn
+                new GroupCollection()
+                {
+                    ListImages = new List<BitmapImage>()
+                    {
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/cuchoami.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/hongvang.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/sua.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/thachthao.jpg")),
+                    },
+                    ListNames = new List<string>()
+                    {
+                        new String("Hoa Cúc Họa Mi"),
+                        new String("Hoa Hồng Vàng"),
+                        new String("Hoa Sữa"),
+                        new String("Hoa Thạch Thảo"),
+                    },
+                },
+
+                //winter
+                new GroupCollection()
+                {
+                    ListImages = new List<BitmapImage>()
+                    {
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/dialan.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/nhai.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/thuytien.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/tuongvi.jpg")),
+                    },
+                    ListNames = new List<string>()
+                    {
+                        new String("Hoa Địa Lan"),
+                        new String("Hoa Nhài"),
+                        new String("Hoa Thủy Tiên"),
+                        new String("Hoa Tường Vi"),
+                    },
+                },
+
+                //wealth
+                new GroupCollection()
+                {
+                    ListImages = new List<BitmapImage>()
+                    {
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/kimtien.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/thantai.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/ngocbich.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/bachmahoangtu.jpg")),
+                    },
+                    ListNames = new List<string>()
+                    {
+                        new String("Cây Kim Tiền"),
+                        new String("Cây Thần Tài"),
+                        new String("Cây Ngọc Bích"),
+                        new String("Cây Bạch Mã Hoàng Tử"),
+                    },
+                },
+
+                //health
+                new GroupCollection()
+                {
+                    ListImages = new List<BitmapImage>()
+                    {
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/luoiho.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/nhadam.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/vannienthanh.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/nhatmathuong.jpg")),
+                    },
+                    ListNames = new List<string>()
+                    {
+                        new String("Cây Lưỡi Hổ"),
+                        new String("Cây Nha Đam"),
+                        new String("Cây Vạn Niên Thanh"),
+                        new String("Cây Nhất Mạt Hương"),
+                    },
+                },
+
+                //love
+                new GroupCollection()
+                {
+                    ListImages = new List<BitmapImage>()
+                   {
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/lanquantu.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/trauba.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/hongmon.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/camnhung.jpg")),
+                    },
+                    ListNames = new List<string>()
+                    {
+                        new String("Cây Lan Quân Tử"),
+                        new String("Cây Trầu Bà"),
+                        new String("Cây Hồng Môn"),
+                        new String("Cây Cẩm Nhung"),
+                    },
+                },
+
+                //career
+                new GroupCollection()
+                {
+                    ListImages = new List<BitmapImage>()
+                    {
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/kimngan.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/tungbonglai.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/phuquy.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/lany.jpg")),
+                    },
+                    ListNames = new List<string>()
+                    {
+                        new String("Cây Kim Ngân"),
+                        new String("Cây Tùng Bồng Lai"),
+                        new String("Cây Phú Quý"),
+                        new String("Cây Lan Ý"),
+                    },
+               },
+
+                //family
+                new GroupCollection()
+                {
+                    ListImages = new List<BitmapImage>()
+                    {
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/conhat.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/huongthao.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/xuongrong.jpg")),
+                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/duoicong.jpg")),
+                    },
+                    ListNames = new List<string>()
+                    {
+                        new String("Cây Cọ Nhật"),
+                        new String("Cây Hương Thảo"),
+                        new String("Cây Xương Rồng"),
+                        new String("Cây Đuôi Công"),
+                    },
+                },
+
+
+            };
+        }
+            
+    }
+
 }

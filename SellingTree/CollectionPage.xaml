@@ -13,19 +13,19 @@
 
         <StackPanel Orientation="Vertical" Background="#D9D9D9" Spacing="50">
 
-            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,100" FontSize="50" FontWeight="SemiBold">
+            <TextBlock Margin="0,0,0,100" FontSize="50" FontWeight="SemiBold">
             Bộ sưu tập cây cảnh
             </TextBlock>
 
             <!-- Season Collection -->
-            <StackPanel Orientation="Vertical">
-                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,20" FontSize="50" FontWeight="SemiBold">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBlock Margin="0,0,0,20" FontSize="50" FontWeight="SemiBold">
                 Mùa
                 </TextBlock>
 
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" MaxWidth="1500">
                     <!-- perform -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="30">
+                    <StackPanel Orientation="Horizontal" Spacing="30">
 
                         <!-- Spring -->
                         <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
@@ -42,23 +42,27 @@
 
                             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24"> Mùa Xuân</TextBlock>
                             <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFBFF6" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/dao.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[0].ListImages[0]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Background="#FFBFF6" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/mai.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[0].ListImages[1]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Background="#FFBFF6" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/camchuong.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[0].ListImages[2]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Background="#FFBFF6" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/luuly.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[0].ListImages[3]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#FFBFF6">
-                                <TextBlock FontSize="18"> - Hoa Đào</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Mai</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Cẩm Chướng</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Lưu Ly</TextBlock>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[0].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[0].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[0].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[0].ListNames[3]}"/>
                             </StackPanel>
+
+                            <Button x:Name="MoreInformation0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
                         </Grid>
                         <!-- /Spring -->
 
@@ -77,23 +81,27 @@
 
                             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24"> Mùa Hè</TextBlock>
                             <StackPanel Grid.Row="1" Grid.Column="0" Background="#F0F24E" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/camtucau.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[1].ListImages[0]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Background="#F0F24E" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/phuong.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[1].ListImages[1]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Background="#F0F24E" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/bang.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[1].ListImages[2]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Background="#F0F24E" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/huongduong.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[1].ListImages[3]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#F0F24E">
-                                <TextBlock FontSize="18"> - Hoa Cẩm Tú Cầu</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Phượng</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa/Cây Bàng</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Hướng Dương</TextBlock>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[1].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[1].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[1].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[1].ListNames[3]}"/>
                             </StackPanel>
+
+                            <Button x:Name="MoreInformation1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
                         </Grid>
                         <!-- /Summer -->
 
@@ -112,23 +120,27 @@
 
                             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24"> Mùa Thu</TextBlock>
                             <StackPanel Grid.Row="1" Grid.Column="0" Background="#EE5D5F" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/cuchoami.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[2].ListImages[0]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Background="#EE5D5F" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/hongvang.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[2].ListImages[1]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Background="#EE5D5F" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/sua.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[2].ListImages[2]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Background="#EE5D5F" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/thachthao.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[2].ListImages[3]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#EE5D5F">
-                                <TextBlock FontSize="18"> - Hoa Cúc Họa Mi</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Hồng Vàng</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Sữa</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Thạch Thảo</TextBlock>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[2].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[2].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[2].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[2].ListNames[3]}"/>
                             </StackPanel>
+
+                            <Button x:Name="MoreInformation2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
                         </Grid>
                         <!-- /Autumn -->
 
@@ -147,23 +159,27 @@
 
                             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24"> Mùa Đông</TextBlock>
                             <StackPanel Grid.Row="1" Grid.Column="0" Background="#6DA3EB" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/dialan.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[3].ListImages[0]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Background="#6DA3EB" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/nhai.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[3].ListImages[1]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Background="#6DA3EB" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/thuytien.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[3].ListImages[2]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Background="#6DA3EB" Margin="10,10,10,10">
-                                <Image Source="Assets/SeasonCollection/tuongvi.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[3].ListImages[3]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#6DA3EB">
-                                <TextBlock FontSize="18"> - Hoa Địa Lan</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Nhài</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Thủy Tiên</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Tường Vi</TextBlock>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[3].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[3].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[3].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[3].ListNames[3]}"/>
                             </StackPanel>
+
+                            <Button x:Name="MoreInformation3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
                         </Grid>
                         <!-- /Winter -->
                     </StackPanel>
@@ -173,13 +189,13 @@
 
             <!-- feng shui Collection -->
             <StackPanel Orientation="Vertical">
-                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,20" FontSize="50" FontWeight="SemiBold">
+                <TextBlock Margin="0,0,0,20" FontSize="50" FontWeight="SemiBold">
                 Phong thủy
                 </TextBlock>
 
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"  MaxWidth="2000">
                     <!-- perform -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="30">
+                    <StackPanel Orientation="Horizontal" Spacing="30">
 
                         <!-- Wealth -->
                         <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
@@ -196,23 +212,27 @@
 
                             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Tiền tài</TextBlock>
                             <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFD700" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/kimtien.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[4].ListImages[0]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Background="#FFD700" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/thantai.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[4].ListImages[1]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Background="#FFD700" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/ngocbich.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[4].ListImages[2]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Background="#FFD700" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/bachmahoangtu.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[4].ListImages[3]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#FFD700">
-                                <TextBlock FontSize="18"> - Cây Kim Tiền</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Thần Tài</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Ngọc Bích</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Bạch Mã Hoàng Tử</TextBlock>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[4].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[4].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[4].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[4].ListNames[3]}"/>
                             </StackPanel>
+
+                            <Button x:Name="MoreInformation4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
                         </Grid>
                         <!-- /Wealth -->
 
@@ -231,23 +251,27 @@
 
                             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Sức khỏe</TextBlock>
                             <StackPanel Grid.Row="1" Grid.Column="0" Background="#90EE90" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/luoiho.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[5].ListImages[0]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Background="#90EE90" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/nhadam.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[5].ListImages[1]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Background="#90EE90" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/vannienthanh.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[5].ListImages[2]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Background="#90EE90" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/nhatmathuong.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[5].ListImages[3]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#90EE90">
-                                <TextBlock FontSize="18"> - Cây Lưỡi Hổ</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Nha đam</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Vạn Niên Thanh</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Nhất Mạt Hương</TextBlock>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[5].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[5].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[5].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[5].ListNames[3]}"/>
                             </StackPanel>
+
+                            <Button x:Name="MoreInformation5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
                         </Grid>
                         <!-- /Health -->
 
@@ -266,23 +290,27 @@
 
                             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Tình duyên</TextBlock>
                             <StackPanel Grid.Row="1" Grid.Column="0" Background="#FF69B4" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/lanquantu.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[6].ListImages[0]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Background="#FF69B4" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/trauba.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[6].ListImages[1]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Background="#FF69B4" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/hongmon.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[6].ListImages[2]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Background="#FF69B4" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/camnhung.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[6].ListImages[3]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#FF69B4">
-                                <TextBlock FontSize="18"> - Cây Lan Quân Tử</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Trầu Bà</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Hồng Môn</TextBlock>
-                                <TextBlock FontSize="18"> - Hoa Cẩm Nhung</TextBlock>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[6].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[6].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[6].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[6].ListNames[3]}"/>
                             </StackPanel>
+
+                            <Button x:Name="MoreInformation6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
                         </Grid>
                         <!-- /Love -->
 
@@ -301,23 +329,27 @@
 
                             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Sự nghiệp</TextBlock>
                             <StackPanel Grid.Row="1" Grid.Column="0" Background="#808080" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/kimngan.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[7].ListImages[0]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Background="#808080" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/tungbonglai.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[7].ListImages[1]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Background="#808080" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/phuquy.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[7].ListImages[2]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Background="#808080" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/lany.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[7].ListImages[3]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#808080">
-                                <TextBlock FontSize="18"> - Cây Kim Ngân</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Tùng Bồng Lai</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Phú Quý</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Lan Ý</TextBlock>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[7].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[7].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[7].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[7].ListNames[3]}"/>
                             </StackPanel>
+
+                            <Button x:Name="MoreInformation7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
                         </Grid>
                         <!-- /Career -->
 
@@ -336,23 +368,27 @@
 
                             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Gia đình</TextBlock>
                             <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFA500" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/conhat.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[8].ListImages[0]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Background="#FFA500" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/tungbonglai.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[8].ListImages[1]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Background="#FFA500" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/xuongrong.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[8].ListImages[2]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Background="#FFA500" Margin="10,10,10,10">
-                                <Image Source="Assets/FengShuiCollection/duoicong.jpg"/>
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[8].ListImages[3]}"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#FFA500">
-                                <TextBlock FontSize="18"> - Cây Cọ Nhật</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Tùng Hương Thảo</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Xương Rồng</TextBlock>
-                                <TextBlock FontSize="18"> - Cây Đuôi Công</TextBlock>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[8].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[8].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[8].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[8].ListNames[3]}"/>
                             </StackPanel>
+
+                            <Button x:Name="MoreInformation8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
                         </Grid>
                         <!-- /Family -->
 

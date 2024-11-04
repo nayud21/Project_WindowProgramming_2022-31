@@ -17,6 +17,7 @@
 	<ItemGroup>
 		<None Remove="BlogPage.xaml" />
 		<None Remove="BlogPostPage.xaml" />
+		<None Remove="GroupCollectionDetails.xaml" />
 		<None Remove="View\ChatPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
@@ -99,6 +100,9 @@
 		<None Update="Assets\Picture9.jpg">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<Page Update="GroupCollectionDetails.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
 		<Page Update="CollectionPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
