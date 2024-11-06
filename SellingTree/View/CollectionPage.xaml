@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="SellingTree.CollectionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SellingTree"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+
+        <StackPanel Orientation="Vertical" Background="#D9D9D9" Spacing="50">
+
+            <TextBlock Margin="0,0,0,100" FontSize="50" FontWeight="SemiBold">
+            Bộ sưu tập cây cảnh
+            </TextBlock>
+
+            <!-- Season Collection -->
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBlock Margin="0,0,0,20" FontSize="50" FontWeight="SemiBold">
+                Mùa
+                </TextBlock>
+
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" MaxWidth="1500">
+                    <!-- perform -->
+                    <StackPanel Orientation="Horizontal" Spacing="30">
+
+                        <!-- Spring -->
+                        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24"> Mùa Xuân</TextBlock>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFBFF6" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[0].ListImages[0]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="#FFBFF6" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[0].ListImages[1]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="#FFBFF6" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[0].ListImages[2]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="#FFBFF6" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[0].ListImages[3]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#FFBFF6">
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[0].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[0].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[0].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[0].ListNames[3]}"/>
+                            </StackPanel>
+
+                            <Button x:Name="MoreInformation0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
+                        </Grid>
+                        <!-- /Spring -->
+
+                        <!-- Summer -->
+                        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24"> Mùa Hè</TextBlock>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="#F0F24E" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[1].ListImages[0]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="#F0F24E" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[1].ListImages[1]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="#F0F24E" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[1].ListImages[2]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="#F0F24E" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[1].ListImages[3]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#F0F24E">
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[1].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[1].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[1].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[1].ListNames[3]}"/>
+                            </StackPanel>
+
+                            <Button x:Name="MoreInformation1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
+                        </Grid>
+                        <!-- /Summer -->
+
+                        <!-- Autumn -->
+                        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24"> Mùa Thu</TextBlock>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="#EE5D5F" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[2].ListImages[0]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="#EE5D5F" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[2].ListImages[1]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="#EE5D5F" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[2].ListImages[2]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="#EE5D5F" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[2].ListImages[3]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#EE5D5F">
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[2].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[2].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[2].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[2].ListNames[3]}"/>
+                            </StackPanel>
+
+                            <Button x:Name="MoreInformation2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
+                        </Grid>
+                        <!-- /Autumn -->
+
+                        <!-- Winter -->
+                        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24"> Mùa Đông</TextBlock>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="#6DA3EB" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[3].ListImages[0]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="#6DA3EB" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[3].ListImages[1]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="#6DA3EB" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[3].ListImages[2]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="#6DA3EB" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[3].ListImages[3]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#6DA3EB">
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[3].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[3].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[3].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[3].ListNames[3]}"/>
+                            </StackPanel>
+
+                            <Button x:Name="MoreInformation3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
+                        </Grid>
+                        <!-- /Winter -->
+                    </StackPanel>
+                    <!-- /perform -->
+                </ScrollViewer>
+            </StackPanel>
+
+            <!-- feng shui Collection -->
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="0,0,0,20" FontSize="50" FontWeight="SemiBold">
+                Phong thủy
+                </TextBlock>
+
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"  MaxWidth="2000">
+                    <!-- perform -->
+                    <StackPanel Orientation="Horizontal" Spacing="30">
+
+                        <!-- Wealth -->
+                        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Tiền tài</TextBlock>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFD700" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[4].ListImages[0]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="#FFD700" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[4].ListImages[1]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="#FFD700" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[4].ListImages[2]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="#FFD700" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[4].ListImages[3]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#FFD700">
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[4].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[4].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[4].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[4].ListNames[3]}"/>
+                            </StackPanel>
+
+                            <Button x:Name="MoreInformation4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
+                        </Grid>
+                        <!-- /Wealth -->
+
+                        <!-- Health -->
+                        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Sức khỏe</TextBlock>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="#90EE90" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[5].ListImages[0]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="#90EE90" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[5].ListImages[1]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="#90EE90" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[5].ListImages[2]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="#90EE90" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[5].ListImages[3]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#90EE90">
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[5].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[5].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[5].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[5].ListNames[3]}"/>
+                            </StackPanel>
+
+                            <Button x:Name="MoreInformation5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
+                        </Grid>
+                        <!-- /Health -->
+
+                        <!-- Love -->
+                        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Tình duyên</TextBlock>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="#FF69B4" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[6].ListImages[0]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="#FF69B4" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[6].ListImages[1]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="#FF69B4" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[6].ListImages[2]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="#FF69B4" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[6].ListImages[3]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#FF69B4">
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[6].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[6].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[6].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[6].ListNames[3]}"/>
+                            </StackPanel>
+
+                            <Button x:Name="MoreInformation6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
+                        </Grid>
+                        <!-- /Love -->
+
+                        <!-- Career -->
+                        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Sự nghiệp</TextBlock>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="#808080" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[7].ListImages[0]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="#808080" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[7].ListImages[1]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="#808080" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[7].ListImages[2]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="#808080" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[7].ListImages[3]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#808080">
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[7].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[7].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[7].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[7].ListNames[3]}"/>
+                            </StackPanel>
+
+                            <Button x:Name="MoreInformation7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
+                        </Grid>
+                        <!-- /Career -->
+
+                        <!-- Family -->
+                        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="24"> Gia đình</TextBlock>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="#FFA500" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[8].ListImages[0]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="#FFA500" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[8].ListImages[1]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="#FFA500" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[8].ListImages[2]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="#FFA500" Margin="10,10,10,10">
+                                <Image Source="{x:Bind CollectionViewModel.GroupCollections[8].ListImages[3]}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Padding="20" Background="#FFA500">
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[8].ListNames[0]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[8].ListNames[1]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[8].ListNames[2]}"/>
+                                <TextBlock FontSize="18" Text="{x:Bind CollectionViewModel.GroupCollections[8].ListNames[3]}"/>
+                            </StackPanel>
+
+                            <Button x:Name="MoreInformation8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" Width="50" Height="40" Click="MoreInformationButton_Click">
+                                <FontIcon Glyph="&#xE780;"/>
+                            </Button>
+                        </Grid>
+                        <!-- /Family -->
+
+                    </StackPanel>
+                    <!-- /perform -->
+                </ScrollViewer>
+            </StackPanel>
+
+        </StackPanel>
+
+    </ScrollViewer>
+</Page>

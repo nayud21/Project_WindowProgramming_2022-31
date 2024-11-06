@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using SellingTree.View;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,6 +41,27 @@ namespace SellingTree
         {
             MainWindow.Instance.SetFrame(typeof(MainView));
             ShopListButton.IsEnabled = true;
+            ShopListButton.Visibility = Visibility.Visible;
+        }
+
+        private void blogButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.SetFrame(typeof(BlogPage));
+            ShopListButton.IsEnabled = false;
+            ShopListButton.Visibility = Visibility.Visible;
+        }
+
+        private void chatButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.SetFrame(typeof(ChatPage));
+            ShopListButton.IsEnabled = false;
+            ShopListButton.Visibility = Visibility.Visible;
+        }
+
+        private void collectionButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.SetFrame(typeof(CollectionPage));
+            ShopListButton.IsEnabled = false;
             ShopListButton.Visibility = Visibility.Visible;
         }
     }

@@ -8,11 +8,21 @@ using System.Threading.Tasks;
 
 namespace SellingTree.IDao
 {
-    internal abstract class IDao
+    public interface IDaoBlog
+    {
+        List<Blog> GetBlogs();
+    }
+    public interface IDaoMessage
+    {
+        List<Message> GetMessages();
+        List<Message> GetMessagesForCustomer(string customerName);
+
+    }
+    internal abstract class IDaoCollection
     {
         public  static ObservableCollection<Product> GetAllProduct()
         {
-            return MockDao.GetAllProduct();
+            return MockDaoCollection.GetAllProduct();
         }
     }
 }
