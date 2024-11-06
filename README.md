@@ -91,50 +91,30 @@ SellingTree/
 ## 2. Hướng dẫn sử dụng
 ### 2.1 Mua bán cung cấp sản phẩm
 - Khi người dùng chạy chương trình, ứng dụng sẽ hiển thị các sản phẩm được bán, khi nào cần thanh toán mới cần đăng nhập (tính năng đăng nhập sẽ phát triển sau).
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-2.png)
 - Người dùng có thể click vào hình ảnh của sản phẩm để biết thêm thông thông tin chi tiết về sản phẩm
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-3.png)
 - Người dùng rê chuột vào hình ảnh của sản phẩm thì sẽ xuất hiện hình ảnh khác của sản phẩm và tên khác.
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-4.png)
 ### 2.2 Giỏ hàng
 - Ở trang mặc định, khi người dùng click vào icon giỏ hàng trên sản phẩm, hệ thống sẽ cập nhật sản phẩm vào trang **Giỏ hàng**, mỗi lần click là thêm vào giỏ 1 sản phẩm
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-5.png)
 - Khách hàng cũng có thể thêm sản phẩm vào **Giỏ hàng** ở trang chi tiết của sản phẩm, cũng có thể thêm vào giỏ hàng với số lượng mong muốn
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-6.png)
 - Khi click vào button **Giỏ hàng** trên thanh điều hướng, ứng dụng sẽ chuyển đến màn hình **Giỏ hàng**. Tại đó sẽ hiển thị thông tin về các sản phẩm đã được thêm vào trước đó.
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-7.png)
 - Người dùng có thể xóa các sản phẩm mà mình đã thêm vào cũng như tăng số lượng sản phẩm.
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-8.png)
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-10.png)
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-11.png)
 - Người dùng có thể chỉ định những sản phẩm mà mình muốn thanh toán trong cửa hàng.
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-12.png)
 - Vì hiện tại chưa phát triển tính năng đăng nhập để phân quyền nên button mua sẽ chưa thực hiện được
 ### 2.3 Bộ sưu tập
 - Người dùng sẽ click vào button **Collection** trên tranh điều hướng để chuyển đến trang **Collection**
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-13.png)
 - Tại đó sẽ xuất hiện các bộ sưu tập theo mùa/ phong thủy.
 - Khi người dùng click vào biểu tượng dưới góc phải cùng của từng **Collection** sẽ xuất hiện các hình ảnh của cây thuộc **Collection** đó
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-14.png)
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-15.png)
 ### 2.4 Blog
 - Người dùng sẽ click vào button **Blog** trên thanh điều hướng để chuyển đến trang **Blog**
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-16.png)
 - Tại đây sẽ xuất hiện 1 loạt các blog đã được đăng trước đó.
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-17.png)
 - Người dùng cũng có thể đăng bài của chính mình bằng cách click vào buttn **Đăng bài**
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-18.png)
 - Form để đăng bài sẽ hiện ra
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-19.png)
 - Vì ở đây vẫn còn dùng Mock Data nên tạm thời tính năng gửi bài chưa thực hiện.
 - Ở mỗi trang sẽ có button **Quay lại** để người dùng có thể quay lại trang trước đó.
 ### 2.5 Trò chuyện trực tiếp với người dùng
 - Người dùng click vào button **Chat** trên thanh điều hướng để chuyển đến trang **Chat**
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-20.png)
 - Tại đó sẽ xuất hiện cửa sổ gồm những người đã gửi tin nhắn cho người chủ
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-21.png)
 - Click vào khung của từng khách hàng để xem nội dung tin nhắn
-![alt text](../Project_WindowProgramming_2022-31/picture-for-readme/image-22.png)
 - Vì ở đây còn sử dụng MockData nên tính năng gửi tạm thời chưa thực hiện được
 ## 3. Đánh giá tổng quan và nhận xét
 **Tổng số giờ**: 11.75 giờ
