@@ -11,6 +11,7 @@
     <Page.Resources>
         <local:IntToVNDIConverter x:Key="MoneyConverter"/>
         <local:QuantityToStringIConverter x:Key="QuantityConverter"/>
+        <local:TextToPopupTextConverter x:Key="PopupConverter"/>
     </Page.Resources>
     <Grid Background="LightGray">
         <Grid Background="White" Width="1000" Margin="0,20,0,20">
@@ -45,8 +46,10 @@
                             
                             <Popup  IsOpen="False" Loaded="Popup_Loaded">
                                 <Border Background="White" BorderBrush="Black" BorderThickness="1" 
-                                    Padding="10">
-                                    <TextBlock Text="{Binding Description}"/>
+                                    Padding="5">
+                                    <TextBlock Text= "{Binding Description, 
+                                        Converter = {StaticResource PopupConverter}}" 
+                                               TextWrapping="Wrap" MaxWidth="300"/>
                                 </Border>
                             </Popup>
 

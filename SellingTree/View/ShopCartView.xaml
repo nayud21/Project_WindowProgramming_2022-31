@@ -73,9 +73,10 @@
                                             VerticalAlignment="Center"/>
                                 </StackPanel>
                             </StackPanel>
-                            <TextBlock Text="{Binding product.Price, Converter={StaticResource MoneyConverter}}" VerticalAlignment="Center" Grid.Column="1"/>
+                            <TextBlock Text="{Binding product.Price, Converter={StaticResource MoneyConverter}}" 
+                                       VerticalAlignment="Center" Grid.Column="1"/>
                             <NumberBox Value="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                       Minimum="0" Width="60"  SpinButtonPlacementMode="Compact"
+                                       Minimum="1" Width="60"  SpinButtonPlacementMode="Compact"
                                        HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="2"/>
 
                             <TextBlock Text="{Binding Cost, Mode = TwoWay, Converter={StaticResource MoneyConverter}}" 

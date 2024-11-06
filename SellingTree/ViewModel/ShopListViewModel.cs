@@ -1,4 +1,5 @@
-﻿using SellingTree.Model;
+﻿using Microsoft.UI.Xaml;
+using SellingTree.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -130,9 +131,12 @@ namespace SellingTree
             Count--;
 
             LoadPosition();
-            Items.RemoveAt(index % 3);
-            if (index / 3 * 3 + 2 < Count)
-                Items.Add(ItemsData[index / 3 * 3 + 2]);
+
+            if (CurrentPage >= MaxPage())
+            {
+                CurrentPage = MaxPage();
+                LoadPage();
+            }
 
             CheckPage();
         }
@@ -161,7 +165,7 @@ namespace SellingTree
         }
         private int MaxPage()
         {
-            return (int)Math.Max(Math.Ceiling(ItemsData.Count / 3.0), 1);
+            return (int)Math.Max(Math.Ceiling(ItemsData.Count / 5.0), 1);
         }
 
         public void Add(Product product, int quantity = 1)
@@ -173,6 +177,7 @@ namespace SellingTree
                     item.Quantity += quantity;
                     isAdded = true;
                 }
+
             if (!isAdded) */
             ItemsData.Add(new MyShoppingItem(product, quantity) { Position = Items.Count });
 
@@ -182,27 +187,15 @@ namespace SellingTree
 
             if (CurrentPage == MaxPage())
                 LoadPage();
-            if (Count % 3 == 1)
+            if (Count % 5 == 1)
                 CheckPage();
         }
 
+        
         private void LoadPage()
         {
-            int Taker = 3;
-            if (CurrentPage == MaxPage() && Count % 3 != 0)
-            {
-                Taker = Count % 3;
-
-            }
-            if (MaxPage() == 1 && Count == 0)
-            {
-                Taker = 0;
-            }
-
-            Items = new FullObservableCollection<MyShoppingItem>(
-                ItemsData.Skip((CurrentPage - 1) * 3).Take(3).ToList());
+            Items = PageChanger.LoadPage(CurrentPage, ItemsData);
         }
-
         private void CheckPage()
         {
             PageChangerButton = PageChanger.getPageChanger(CurrentPage, MaxPage());

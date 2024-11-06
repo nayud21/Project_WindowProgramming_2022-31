@@ -87,7 +87,7 @@ namespace SellingTree.IDao
                 new Message { Sender = "Bạn", Content = "Chào bạn! Bạn cần hỗ trợ gì?", Timestamp = DateTime.Now.AddMinutes(-14) },
                 new Message { Sender = "Khách 3", Content = "Tôi muốn mua xương rồng không có gai.", Timestamp = DateTime.Now.AddMinutes(-13) },
                 new Message { Sender = "Bạn", Content = "Xin lỗi quý khách.", Timestamp = DateTime.Now.AddMinutes(-12) },
-                new Message { Sender = "Bạn", Content = "HIện tại chúng tôi tạm thời hết giống cây đó rồi ạ.", Timestamp = DateTime.Now.AddMinutes(-11) },
+                new Message { Sender = "Bạn", Content = "Hiện tại chúng tôi tạm thời hết giống cây đó rồi ạ.", Timestamp = DateTime.Now.AddMinutes(-11) },
             }
         },
        
@@ -118,28 +118,69 @@ namespace SellingTree.IDao
             return new ObservableCollection<Product>()
             {
                 new Product() {Name = "Cây Bàng Cẩm Thạch", ImageSource="ms-appx:///Assets/Picture1.jpg",
-                    Price = 400000, Description = "Cây A",
-                    Sold = 420, Stored = 25,
+                    Price = 400000, Sold = 420, Stored = 25,
+                    Description = "Cây Bàng Cẩm Thạch là một giống cây cảnh phổ biến, có nguồn gốc từ Ấn Độ " +
+                    "và Malaysia. Đặc điểm nổi bật của cây là lá lớn, dày, bóng, với các mảng màu xanh và " +
+                    "trắng xen kẽ tạo nên vẻ đẹp độc đáo. Cây thích hợp làm cây cảnh trong nhà và có khả " +
+                    "năng lọc không khí rất tốt.",
                     ImageSources = new ObservableCollection<string>
                     { "ms-appx:///Assets/Picture5.jpg", "ms-appx:///Assets/Picture6.jpg"}
                 },
                 new Product() {Name = "Cây Dứa Đuôi Phụng", ImageSource="ms-appx:///Assets/Picture2.jpg",
-                    Price = 50000, Description= "Cây B",
-                    Sold = 1205, Stored = 73,
+                    Price = 50000, Sold = 1205, Stored = 73,
+                    Description = "Cây Dứa Đuôi Phụng là loài thực vật biểu sinh thuộc họ Bromeliaceae, có " +
+                    "nguồn gốc từ vùng nhiệt đới châu Mỹ. Cây có hoa màu đỏ, cam, vàng hoặc hồng rực rỡ, mọc " +
+                    "thành cụm lớn ở trung tâm, thu hút sự chú ý. Lá cây dài, màu xanh đậm, xếp thành hình " +
+                    "hoa thị. Cây thích hợp trang trí trong nhà với ánh sáng gián tiếp.",
                     ImageSources = new ObservableCollection<string>
                     { "ms-appx:///Assets/Picture7.jpg"}
                 },
                 new Product() {Name = "Cây Khuynh Diệp", ImageSource="ms-appx:///Assets/Picture3.jpg",
-                    Price = 150000, Description = "Cây C",
-                    Sold = 80, Stored = 120,
+                    Price = 150000, Sold = 80, Stored = 120,
+                    Description = "Cây Khuynh Diệp là loài cây gỗ lớn, thuộc họ Myrtaceae, có nguồn gốc từ Úc. " +
+                    "Cây có lá dài, hẹp, màu xanh bạc và mùi hương đặc trưng giúp xua đuổi côn trùng. Tinh dầu " +
+                    "khuynh diệp được chiết xuất từ lá cây, có nhiều công dụng trong y học và sản xuất mỹ phẩm. " +
+                    "Cây thường được trồng để lấy gỗ và làm cảnh.",
                     ImageSources = new ObservableCollection<string>
                     {"ms-appx:///Assets/Picture8.jpg", "ms-appx:///Assets/Picture9.jpg",
                     "ms-appx:///Assets/Picture10.jpg","ms-appx:///Assets/Picture11.jpg"}
                 },
                 new Product() {Name = "Cây Đa Tam Phúc", ImageSource="ms-appx:///Assets/Picture4.jpg",
-                    Price = 100000, Description = "Cây D",
-                    Sold = 15, Stored = 443,
-                    ImageSources = new ObservableCollection<string>{ "ms-appx:///Assets/Picture12.jpg" } },
+                    Price = 100000, Sold = 15, Stored = 443,
+                    Description = "Cây Đa Tam Phúc, còn gọi là cây Đa Búp Đỏ hoặc cây Bồ Đề, là một loài cây " +
+                    "cảnh thuộc họ Moraceae. Cây có thân gỗ nhỏ, lá hình trái tim, màu xanh đậm, và mặt dưới " +
+                    "lá thường có màu đỏ đặc trưng. Cây Đa Tam Phúc thích hợp trồng trong nhà, với khả năng " +
+                    "chịu bóng và lọc không khí tốt.",
+                    ImageSources = new ObservableCollection<string>{ "ms-appx:///Assets/Picture12.jpg" }
+                },
+                new Product() {Name = "Cây tùng tuyết", ImageSource="ms-appx:///Assets/Picture13.jpg",
+                    Price = 150000, Sold = 80, Stored = 120,
+                    Description = "Cây tùng tuyết một trong những loại cây cảnh để bàn đẹp, có thể gọi chúng " +
+                    "là cây tuyết tùng, thuộc họ nhà Thông. Với thân cây gỗ có rất nhiều cành và lá của cây " +
+                    "mọc ôm lấy nhau giống hình xoắn ốc. Hiện nay con người trồng và sử dụng loại cây này với " +
+                    "nhiều tác dụng khác nhau. Cây có thể làm cây cảnh ngoại thất hoặc nội thất hoặc làm cây " +
+                    "cảnh bonsai đẹp",
+                    ImageSources = new ObservableCollection<string>
+                    {"ms-appx:///Assets/Picture14.jpg", "ms-appx:///Assets/Picture15.jpg"}
+                },
+                new Product() {Name = "Cây Ngũ Gia Bì", ImageSource="ms-appx:///Assets/Picture16.jpg",
+                    Price = 150000, Sold = 80, Stored = 120,
+                    Description = "Cây Ngũ Gia Bì là loại cây thường được sử dụng để trưng bày trên các góc " +
+                    "bàn làm việc với tính chất trang trí cao. Loại cây Ngũ Gia Bì này thường rất được ưa " +
+                    "chuộng để trưng bày và trang trí tại cái cổng ra vào của công ty, khách sạn,….",
+                    ImageSources = new ObservableCollection<string>
+                    {"ms-appx:///Assets/Picture17.jpg", "ms-appx:///Assets/Picture18.jpg"}
+                },
+                new Product() {Name = "Cây Sống Đời", ImageSource="ms-appx:///Assets/Picture19.jpg",
+                    Price = 150000, Sold = 80, Stored = 120,
+                    Description = "Cây Sống Đời thuộc thân thảo và phân nhánh, sau khi trưởng thành có thể " +
+                    "cao tới 1m. Thân cây nhẵn, có màu xanh hoặc tím, nở hoa vào mùa xuân. Hoa sẽ mọc thành " +
+                    "từng chùm màu đỏ, cam, vàng hoặc trắng... Tuy bề ngoài nhỏ nhắn song cây Sống Đời mang " +
+                    "tới sức mạnh bền bỉ y như tên gọi. Lá cây khi rụng sẽ mọc thành rễ và tạo thành cây con. " +
+                    "Điều này cho thấy sự sống vĩnh cửu của loài cây này.",
+                    ImageSources = new ObservableCollection<string>
+                    {"ms-appx:///Assets/Picture20.jpg", "ms-appx:///Assets/Picture21.jpg"}
+                }
             };
 
         }
