@@ -1,0 +1,446 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\view\\groupcollectiondetails.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:view\\groupcollectiondetails.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\view\\groupcollectiondetails.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:view\\groupcollectiondetails.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\view\\collectionpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:view\\collectionpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\view\\collectionpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:view\\collectionpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\view\\navigationbarview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:view\\navigationbarview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\viewmodel\\groupcollectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:viewmodel\\groupcollectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\model\\groupcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:model\\groupcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\view\\chatpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:view\\chatpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\viewmodel\\shoplistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:viewmodel\\shoplistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\viewmodel\\messageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:viewmodel\\messageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\viewmodel\\mainviewviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:viewmodel\\mainviewviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\viewmodel\\blogviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:viewmodel\\blogviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\model\\productcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:model\\productcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\model\\plant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:model\\plant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\model\\pagechanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:model\\pagechanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\model\\myshoppingitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:model\\myshoppingitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\idao\\mockdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:idao\\mockdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\idao\\idao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:idao\\idao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\helper\\producthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:helper\\producthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\helper\\inttovndiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:helper\\inttovndiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\helper\\texttopopuptexticonverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:helper\\texttopopuptexticonverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\helper\\fullobservablecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:helper\\fullobservablecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\helper\\inttovnd2iconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:helper\\inttovnd2iconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|d:\\new folder (3)\\project_windowprogramming_2022-31\\sellingtree\\helper\\quantitytostringiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280DFE02-DA0A-494D-921E-966EC9B68113}|SellingTree.csproj|solutionrelative:helper\\quantitytostringiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GroupCollectionDetails.xaml",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\GroupCollectionDetails.xaml",
+              "RelativeDocumentMoniker": "View\\GroupCollectionDetails.xaml",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\GroupCollectionDetails.xaml",
+              "RelativeToolTip": "View\\GroupCollectionDetails.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-11T15:12:19.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GroupCollectionDetails.xaml.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\GroupCollectionDetails.xaml.cs",
+              "RelativeDocumentMoniker": "View\\GroupCollectionDetails.xaml.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\GroupCollectionDetails.xaml.cs",
+              "RelativeToolTip": "View\\GroupCollectionDetails.xaml.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:12:16.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NavigationBarView.xaml",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\NavigationBarView.xaml",
+              "RelativeDocumentMoniker": "View\\NavigationBarView.xaml",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\NavigationBarView.xaml",
+              "RelativeToolTip": "View\\NavigationBarView.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-11T15:06:14.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CollectionPage.xaml.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\CollectionPage.xaml.cs",
+              "RelativeDocumentMoniker": "View\\CollectionPage.xaml.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\CollectionPage.xaml.cs",
+              "RelativeToolTip": "View\\CollectionPage.xaml.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:05:33.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChatPage.xaml.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\ChatPage.xaml.cs",
+              "RelativeDocumentMoniker": "View\\ChatPage.xaml.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\ChatPage.xaml.cs",
+              "RelativeToolTip": "View\\ChatPage.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:05:28.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ShopListViewModel.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\ShopListViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\ShopListViewModel.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\ShopListViewModel.cs",
+              "RelativeToolTip": "ViewModel\\ShopListViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:55:52.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GroupCollectionViewModel.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\GroupCollectionViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\GroupCollectionViewModel.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\GroupCollectionViewModel.cs",
+              "RelativeToolTip": "ViewModel\\GroupCollectionViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:55:35.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CollectionPage.xaml",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\CollectionPage.xaml",
+              "RelativeDocumentMoniker": "View\\CollectionPage.xaml",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\View\\CollectionPage.xaml",
+              "RelativeToolTip": "View\\CollectionPage.xaml",
+              "ViewState": "AgIAAGwBAAAAAAAAAAAnwHQBAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-11T10:39:27.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BlogViewModel.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\BlogViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\BlogViewModel.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\BlogViewModel.cs",
+              "RelativeToolTip": "ViewModel\\BlogViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:05:17.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MainViewViewModel.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\MainViewViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\MainViewViewModel.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\MainViewViewModel.cs",
+              "RelativeToolTip": "ViewModel\\MainViewViewModel.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwBQAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:32:38.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GroupCollection.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\GroupCollection.cs",
+              "RelativeDocumentMoniker": "Model\\GroupCollection.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\GroupCollection.cs",
+              "RelativeToolTip": "Model\\GroupCollection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:08:50.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MessageViewModel.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\MessageViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\MessageViewModel.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\ViewModel\\MessageViewModel.cs",
+              "RelativeToolTip": "ViewModel\\MessageViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:41:18.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProductCollection.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\ProductCollection.cs",
+              "RelativeDocumentMoniker": "Model\\ProductCollection.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\ProductCollection.cs",
+              "RelativeToolTip": "Model\\ProductCollection.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBQAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:09:13.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\Product.cs",
+              "RelativeDocumentMoniker": "Model\\Product.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\Product.cs",
+              "RelativeToolTip": "Model\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:07:32.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Plant.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\Plant.cs",
+              "RelativeDocumentMoniker": "Model\\Plant.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\Plant.cs",
+              "RelativeToolTip": "Model\\Plant.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:07:24.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PageChanger.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\PageChanger.cs",
+              "RelativeDocumentMoniker": "Model\\PageChanger.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\PageChanger.cs",
+              "RelativeToolTip": "Model\\PageChanger.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:55:24.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MyShoppingItem.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\MyShoppingItem.cs",
+              "RelativeDocumentMoniker": "Model\\MyShoppingItem.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Model\\MyShoppingItem.cs",
+              "RelativeToolTip": "Model\\MyShoppingItem.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:55:19.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MockDao.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\IDao\\MockDao.cs",
+              "RelativeDocumentMoniker": "IDao\\MockDao.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\IDao\\MockDao.cs",
+              "RelativeToolTip": "IDao\\MockDao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAN4CAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:30:29.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IDao.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\IDao\\IDao.cs",
+              "RelativeDocumentMoniker": "IDao\\IDao.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\IDao\\IDao.cs",
+              "RelativeToolTip": "IDao\\IDao.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAIwBgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:35:12.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProductHandle.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\ProductHandle.cs",
+              "RelativeDocumentMoniker": "Helper\\ProductHandle.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\ProductHandle.cs",
+              "RelativeToolTip": "Helper\\ProductHandle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:37:38.087Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IntToVNDIConverter.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\IntToVNDIConverter.cs",
+              "RelativeDocumentMoniker": "Helper\\IntToVNDIConverter.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\IntToVNDIConverter.cs",
+              "RelativeToolTip": "Helper\\IntToVNDIConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:24:29.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TextToPopupTextIConverter.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\TextToPopupTextIConverter.cs",
+              "RelativeDocumentMoniker": "Helper\\TextToPopupTextIConverter.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\TextToPopupTextIConverter.cs",
+              "RelativeToolTip": "Helper\\TextToPopupTextIConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:24:30.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IntToVND2IConverter.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\IntToVND2IConverter.cs",
+              "RelativeDocumentMoniker": "Helper\\IntToVND2IConverter.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\IntToVND2IConverter.cs",
+              "RelativeToolTip": "Helper\\IntToVND2IConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:28:58.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "FullObservableCollection.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\FullObservableCollection.cs",
+              "RelativeDocumentMoniker": "Helper\\FullObservableCollection.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\FullObservableCollection.cs",
+              "RelativeToolTip": "Helper\\FullObservableCollection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:24:28.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "QuantityToStringIConverter.cs",
+              "DocumentMoniker": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\QuantityToStringIConverter.cs",
+              "RelativeDocumentMoniker": "Helper\\QuantityToStringIConverter.cs",
+              "ToolTip": "D:\\New folder (3)\\Project_WindowProgramming_2022-31\\SellingTree\\Helper\\QuantityToStringIConverter.cs",
+              "RelativeToolTip": "Helper\\QuantityToStringIConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T09:29:04.251Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
