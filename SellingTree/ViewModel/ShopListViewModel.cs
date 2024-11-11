@@ -209,11 +209,15 @@ namespace SellingTree
         internal void ViewProduct(String imageSource)
         {
             foreach (var item in Items)
-                if (item.product.ImageSource == imageSource)
+            {
+                ProductSelling productSelling = (ProductSelling)item.product;
+                if (productSelling.ImageSource == imageSource)
                 {
                     MainWindow.Instance.SetFrame(typeof(ProductView), item.product);
                     break;
                 }
+            }
+                
 
         }
 

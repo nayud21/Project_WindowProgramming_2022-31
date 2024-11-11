@@ -117,7 +117,7 @@ namespace SellingTree.IDao
 
             return new ObservableCollection<Product>()
             {
-                new Product() {Name = "Cây Bàng Cẩm Thạch", ImageSource="ms-appx:///Assets/Picture1.jpg",
+                new ProductSelling() {Name = "Cây Bàng Cẩm Thạch", ImageSource="ms-appx:///Assets/Picture1.jpg",
                     Price = 400000, Sold = 420, Stored = 25,
                     Description = "Cây Bàng Cẩm Thạch là một giống cây cảnh phổ biến, có nguồn gốc từ Ấn Độ " +
                     "và Malaysia. Đặc điểm nổi bật của cây là lá lớn, dày, bóng, với các mảng màu xanh và " +
@@ -126,7 +126,7 @@ namespace SellingTree.IDao
                     ImageSources = new ObservableCollection<string>
                     { "ms-appx:///Assets/Picture5.jpg", "ms-appx:///Assets/Picture6.jpg"}
                 },
-                new Product() {Name = "Cây Dứa Đuôi Phụng", ImageSource="ms-appx:///Assets/Picture2.jpg",
+                new ProductSelling() {Name = "Cây Dứa Đuôi Phụng", ImageSource="ms-appx:///Assets/Picture2.jpg",
                     Price = 50000, Sold = 1205, Stored = 73,
                     Description = "Cây Dứa Đuôi Phụng là loài thực vật biểu sinh thuộc họ Bromeliaceae, có " +
                     "nguồn gốc từ vùng nhiệt đới châu Mỹ. Cây có hoa màu đỏ, cam, vàng hoặc hồng rực rỡ, mọc " +
@@ -135,7 +135,7 @@ namespace SellingTree.IDao
                     ImageSources = new ObservableCollection<string>
                     { "ms-appx:///Assets/Picture7.jpg"}
                 },
-                new Product() {Name = "Cây Khuynh Diệp", ImageSource="ms-appx:///Assets/Picture3.jpg",
+                new ProductSelling() {Name = "Cây Khuynh Diệp", ImageSource="ms-appx:///Assets/Picture3.jpg",
                     Price = 150000, Sold = 80, Stored = 120,
                     Description = "Cây Khuynh Diệp là loài cây gỗ lớn, thuộc họ Myrtaceae, có nguồn gốc từ Úc. " +
                     "Cây có lá dài, hẹp, màu xanh bạc và mùi hương đặc trưng giúp xua đuổi côn trùng. Tinh dầu " +
@@ -145,7 +145,7 @@ namespace SellingTree.IDao
                     {"ms-appx:///Assets/Picture8.jpg", "ms-appx:///Assets/Picture9.jpg",
                     "ms-appx:///Assets/Picture10.jpg","ms-appx:///Assets/Picture11.jpg"}
                 },
-                new Product() {Name = "Cây Đa Tam Phúc", ImageSource="ms-appx:///Assets/Picture4.jpg",
+                new ProductSelling() {Name = "Cây Đa Tam Phúc", ImageSource="ms-appx:///Assets/Picture4.jpg",
                     Price = 100000, Sold = 15, Stored = 443,
                     Description = "Cây Đa Tam Phúc, còn gọi là cây Đa Búp Đỏ hoặc cây Bồ Đề, là một loài cây " +
                     "cảnh thuộc họ Moraceae. Cây có thân gỗ nhỏ, lá hình trái tim, màu xanh đậm, và mặt dưới " +
@@ -153,7 +153,7 @@ namespace SellingTree.IDao
                     "chịu bóng và lọc không khí tốt.",
                     ImageSources = new ObservableCollection<string>{ "ms-appx:///Assets/Picture12.jpg" }
                 },
-                new Product() {Name = "Cây tùng tuyết", ImageSource="ms-appx:///Assets/Picture13.jpg",
+                new ProductSelling() {Name = "Cây tùng tuyết", ImageSource="ms-appx:///Assets/Picture13.jpg",
                     Price = 150000, Sold = 80, Stored = 120,
                     Description = "Cây tùng tuyết một trong những loại cây cảnh để bàn đẹp, có thể gọi chúng " +
                     "là cây tuyết tùng, thuộc họ nhà Thông. Với thân cây gỗ có rất nhiều cành và lá của cây " +
@@ -163,7 +163,7 @@ namespace SellingTree.IDao
                     ImageSources = new ObservableCollection<string>
                     {"ms-appx:///Assets/Picture14.jpg", "ms-appx:///Assets/Picture15.jpg"}
                 },
-                new Product() {Name = "Cây Ngũ Gia Bì", ImageSource="ms-appx:///Assets/Picture16.jpg",
+                new ProductSelling() {Name = "Cây Ngũ Gia Bì", ImageSource="ms-appx:///Assets/Picture16.jpg",
                     Price = 150000, Sold = 80, Stored = 120,
                     Description = "Cây Ngũ Gia Bì là loại cây thường được sử dụng để trưng bày trên các góc " +
                     "bàn làm việc với tính chất trang trí cao. Loại cây Ngũ Gia Bì này thường rất được ưa " +
@@ -171,7 +171,7 @@ namespace SellingTree.IDao
                     ImageSources = new ObservableCollection<string>
                     {"ms-appx:///Assets/Picture17.jpg", "ms-appx:///Assets/Picture18.jpg"}
                 },
-                new Product() {Name = "Cây Sống Đời", ImageSource="ms-appx:///Assets/Picture19.jpg",
+                new ProductSelling() {Name = "Cây Sống Đời", ImageSource="ms-appx:///Assets/Picture19.jpg",
                     Price = 150000, Sold = 80, Stored = 120,
                     Description = "Cây Sống Đời thuộc thân thảo và phân nhánh, sau khi trưởng thành có thể " +
                     "cao tới 1m. Thân cây nhẵn, có màu xanh hoặc tím, nở hoa vào mùa xuân. Hoa sẽ mọc thành " +
@@ -233,174 +233,362 @@ namespace SellingTree.IDao
                 //spring
                 new GroupCollection()
                 {
-                    ListImages = new List<BitmapImage>()
+
+                    Products = new List<ProductCollection>()
                     {
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/dao.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/mai.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/camchuong.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/luuly.jpg")),
-                    },
-                    ListNames = new List<string>()
-                    {
-                        new String("Hoa Đào"),
-                        new String("Hoa Mai"),
-                        new String("Hoa Cẩm Chướng"),
-                        new String("Hoa Lưu Ly"),
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Đào"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/dao.jpg")),
+                            Description = new String("Cánh hoa mỏng, màu hồng hoặc đỏ, có mùi thơm nhẹ. Hoa đào thường nở vào dịp Tết Nguyên Đán ở Việt Nam."),
+                            Meanings = new String("Hoa đào là biểu tượng của mùa xuân, sự tươi mới và may mắn, đặc biệt trong dịp Tết Nguyên Đán. Đào còn gắn liền với văn hóa dân gian của người Việt, thể hiện sự hạnh phúc và bình an.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Mai"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/mai.jpg")),
+                            Description = new String("Hoa mai có màu vàng tươi, cánh hoa mỏng, nở vào mùa xuân, đặc biệt phổ biến trong dịp Tết Nguyên Đán miền Nam Việt Nam."),
+                            Meanings = new String("Hoa mai là biểu tượng của sự thịnh vượng, phát tài và may mắn trong dịp Tết. Nó còn thể hiện sự phú quý và bình an.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Cẩm Chướng"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/camchuong.jpg")),
+                            Description = new String("Cánh hoa mềm mại, có nhiều màu sắc như đỏ, hồng, trắng, vàng. Hoa có hương thơm nhẹ nhàng, thường được trồng làm cây cảnh trong vườn."),
+                            Meanings = new String("Hoa cẩm chướng thường được dùng để thể hiện tình yêu, sự ngưỡng mộ và sự tôn trọng.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Lưu Ly"),
+                            Image =  new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/luuly.jpg")),
+                            Description = new String("Hoa có màu xanh dương nhạt, hình dáng nhỏ và xinh xắn, mọc thành chùm."),
+                            Meanings = new String("Hoa lưu ly thường gắn liền với những kỷ niệm đẹp, thể hiện tình yêu vĩnh cửu và sự trung thủy.")
+                        }
                     },
                 },
 
                 //summer
                 new GroupCollection()
                 {
-                    ListImages = new List<BitmapImage>()
+
+                    Products = new List<ProductCollection>()
                     {
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/camtucau.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/phuong.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/bang.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/huongduong.jpg")),
-                    },
-                    ListNames = new List<string>()
-                    {
-                        new String("Hoa Cẩm Tú Cầu"),
-                        new String("Hoa Phượng"),
-                        new String("Hoa/Cây Bàng"),
-                        new String("Hoa Hướng Dương"),
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Cẩm Tú Cầu"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/camtucau.jpg")),
+                            Description = new String("Cánh hoa có màu sắc đa dạng như xanh, hồng, tím, trắng. Hoa mọc thành chùm to, dễ trồng và chăm sóc."),
+                            Meanings = new String("Hoa cẩm tú cầu biểu tượng cho sự giàu có, sự cảm ơn và sự tha thứ.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Phượng"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/phuong.jpg")),
+                            Description = new String("Hoa phượng có màu đỏ rực rỡ, mọc thành chùm lớn. Thường nở rộ vào cuối hè, đầu thu."),
+                            Meanings = new String("Hoa phượng là biểu tượng của mùa hè, tuổi trẻ và những kỷ niệm học trò. Nó cũng tượng trưng cho sự nhiệt huyết và lòng yêu đời.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa/Cây Bàng"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/bang.jpg")),
+                            Description = new String(" Cây bàng có lá lớn, dày và rụng vào mùa thu. Quả bàng có hình dáng đặc biệt và thường được dùng trong y học cổ truyền."),
+                            Meanings = new String("Cây bàng gắn liền với hình ảnh bãi biển, thiên nhiên tươi đẹp và sự yên bình")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Hướng Dương"),
+                            Image =  new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/huongduong.jpg")),
+                            Description = new String("Hoa có màu vàng tươi, trung tâm hoa màu nâu, luôn quay về phía mặt trời. Thường được trồng để thu hoạch hạt."),
+                            Meanings = new String("Hoa hướng dương biểu tượng cho sự nhiệt huyết, hi vọng và sự trung thành.")
+                        }
                     },
                 },
 
                 //autumn
                 new GroupCollection()
                 {
-                    ListImages = new List<BitmapImage>()
+
+                    Products = new List<ProductCollection>()
                     {
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/cuchoami.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/hongvang.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/sua.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/thachthao.jpg")),
-                    },
-                    ListNames = new List<string>()
-                    {
-                        new String("Hoa Cúc Họa Mi"),
-                        new String("Hoa Hồng Vàng"),
-                        new String("Hoa Sữa"),
-                        new String("Hoa Thạch Thảo"),
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Cúc Họa Mi"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/cuchoami.jpg")),
+                            Description = new String("Hoa có màu trắng tinh khôi, nhỏ và nở thành từng chùm. Thường nở vào mùa thu và được ưa chuộng trong các dịp lễ Tết."),
+                            Meanings = new String("Hoa cúc họa mi là biểu tượng của sự thanh cao, trong sáng và thuần khiết.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Hồng Vàng"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/hongvang.jpg")),
+                            Description = new String("Cánh hoa mềm mại, màu vàng tươi, hương thơm dễ chịu. Hoa hồng vàng thường được sử dụng trong các dịp tặng quà."),
+                            Meanings = new String("Hoa hồng vàng tượng trưng cho tình bạn, sự tôn trọng và lòng biết ơn.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Sữa"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/sua.jpg")),
+                            Description = new String("Hoa có màu trắng, hương thơm ngọt ngào, thường nở vào mùa thu và rất phổ biến ở các thành phố miền Bắc Việt Nam."),
+                            Meanings = new String("Hoa sữa gắn liền với mùa thu, tạo cảm giác lãng mạn và thơ mộng.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Thạch Thảo"),
+                            Image =  new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/thachthao.jpg")),
+                            Description = new String("Hoa có màu sắc phong phú như tím, hồng, trắng, và vàng. Nó nở vào mùa thu và thường được trồng trong vườn."),
+                            Meanings = new String("Hoa thạch thảo là biểu tượng của sự thanh cao, sự hi vọng và niềm tin.")
+                        }
                     },
                 },
 
                 //winter
                 new GroupCollection()
                 {
-                    ListImages = new List<BitmapImage>()
+
+                    Products = new List<ProductCollection>()
                     {
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/dialan.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/nhai.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/thuytien.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/tuongvi.jpg")),
-                    },
-                    ListNames = new List<string>()
-                    {
-                        new String("Hoa Địa Lan"),
-                        new String("Hoa Nhài"),
-                        new String("Hoa Thủy Tiên"),
-                        new String("Hoa Tường Vi"),
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Địa Lan"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/dialan.jpg")),
+                            Description = new String("Hoa có màu sắc đa dạng như vàng, trắng, hồng, đỏ. Thường nở vào mùa xuân và rất được ưa chuộng trong các dịp lễ Tết."),
+                            Meanings = new String("Hoa địa lan là biểu tượng của sự quý phái, sang trọng và tài lộc.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Nhài"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/nhai.jpg")),
+                            Description = new String("Hoa nhài có màu trắng hoặc vàng nhạt, với những cánh hoa mềm mại và hương thơm ngọt ngào."),
+                            Meanings = new String("Hoa nhài tượng trưng cho tình yêu trong sáng, sự thuần khiết và dịu dàng. Nó cũng mang ý nghĩa của sự thanh tao và hiền hòa.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Thủy Tiên"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/thuytien.jpg")),
+                            Description = new String("Hoa có màu trắng hoặc vàng, hình dáng đẹp và thường nở vào mùa xuân."),
+                            Meanings = new String("Hoa thủy tiên là biểu tượng của sự tái sinh, sự thuần khiết và hy vọng.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Hoa Tường Vi"),
+                            Image =  new BitmapImage(new Uri("ms-appx:///Assets/SeasonCollection/tuongvi.jpg")),
+                            Description = new String("Hoa có màu hồng, đỏ, tím và thường nở vào mùa xuân."),
+                            Meanings = new String("Hoa tường vi tượng trưng cho tình yêu, sự kiên cường và sự vĩnh cửu.")
+                        }
                     },
                 },
 
                 //wealth
                 new GroupCollection()
                 {
-                    ListImages = new List<BitmapImage>()
+
+                    Products = new List<ProductCollection>()
                     {
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/kimtien.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/thantai.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/ngocbich.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/bachmahoangtu.jpg")),
-                    },
-                    ListNames = new List<string>()
-                    {
-                        new String("Cây Kim Tiền"),
-                        new String("Cây Thần Tài"),
-                        new String("Cây Ngọc Bích"),
-                        new String("Cây Bạch Mã Hoàng Tử"),
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Kim Tiền"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/kimtien.jpg")),
+                            Description = new String("Cây có lá xanh bóng, mọc thành chùm, dễ trồng và sống lâu."),
+                            Meanings = new String("Cây kim tiền tượng trưng cho tài lộc, sự phát đạt và may mắn.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Thần Tài"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/thantai.jpg")),
+                            Description = new String("Cây có lá dày, hình tròn giống đồng xu, dễ chăm sóc và sống lâu."),
+                            Meanings = new String("Cây thần tài mang ý nghĩa tài lộc và may mắn.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Ngọc Bích"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/ngocbich.jpg")),
+                            Description = new String("Cây có lá dày, mọng nước, thường có màu xanh đậm. Được trồng trong nhà để thu hút tài lộc."),
+                            Meanings = new String("Cây ngọc bích là biểu tượng của sự thịnh vượng và tài lộc.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Bạch Mã Hoàng Tử"),
+                            Image =  new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/bachmahoangtu.jpg")),
+                            Description = new String("Cây có lá màu xanh đốm trắng, thường được trồng làm cây cảnh trong nhà."),
+                            Meanings = new String("Cây bạch mã hoàng tử là biểu tượng của sự may mắn, tài lộc và sức khỏe.")
+                        }
                     },
                 },
 
                 //health
                 new GroupCollection()
                 {
-                    ListImages = new List<BitmapImage>()
+
+                    Products = new List<ProductCollection>()
                     {
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/luoiho.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/nhadam.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/vannienthanh.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/nhatmathuong.jpg")),
-                    },
-                    ListNames = new List<string>()
-                    {
-                        new String("Cây Lưỡi Hổ"),
-                        new String("Cây Nha Đam"),
-                        new String("Cây Vạn Niên Thanh"),
-                        new String("Cây Nhất Mạt Hương"),
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Lưỡi Hổ"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/luoiho.jpg")),
+                            Description = new String("Cây có lá dài, cứng và hình lưỡi kiếm, dễ chăm sóc và rất bền vững."),
+                            Meanings = new String("Cây lưỡi hổ mang lại may mắn và bảo vệ sức khỏe cho gia chủ.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Nha Đam"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/nhadam.jpg")),
+                            Description = new String("Lá cây mọng nước, có tác dụng làm dịu da và chữa các bệnh ngoài da. Cây dễ trồng và có tác dụng trong y học."),
+                            Meanings = new String("Cây nha đam là biểu tượng của sức khỏe, chữa lành và sự tươi mới.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Vạn Niên Thanh"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/vannienthanh.jpg")),
+                            Description = new String("Cây có lá xanh với những đốm trắng, dễ chăm sóc và thích hợp cho không gian trong nhà."),
+                            Meanings = new String("Cây vạn niên thanh mang đến sự trường thọ, may mắn và hạnh phúc.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Nhất Mạt Hương"),
+                            Image =  new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/nhatmathuong.jpg")),
+                            Description = new String("Cây có thân gỗ nhỏ và lá xanh đậm, khi nở có mùi hương nhẹ nhàng đặc trưng."),
+                            Meanings = new String("Nhất mạt hương tượng trưng cho sự thanh tịnh, thư giãn và bình an.")
+                        }
                     },
                 },
 
                 //love
                 new GroupCollection()
                 {
-                    ListImages = new List<BitmapImage>()
-                   {
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/lanquantu.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/trauba.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/hongmon.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/camnhung.jpg")),
-                    },
-                    ListNames = new List<string>()
+
+                    Products = new List<ProductCollection>()
                     {
-                        new String("Cây Lan Quân Tử"),
-                        new String("Cây Trầu Bà"),
-                        new String("Cây Hồng Môn"),
-                        new String("Cây Cẩm Nhung"),
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Lan Quân Tử"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/lanquantu.jpg")),
+                            Description = new String("Cây có hoa đỏ, hồng hoặc trắng, mọc thành chùm. Cây dễ chăm sóc và có thể trồng trong môi trường bóng râm."),
+                            Meanings = new String("Cây lan quân tử là biểu tượng của sự quân tử, đức tính cao thượng và tài lộc.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Trầu Bà"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/trauba.jpg")),
+                            Description = new String("Cây có lá hình trái tim, xanh bóng, mọc thành chùm. Cây rất dễ sống và thích hợp với những không gian thiếu ánh sáng."),
+                            Meanings = new String("Cây trầu bà mang lại may mắn, tài lộc và giúp cải thiện không khí trong nhà.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Hồng Môn"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/hongmon.jpg")),
+                            Description = new String("Cây hồng môn có hoa màu đỏ, hồng hoặc trắng, lá xanh bóng, tạo điểm nhấn trong không gian sống."),
+                            Meanings = new String("Cây hồng môn là biểu tượng của sự giàu có, thịnh vượng và tình yêu.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Cẩm Nhung"),
+                            Image =  new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/camnhung.jpg")),
+                            Description = new String("Cây cẩm nhung có lá lớn, màu sắc đa dạng từ đỏ, tím đến xanh, tạo nên sự nổi bật."),
+                            Meanings = new String("Cây cẩm nhung là biểu tượng của sự tươi mới, sinh động và sự biến hóa trong cuộc sống.")
+                        }
                     },
                 },
 
                 //career
                 new GroupCollection()
                 {
-                    ListImages = new List<BitmapImage>()
+
+                    Products = new List<ProductCollection>()
                     {
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/kimngan.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/tungbonglai.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/phuquy.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/lany.jpg")),
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Kim Ngân"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/kimngan.jpg")),
+                            Description = new String("Cây kim ngân có thân mềm, lá xanh mượt, rất dễ trồng và chăm sóc."),
+                            Meanings = new String("Cây kim ngân tượng trưng cho sự thịnh vượng, tài lộc và may mắn.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Tùng Bồng Lai"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/tungbonglai.jpg")),
+                            Description = new String("Cây tùng bồng lai có dáng cao, lá nhỏ, có khả năng sống lâu và thích hợp với khí hậu mát mẻ."),
+                            Meanings = new String("Cây tùng bồng lai biểu tượng của sự bền vững, ổn định và trường thọ.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Phú Quý"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/phuquy.jpg")),
+                            Description = new String("Cây phú quý có lá màu đỏ hoặc cam rực rỡ, tạo điểm nhấn cho không gian sống."),
+                            Meanings = new String("Cây phú quý là biểu tượng của sự giàu có, phú quý và thịnh vượng.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Lan Ý"),
+                            Image =  new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/lany.jpg")),
+                            Description = new String("Cây lan ý có hoa trắng, lá xanh bóng, giúp thanh lọc không khí."),
+                            Meanings = new String("Lan ý là cây phong thủy, mang lại sự bình yên, thanh thản và cải thiện không khí trong nhà.")
+                        }
                     },
-                    ListNames = new List<string>()
-                    {
-                        new String("Cây Kim Ngân"),
-                        new String("Cây Tùng Bồng Lai"),
-                        new String("Cây Phú Quý"),
-                        new String("Cây Lan Ý"),
-                    },
-               },
+                },
 
                 //family
                 new GroupCollection()
                 {
-                    ListImages = new List<BitmapImage>()
+
+                    Products = new List<ProductCollection>()
                     {
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/conhat.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/huongthao.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/xuongrong.jpg")),
-                        new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/duoicong.jpg")),
-                    },
-                    ListNames = new List<string>()
-                    {
-                        new String("Cây Cọ Nhật"),
-                        new String("Cây Hương Thảo"),
-                        new String("Cây Xương Rồng"),
-                        new String("Cây Đuôi Công"),
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Cọ Nhật"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/conhat.jpg")),
+                            Description = new String("Cây cọ nhật có thân thẳng, lá dài, mọc thành cụm, có thể chịu bóng râm và dễ chăm sóc."),
+                            Meanings = new String("Cọ nhật mang lại sự thanh thoát, quý phái và bình yên trong không gian sống.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Hương Thảo"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/huongthao.jpg")),
+                            Description = new String("Cây hương thảo có lá nhỏ, dày, có mùi thơm đặc trưng và dùng làm gia vị hoặc tinh dầu."),
+                            Meanings = new String("Cây hương thảo tượng trưng cho trí tuệ, sự nhớ nhung và lòng trung thành.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Xương Rồng"),
+                            Image = new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/xuongrong.jpg")),
+                            Description = new String("Cây xương rồng có hình dáng đặc biệt, mọng nước và có gai nhọn. Nó sống trong điều kiện khô cằn."),
+                            Meanings = new String("Cây xương rồng tượng trưng cho sự kiên cường, sức mạnh và khả năng vượt qua khó khăn.")
+                        },
+
+                        new ProductCollection()
+                        {
+                            Name = new String("Cây Đuôi Công"),
+                            Image =  new BitmapImage(new Uri("ms-appx:///Assets/FengShuiCollection/duoicong.jpg")),
+                            Description = new String("Cây đuôi công có lá lớn, mọc thành hình dáng đặc biệt, có hoa nhiều màu sắc."),
+                            Meanings = new String("Cây đuôi công mang lại sự tươi mới, sinh động và hài hòa trong không gian sống.")
+                        }
                     },
                 },
-
 
             };
         }

@@ -20,7 +20,7 @@ namespace SellingTree.Model
         }
 
 
-        public Product product { get; set; }
+        public Product product = new ProductSelling();
         private int _quantity;
         public int Quantity
         {
@@ -28,7 +28,8 @@ namespace SellingTree.Model
             set
             {
                 _quantity = value;
-                Cost = _quantity * product.Price;
+                ProductSelling productSelling = (ProductSelling)product;
+                Cost = _quantity * productSelling.Price;
                 OnPropertyChanged(nameof(Quantity));
             }
         }
@@ -57,7 +58,8 @@ namespace SellingTree.Model
         {
             product = _product;
             Quantity = _quantity;
-            Cost = product.Price * Quantity;
+            ProductSelling productSelling = (ProductSelling)product;
+            Cost = productSelling.Price * Quantity;
             IsChecked = true;
         }
 

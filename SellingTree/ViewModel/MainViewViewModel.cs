@@ -42,7 +42,8 @@ namespace SellingTree
                 if (ImageList[i] == image)
                 {
                     Popups[i].IsOpen = true;
-                    image.Source = new BitmapImage(new Uri(products[i].ImageSources[0]));
+                    ProductSelling productSelling = (ProductSelling)products[i];
+                    image.Source = new BitmapImage(new Uri(productSelling.ImageSources[0]));
                 }
         }
 
@@ -52,7 +53,8 @@ namespace SellingTree
                 if (ImageList[i] == image)
                 {
                     Popups[i].IsOpen = false;
-                    image.Source = new BitmapImage(new Uri(products[i].ImageSource));
+                    ProductSelling productSelling = (ProductSelling)products[i];
+                    image.Source = new BitmapImage(new Uri(productSelling.ImageSource));
                 }
         }
 
