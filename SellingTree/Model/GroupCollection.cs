@@ -10,33 +10,29 @@ namespace SellingTree.Model
     public class GroupCollection
     {
 
+        private List<ProductCollection> _products;
 
-        private List<BitmapImage> _listImages;
-        private List<String> _listNames;
+        public GroupCollection()
+        {
 
-        public List<BitmapImage> ListImages
+        }
+
+        public GroupCollection(List<ProductCollection> products)
+        {
+            this._products = products;
+        }
+
+        public List<ProductCollection> Products
         {
             get
             {
-                return _listImages;
+                return this._products;
             }
-            set
-            {
-                _listImages = value;
-            }
-        }
-
-        public List<String> ListNames
-        {
-            get
-            {
-                return _listNames;
-            }
-            set
-            {
-                _listNames = value;
+            set {
+                this._products = value;
             }
         }
+        
 
     }
 }

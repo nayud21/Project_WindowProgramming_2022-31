@@ -35,7 +35,8 @@ namespace SellingTree
 
         private void OnPointerExited(object sender, PointerRoutedEventArgs e)
         {
-            MainImage.Source = new BitmapImage(new Uri(Product.ImageSource));
+            ProductSelling productSelling = (ProductSelling)Product;
+            MainImage.Source = new BitmapImage(new Uri(productSelling.ImageSource));
         }
     }
 }

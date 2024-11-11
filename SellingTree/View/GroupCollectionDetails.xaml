@@ -28,10 +28,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Row="0" Grid.Column="0" Source="{x:Bind Collection.ListImages[0]}"/>
-            <Image Grid.Row="0" Grid.Column="1" Source="{x:Bind Collection.ListImages[1]}"/>
-            <Image Grid.Row="1" Grid.Column="0" Source="{x:Bind Collection.ListImages[2]}"/>
-            <Image Grid.Row="1" Grid.Column="1" Source="{x:Bind Collection.ListImages[3]}"/>
+            <Image Grid.Row="0" Grid.Column="0" Source="{x:Bind Collection.Products[0].Image}"/>
+            <Image Grid.Row="0" Grid.Column="1" Source="{x:Bind Collection.Products[1].Image}"/>
+            <Image Grid.Row="1" Grid.Column="0" Source="{x:Bind Collection.Products[2].Image}"/>
+            <Image Grid.Row="1" Grid.Column="1" Source="{x:Bind Collection.Products[3].Image}"/>
 
         </Grid>
         
