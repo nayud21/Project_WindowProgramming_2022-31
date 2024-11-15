@@ -16,6 +16,7 @@ namespace SellingTree.Model
             {
                 _isChecked = value;
                 OnPropertyChanged(nameof(IsChecked));
+                ShopListViewModel.instance.LoadData();
             }
         }
 
@@ -28,7 +29,6 @@ namespace SellingTree.Model
             set
             {
                 _quantity = value;
-                Cost = _quantity * product.Price;
                 OnPropertyChanged(nameof(Quantity));
             }
         }
@@ -42,22 +42,14 @@ namespace SellingTree.Model
                 OnPropertyChanged(nameof(Position));
             }
         }
-        private int _cost;
         public int Cost
         {
-            get => _cost;
-            set
-            {
-                _cost = value;
-                OnPropertyChanged(nameof(Cost));
-                ShopListViewModel.instance.LoadData();
-            }
+            get => product.Price * Quantity;
         }
         public MyShoppingItem(Product _product, int _quantity = 1)
         {
             product = _product;
             Quantity = _quantity;
-            Cost = product.Price * Quantity;
             IsChecked = true;
         }
 

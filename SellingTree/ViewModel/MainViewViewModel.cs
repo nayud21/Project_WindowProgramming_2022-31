@@ -4,79 +4,68 @@ using System.Collections.ObjectModel;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Media.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SellingTree.Model;
-
-
 namespace SellingTree
 {
     internal class MainViewViewModel
     {
         public static MainViewViewModel instance = new MainViewViewModel();
-        public List<Image> ImageList = new List<Image>();
         public List<Popup> Popups = new List<Popup>();
-        public List<Button> ButtonList = new List<Button>();
         public ObservableCollection<Product> products { get; set; }
         public MainViewViewModel()
         {
             products = IDao.IDaoCollection.GetAllProduct();
         }
-        public void Add(Image image)
-        {
-            ImageList.Add(image);
-        }
         public void Add(Popup popup)
         {
             Popups.Add(popup);
         }
-        public void Add(Button button)
-        {
-            ButtonList.Add(button);
-        }
 
         internal void OnPointEntered(Image image)
         {
-            for (int i = 0; i < ImageList.Count; i++)
-                if (ImageList[i] == image)
+            String productName = image.Tag.ToString();
+            for (int index = 0; index < products.Count; index++)
+                if (products[index].Name == productName)
                 {
-                    Popups[i].IsOpen = true;
-                    image.Source = new BitmapImage(new Uri(products[i].ImageSources[0]));
+                    Popups[index].IsOpen = true;
+                    Uri newUri = new Uri(products[index].ImageSources[0]);
+                    image.Source = new BitmapImage(newUri);
+                    break;
                 }
         }
 
         internal void OnPointExited(Image image)
         {
-            for (int i = 0; i < ImageList.Count; i++)
-                if (ImageList[i] == image)
+            String productName = image.Tag.ToString();
+            for (int index = 0; index < products.Count; index++)
+                if (products[index].Name == productName)
                 {
-                    Popups[i].IsOpen = false;
-                    image.Source = new BitmapImage(new Uri(products[i].ImageSource));
+                    Popups[index].IsOpen = false;
+                    Uri newUri = new Uri(products[index].ImageSource);
+                    image.Source = new BitmapImage(newUri);
+                    break;
                 }
         }
 
-        internal void ButtonBuy_Clicked(Button button)
+        internal void ButtonBuy_Clicked(String productName)
         {
             int index = 0;
-            for (; index < ButtonList.Count; index++)
-                if (ButtonList[index] == button)
+            for (; index < products.Count; index++)
+                if (products[index].Name == productName)
                     break;
 
             ShopListViewModel.instance.Add(products[index]);
         }
         public void Reset()
         {
-            ImageList.Clear();
-            ButtonList.Clear();
             Popups.Clear();
         }
 
-        internal void OpenProduct(Image image)
+        internal void OpenProduct(String productName)
         {
             int index = 0;
-            for (; index < ImageList.Count; index++)
-                if (ImageList[index] == image)
+            for (; index < products.Count; index++)
+                if (products[index].Name == productName)
                     break;
 
             MainWindow.Instance.SetFrame(typeof(ProductView), products[index]);

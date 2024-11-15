@@ -26,9 +26,9 @@
                         <StackPanel Orientation="Vertical" Width="200">
                             <Grid>
                                 <Image Source="{Binding ImageSource}" Height="160" Width="160"
-                                   Loaded="Image_Loaded" Tapped="Image_Tapped"
+                                   Tapped="Image_Tapped" Tag="{Binding Name}"
                                     PointerEntered="OnPointerEntered" PointerExited="OnPointerExited"/>
-                                <Button Background="White" Click="ButtonBuy_Clicked" Loaded="Button_Loaded"
+                                <Button Background="White" Click="ButtonBuy_Clicked" Tag="{Binding Name}"
                                     HorizontalAlignment="Right" VerticalAlignment="Bottom">
                                     <FontIcon Glyph="&#xE7BF;"/>
                                 </Button>

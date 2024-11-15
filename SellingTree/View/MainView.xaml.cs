@@ -1,28 +1,18 @@
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Navigation;
-using SellingTree.Model;
-using System.ComponentModel;
-
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+using System;
 
 namespace SellingTree
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainView : Page
     {
         public MainView()
         {
             MainViewViewModel.instance.Reset();
-            this.InitializeComponent();
+            InitializeComponent();
             DataContext = MainViewViewModel.instance;
-    
-        }
 
+        }
 
         private void Popup_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
@@ -39,24 +29,17 @@ namespace SellingTree
             MainViewViewModel.instance.OnPointExited(sender as Image);
         }
 
-        private void Button_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
-        {
-            MainViewViewModel.instance.Add(sender as Button);
-        }
-
         private void ButtonBuy_Clicked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
-            MainViewViewModel.instance.ButtonBuy_Clicked(sender as Button);
+
+            String productName = (sender as Button).Tag.ToString();
+            MainViewViewModel.instance.ButtonBuy_Clicked(productName);
         }
 
         private void Image_Tapped(object sender, Microsoft.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            MainViewViewModel.instance.OpenProduct(sender as Image);
-        }
-
-        private void Image_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
-        {
-            MainViewViewModel.instance.Add(sender as Image);
+            String productName = (sender as Image).Tag.ToString();
+            MainViewViewModel.instance.OpenProduct(productName);
         }
     }
 }
