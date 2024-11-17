@@ -11,30 +11,17 @@ namespace SellingTree.Model
     {
 
 
-        private List<BitmapImage> _listImages;
-        private List<String> _listNames;
+        private List<ProductCollection> _listProduct;
 
-        public List<BitmapImage> ListImages
+        public List<ProductCollection> ProductCollection
         {
             get
             {
-                return _listImages;
+                return this._listProduct;
             }
             set
             {
-                _listImages = value;
-            }
-        }
-
-        public List<String> ListNames
-        {
-            get
-            {
-                return _listNames;
-            }
-            set
-            {
-                _listNames = value;
+                this._listProduct = value;
             }
         }
 
