@@ -12,7 +12,7 @@ namespace SellingTree.ViewModel
         public List<Blog> Blogs { get; set; }
         public BlogViewModel()
         {
-            SellingTree.IDao.IDaoBlog dao = new MockDaoBlog();
+            SellingTree.IDao.IDaoBlog dao = new PostgreDaoBlog();
             Blogs = dao.GetBlogs();
         }
     }
