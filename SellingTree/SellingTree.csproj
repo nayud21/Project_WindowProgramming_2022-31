@@ -15,12 +15,15 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
 	<ItemGroup>
+		<None Remove="Assets\back2.jpg" />
 		<None Remove="BlogPage.xaml" />
 		<None Remove="BlogPostPage.xaml" />
 		<None Remove="GroupCollectionDetails.xaml" />
+		<None Remove="View\AccountPage.xaml" />
 		<None Remove="View\ChatPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
+		<Content Remove="Assets\login-pic.jpg" />
 		<Content Remove="Assets\Picture1.jpg" />
 		<Content Remove="Assets\Picture10.jpg" />
 		<Content Remove="Assets\Picture11.jpg" />
@@ -37,6 +40,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<None Remove="CollectionPage.xaml" />
+		<None Remove="View\LoginPage.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -105,6 +109,12 @@
 		<None Update="Assets\ShippingIcon.jpg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<Page Update="View\AccountPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\LoginPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
 		<Page Update="GroupCollectionDetails.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
@@ -124,9 +134,6 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="View\" />
-	</ItemGroup>
-	<ItemGroup>
 		<Content Update="Assets\blog01.jpg">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
@@ -142,6 +149,9 @@
 		<Content Update="Assets\blog05.jpg">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
+		<None Update="Assets\login-pic.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 		<Content Update="Assets\Picture13.jpg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>

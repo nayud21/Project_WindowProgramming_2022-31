@@ -11,7 +11,11 @@
 
     
     <Grid Background="Green">
-        <StackPanel Orientation="Horizontal">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="0">
             <Button x:Name="MainPageButton" Margin="10,0,0,0" Click="MainPageButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <FontIcon Glyph="&#xE80F;" />
@@ -31,5 +35,6 @@
             <Button x:Name="chatButton" Click="chatButton_Click" Margin="10,0,0,0">Chat</Button>
             <Button x:Name="collectionButton" Click="collectionButton_Click" Margin="10,0,0,0">Collection</Button>
         </StackPanel>
+        <Button x:Name="accountButton" Click="accountButton_Click" Margin="10,0,10,0" Grid.Column="1" >Account</Button>
     </Grid>
 </Page>

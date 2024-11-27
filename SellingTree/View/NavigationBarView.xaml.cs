@@ -13,7 +13,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-
+using SellingTree.Model;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -63,6 +63,20 @@ namespace SellingTree
             MainWindow.Instance.SetFrame(typeof(CollectionPage));
             ShopListButton.IsEnabled = false;
             ShopListButton.Visibility = Visibility.Visible;
+        }
+
+        private void accountButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SessionManager.IsLoggedIn())
+            {
+                MainWindow.Instance.SetFrame(typeof(AccountPage));
+            }
+            else
+            {
+                MainWindow.Instance.SetFrame(typeof(LoginPage));
+                //ShopListButton.IsEnabled = false;
+                //ShopListButton.Visibility = Visibility.Visible;
+            }
         }
     }
 }
