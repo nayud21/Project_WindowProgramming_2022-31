@@ -25,4 +25,9 @@ namespace SellingTree.IDao
             return MockDaoCollection.GetAllProduct();
         }
     }
+
+    public interface IDaoUser
+    {
+        List<User> GetUsers();
+    }
 }
