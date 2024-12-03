@@ -594,6 +594,7 @@ namespace SellingTree.IDao
 
         static public List<Review> GetAllReviews(Product product)
         {
+            return null;/*
             switch (product.Name)
             {
                 case "Cây Bàng Cẩm Thạch":
@@ -627,6 +628,7 @@ namespace SellingTree.IDao
                     };
 
                 default: return new List<Review>();
+            */
             }
         }
     }
@@ -742,4 +744,3 @@ namespace SellingTree.IDao
             
     }
 
-}

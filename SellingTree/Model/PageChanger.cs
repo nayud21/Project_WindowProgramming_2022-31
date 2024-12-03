@@ -12,28 +12,11 @@ namespace SellingTree
         static int MaxItemsPerRow = 5;
         public static Style accentButtonStyle = (Style)Application.Current.Resources["AccentButtonStyle"];
 
-        private String _buttonName;
-        public String ButtonName
-        {
-            get => _buttonName;
-            set
-            {
-                _buttonName = value;
-                OnPropertyChanged(nameof(ButtonName));
-            }
-        }
+        public String ButtonName { get; set; }
 
         
         private Style _buttonStyle;
-        public Style ButtonStyle
-        {
-            get => _buttonStyle;
-            set
-            {
-                _buttonStyle = value;
-                OnPropertyChanged(nameof(ButtonStyle));
-            }
-        }
+        public Style ButtonStyle { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

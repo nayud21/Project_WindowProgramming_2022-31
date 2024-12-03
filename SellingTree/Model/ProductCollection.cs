@@ -17,8 +17,12 @@ namespace SellingTree.Model
 
         public ProductCollection(String nameProduct, String meaning)
         {
-            _product = ProductHandle.findProductByName(nameProduct);
-            _image = new BitmapImage(new Uri(_product.ImageSource));
+            try
+            {
+                _product = ProductHandle.findProductByName(nameProduct);
+            }
+            catch { }
+            _image = new BitmapImage(new Uri("ms-appx:///Assets/ShippingIcon.jpg"));
             this._meaning = meaning;
         }
 

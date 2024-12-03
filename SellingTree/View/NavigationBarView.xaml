@@ -9,7 +9,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    
+    <Page.Resources>
+        <local:IntToVisibilityIConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
     <Grid Background="Green">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -25,10 +27,15 @@
             <Button x:Name="ShopListButton" Margin="10,0,0,0" Click="ShopListButton_Clicked">
                 <StackPanel Orientation="Horizontal">
                     <FontIcon Glyph="&#xE7BF;" />
-                    <TextBlock Margin="0,0,0,0">
-                        <Run Text="Giỏ hàng ( "/><Run Text="{Binding Count, Mode=OneWay}"/>
-                        <Run Text=")"/>
-                    </TextBlock>
+                    <TextBlock Margin="0,0,0,0" Text="Giỏ hàng"/>
+                    <InfoBadge Background="Red"
+                               Value="{Binding Count}" HorizontalAlignment="Right" VerticalAlignment="Top"
+                               Visibility="{Binding Count, Converter={StaticResource VisibilityConverter}}">
+                        <InfoBadge.IconSource>
+                            <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xF13C;" />
+                        </InfoBadge.IconSource>
+                    </InfoBadge>
+
                 </StackPanel>
             </Button>
             <Button x:Name="blogButton" Click="blogButton_Click" Margin="10,0,0,0">Blog</Button>
