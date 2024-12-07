@@ -65,52 +65,6 @@ namespace SellingTree.IDao
         }
 
     }
-    //public class PostgreDaoUser : IDaoUser
-    //{
-    //    public List<User> GetUsers()
-    //    {
-    //        var connString = GetConnectionString();
-    //        var users = new List<User>();
-    //        try
-    //        {
-    //            using (var conn = new NpgsqlConnection(connString))
-    //            {
-    //                conn.Open();
-    //                Debug.WriteLine("Kết nối thành công!");
-
-    //                // Thực thi một truy vấn mẫu
-    //                using (var cmd = new NpgsqlCommand("SELECT * FROM users;", conn))
-    //                {
-    //                    var reader = cmd.ExecuteReader();
-    //                    while (reader.Read())
-    //                    {
-    //                        var user = new User
-    //                        {
-    //                            Username = reader.GetString(1),
-    //                            Password = reader.GetString(2),
-    //                            Name = reader.GetString(3),
-    //                            ImageLocation = reader.GetString(4)
-    //                        };
-    //                        users.Add(user);
-    //                    }
-    //                }
-    //                conn.Close();
-    //                NpgsqlConnection.ClearPool(conn);
-    //            }
-
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            Console.WriteLine($"Lỗi kết nối: {ex.Message}");
-    //        }
-    //        return users;
-    //    }
-    //    private static string GetConnectionString()
-    //    {
-    //        var connectionString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
-    //        return connectionString;
-    //    }
-    //}
 
     public class PostgreDaoUser
     {
@@ -136,7 +90,8 @@ namespace SellingTree.IDao
                     Username = reader.GetString(1),
                     Password = reader.GetString(2),
                     Name = reader.GetString(3),
-                    ImageLocation = reader.GetString(4)
+                    ImageLocation = reader.GetString(4),
+                    Type = reader.GetString(5)
                 };
                 return user;
             }
@@ -194,7 +149,7 @@ namespace SellingTree.IDao
                             String imagesource = "https:/" +
                                 "/thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/Untitled%20folder/" 
                                 + reader.GetString(1);
-
+                            
                             if (products[ID - 1].ImageSources == null)
                                 products[ID - 1].ImageSources = new ObservableCollection<String>();
                             products[ID - 1].ImageSources.Add(imagesource);

@@ -15,6 +15,7 @@ namespace SellingTree.Model
         public string Password { get; set; }
         public string Name { get; set; }
         public string ImageLocation { get; set; }
+        public string Type { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

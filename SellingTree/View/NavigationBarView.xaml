@@ -41,6 +41,7 @@
             <Button x:Name="blogButton" Click="blogButton_Click" Margin="10,0,0,0">Blog</Button>
             <Button x:Name="chatButton" Click="chatButton_Click" Margin="10,0,0,0">Chat</Button>
             <Button x:Name="collectionButton" Click="collectionButton_Click" Margin="10,0,0,0">Collection</Button>
+            <Button x:Name="dictionaryButton" Click="dictionaryButton_Click" Margin="10,0,0,0">Dictionary</Button>
         </StackPanel>
         <Button x:Name="accountButton" Click="accountButton_Click" Margin="10,0,10,0" Grid.Column="1" >Account</Button>
     </Grid>
