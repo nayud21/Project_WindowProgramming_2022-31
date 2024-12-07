@@ -24,5 +24,9 @@ namespace SellingTree.Model
         {
             return CurrentUser != null;
         }
+        public static bool IsAdmin()
+        {
+            return CurrentUser.Type == "admin";
+        }
     }
 }

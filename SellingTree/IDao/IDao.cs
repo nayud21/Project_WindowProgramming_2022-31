@@ -20,9 +20,9 @@ namespace SellingTree.IDao
     }
     internal abstract class IDaoCollection
     {
-        public  static ObservableCollection<Product> GetAllProduct()
+        public static ObservableCollection<Product> GetAllProduct()
         {
-            return MockDaoCollection.GetAllProduct();
+            return PostgreDaoCollection.GetAllProduct();
         }
     }
 

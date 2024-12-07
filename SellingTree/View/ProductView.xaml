@@ -147,11 +147,10 @@
                                     <StackPanel Orientation="Horizontal">
                                         <Border Width="40" Height="40" CornerRadius="20" 
                                                 Background="Transparent">
-                                            <Image Source="{Binding AvatarSource}" Width="40" Height="40" 
-                                                Stretch="UniformToFill" />
+                                            <PersonPicture ProfilePicture="{Binding user.ImageLocation}" Width="40" Height="40"/>
                                         </Border>
                                         <StackPanel Orientation="Vertical" Margin="8,0,0,0">
-                                            <TextBlock Text="{Binding Username}" FontSize="10"/>
+                                            <TextBlock Text="{Binding user.Name}" FontSize="10"/>
                                             <RatingControl Value="{Binding Score}" MaxRating="5" 
                                                            IsReadOnly="True" HorizontalAlignment="Left"/>
 

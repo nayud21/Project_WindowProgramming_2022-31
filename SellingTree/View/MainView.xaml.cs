@@ -39,11 +39,6 @@ namespace SellingTree
             MainViewViewModel.instance.OnPointExited(sender as Image);
         }
 
-        private void Button_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
-        {
-            MainViewViewModel.instance.Add(sender as Button);
-        }
-
         private void ButtonBuy_Clicked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             MainViewViewModel.instance.ButtonBuy_Clicked(sender as Button);
@@ -54,9 +49,5 @@ namespace SellingTree
             MainViewViewModel.instance.OpenProduct(sender as Image);
         }
 
-        private void Image_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
-        {
-            MainViewViewModel.instance.Add(sender as Image);
-        }
     }
 }

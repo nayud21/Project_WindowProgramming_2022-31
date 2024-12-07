@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SellingTree.Model;
+using Microsoft.Extensions.Logging;
+using Microsoft.UI.Xaml.Media;
 
 
 namespace SellingTree
@@ -15,71 +17,80 @@ namespace SellingTree
     internal class MainViewViewModel
     {
         public static MainViewViewModel instance = new MainViewViewModel();
-        public List<Image> ImageList = new List<Image>();
         public List<Popup> Popups = new List<Popup>();
-        public List<Button> ButtonList = new List<Button>();
         public ObservableCollection<Product> products { get; set; }
         public MainViewViewModel()
         {
             products = IDao.IDaoCollection.GetAllProduct();
-        }
-        public void Add(Image image)
-        {
-            ImageList.Add(image);
+           
         }
         public void Add(Popup popup)
         {
             Popups.Add(popup);
         }
-        public void Add(Button button)
-        {
-            ButtonList.Add(button);
-        }
 
         internal void OnPointEntered(Image image)
         {
-            for (int i = 0; i < ImageList.Count; i++)
-                if (ImageList[i] == image)
-                {
-                    Popups[i].IsOpen = true;
-                    image.Source = new BitmapImage(new Uri(products[i].ImageSources[0]));
-                }
+            var ImageSource = image.Tag as String;
+            
+            try
+            {
+                for (int i = 0; i < products.Count; i++)
+                    if (products[i].ImageSource == ImageSource)
+                    {
+                        Popups[i].IsOpen = true;
+                        image.Source = new BitmapImage(new Uri(products[i].ImageSources[1]));
+                    }
+            }
+            catch (Exception) { }
         }
 
         internal void OnPointExited(Image image)
         {
-            for (int i = 0; i < ImageList.Count; i++)
-                if (ImageList[i] == image)
-                {
-                    Popups[i].IsOpen = false;
-                    image.Source = new BitmapImage(new Uri(products[i].ImageSource));
-                }
+            var ImageSource = image.Tag as String;
+
+            try
+            {
+                for (int i = 0; i < products.Count; i++)
+                    if (products[i].ImageSource == ImageSource)
+                    {
+                        Popups[i].IsOpen = false;
+                        image.Source = new BitmapImage(new Uri(products[i].ImageSource));
+                    }
+            }
+            catch (Exception) { }
         }
 
         internal void ButtonBuy_Clicked(Button button)
         {
             int index = 0;
-            for (; index < ButtonList.Count; index++)
-                if (ButtonList[index] == button)
-                    break;
+            String ImageSource = (button.Tag).ToString();
+            for (; index < products.Count; index++)
+                if (products[index].ImageSource == ImageSource)
+                {
 
-            ShopListViewModel.instance.Add(products[index]);
+                    ShopListViewModel.instance.Add(products[index]);
+                    return;
+                }
+
         }
         public void Reset()
         {
-            ImageList.Clear();
-            ButtonList.Clear();
             Popups.Clear();
         }
 
         internal void OpenProduct(Image image)
         {
             int index = 0;
-            for (; index < ImageList.Count; index++)
-                if (ImageList[index] == image)
-                    break;
+            String ImageSource = (image.Tag).ToString();
+            for (; index < products.Count; index++)
+                if (products[index].ImageSource == ImageSource)
+                {
 
-            MainWindow.Instance.SetFrame(typeof(ProductView), products[index]);
+                    MainWindow.Instance.SetFrame(typeof(ProductView), products[index]);
+                    return;
+                }
+
         }
     }
 }

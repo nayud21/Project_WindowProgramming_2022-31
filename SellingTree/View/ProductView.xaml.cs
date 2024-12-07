@@ -15,7 +15,7 @@ namespace SellingTree
         {
             InitializeComponent();
 
-            DataContext = new Reviews(product, IDao.MockDaoCollection.GetAllReviews(product));
+            DataContext = new Reviews(product, IDao.PostgreDaoCollection.GetAllReviews(product));
             Product = product;
 
         }
