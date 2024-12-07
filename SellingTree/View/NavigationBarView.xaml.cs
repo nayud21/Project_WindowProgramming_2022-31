@@ -14,6 +14,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using SellingTree.Model;
+using System.Diagnostics;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -60,9 +61,10 @@ namespace SellingTree
 
         private void collectionButton_Click(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("Collection Button Clicked");
             MainWindow.Instance.SetFrame(typeof(CollectionPage));
-            ShopListButton.IsEnabled = false;
-            ShopListButton.Visibility = Visibility.Visible;
+           // ShopListButton.IsEnabled = false;
+           //ShopListButton.Visibility = Visibility.Visible;
         }
 
         private void accountButton_Click(object sender, RoutedEventArgs e)
@@ -77,6 +79,11 @@ namespace SellingTree
                 //ShopListButton.IsEnabled = false;
                 //ShopListButton.Visibility = Visibility.Visible;
             }
+        }
+
+        private void dictionaryButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.SetFrame(typeof(DictionaryPage));
         }
     }
 }
