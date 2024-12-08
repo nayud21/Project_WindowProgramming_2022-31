@@ -29,34 +29,56 @@ namespace SellingTree
         {
             this.InitializeComponent();
             DataContext = ShopListViewModel.instance;
+           
         }
 
         private void ShopListButton_Clicked(object sender, RoutedEventArgs e)
+
         {
-            MainWindow.Instance.SetFrame(typeof(ShopCartView));
-            ShopListButton.IsEnabled = false;
-            ShopListButton.Visibility = Visibility.Collapsed;
+            if ( !SessionManager.IsLoggedIn() || SessionManager.CurrentUser.Type=="user")
+            {
+
+                MainWindow.Instance.SetFrame(typeof(ShopCartView));
+                //ShopListButton.IsEnabled = false;
+                //ShopListButton.Visibility = Visibility.Collapsed;
+
+            }
+            else
+            {
+                MainWindow.Instance.SetFrame(typeof(ShopCartAdminView));
+            }
         }
 
         private void MainPageButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Instance.SetFrame(typeof(MainView));
-            ShopListButton.IsEnabled = true;
-            ShopListButton.Visibility = Visibility.Visible;
+            if (!SessionManager.IsLoggedIn() || SessionManager.CurrentUser.Type == "user")
+            {
+
+                MainWindow.Instance.SetFrame(typeof(MainView));
+                //ShopListButton.IsEnabled = false;
+                //ShopListButton.Visibility = Visibility.Collapsed;
+
+            }
+            else
+            {
+                MainWindow.Instance.SetFrame(typeof(MainView));
+            }
+         
+            
         }
 
         private void blogButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.Instance.SetFrame(typeof(BlogPage));
-            ShopListButton.IsEnabled = false;
-            ShopListButton.Visibility = Visibility.Visible;
+            //ShopListButton.IsEnabled = false;
+            //ShopListButton.Visibility = Visibility.Visible;
         }
 
         private void chatButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.Instance.SetFrame(typeof(ChatPage));
-            ShopListButton.IsEnabled = false;
-            ShopListButton.Visibility = Visibility.Visible;
+            //ShopListButton.IsEnabled = false;
+            //ShopListButton.Visibility = Visibility.Visible;
         }
 
         private void collectionButton_Click(object sender, RoutedEventArgs e)
@@ -71,7 +93,12 @@ namespace SellingTree
         {
             if (SessionManager.IsLoggedIn())
             {
-                MainWindow.Instance.SetFrame(typeof(AccountPage));
+                if (SessionManager.IsAdmin())
+                {
+                    MainWindow.Instance.SetFrame(typeof(AccountPageAdmin));
+                }
+                else
+                    MainWindow.Instance.SetFrame(typeof(AccountPage));
             }
             else
             {

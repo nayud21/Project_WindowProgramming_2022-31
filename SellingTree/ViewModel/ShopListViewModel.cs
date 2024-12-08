@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-
+using SellingTree.IDao;
+using SellingTree.View;
 namespace SellingTree
+
 {
     class ShopListViewModel : INotifyPropertyChanged
     {
@@ -191,7 +193,7 @@ namespace SellingTree
                 CheckPage();
         }
 
-        
+
         private void LoadPage()
         {
             Items = PageChanger.LoadPage(CurrentPage, ItemsData);
@@ -225,6 +227,47 @@ namespace SellingTree
                 CurrentPage = ThisPage;
                 LoadPage();
                 CheckPage();
+            }
+        }
+        // tôi muốn thêm hàm Pay() để thực hiện thanh toán
+        internal void Pay()
+        {
+            // tôi muốn thực hiiện thanh toán bằng cách ghi vào database 1 order mới với tổng giá và ghi chi tiết các product vào detail
+            // sau đó xóa hết các sản phẩm trong giỏ hàng
+            if (SessionManager.IsLoggedIn())
+            {
+                // tôi muốn thực hiện thanh toán bằng cách ghi vào database 1 order mới với tổng giá và ghi chi tiết các product vào detail
+                // sau đó xóa hết các sản phẩm trong giỏ hàng
+                Order order = new Order()
+                {
+                    TotalPrice = TotalValue,
+                    UserID = SessionManager.CurrentUser.UserId,
+                    OrderDate = DateTime.Now
+                };
+                IDaoOrder daoOrder = new PostgreDaoOrder();
+                daoOrder.InsertOrder(order);
+                IDaoDetail daoOrderDetail = new PostgreDaoDetail();
+                //foreach (var item in ItemsData)
+                //{
+                //    Detail detail = new Detail()
+                //    {
+                //        OrderID = order.OrderID,
+                //        ProductID = item.product.ProductID,
+                //        Quantity = item.Quantity,
+                //        Price = item.product.Price
+                //    };
+                //    daoOrderDetail.InsertDetail(detail);
+                //}
+                ItemsData.Clear();
+                LoadPage();
+                CheckPage();
+                LoadData();
+
+
+            }
+            else
+            {
+                MainWindow.Instance.SetFrame(typeof(LoginPage));
             }
         }
     }

@@ -42,9 +42,16 @@ namespace SellingTree.View
             {
                 // Set the current user in the session manager
                 SessionManager.Login(user);
-
-                // Navigate to AccountPage
-                this.Frame.Navigate(typeof(AccountPage));
+                if (user.Type == "admin")
+                {
+                    // Navigate to AccountPageAdmin
+                    this.Frame.Navigate(typeof(AccountPageAdmin));
+                }
+                else
+                {
+                    // Navigate to AccountPage
+                    this.Frame.Navigate(typeof(AccountPage));
+                }
             }
             else
             {

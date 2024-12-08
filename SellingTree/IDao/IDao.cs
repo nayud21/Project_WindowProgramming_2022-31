@@ -11,6 +11,7 @@ namespace SellingTree.IDao
     public interface IDaoBlog
     {
         List<Blog> GetBlogs();
+        public void InsertBlog(Blog blog);
     }
     public interface IDaoMessage
     {
@@ -29,5 +30,17 @@ namespace SellingTree.IDao
     public interface IDaoUser
     {
         List<User> GetUsers();
+    }
+    public interface IDaoOrder
+    {
+        List<Order> GetOrders();
+        List<Order> GetOrdersForCustomer(int customerID);
+        public void InsertOrder(Order order);
+    }
+    public interface IDaoDetail
+    {
+        List<Detail> GetDetails();
+        List<Detail> GetDetailsForOrder(int orderID);
+        public void InsertDetail(Detail detail);
     }
 }

@@ -14,7 +14,7 @@ namespace SellingTree.IDao
 {
     public class PostgreDaoBlog : IDaoBlog
     {
-        
+
         public List<Blog> GetBlogs()
 
         {
@@ -23,7 +23,7 @@ namespace SellingTree.IDao
             try
 
             {
-                
+
 
                 using (var conn = new NpgsqlConnection(connString))
                 {
@@ -34,18 +34,18 @@ namespace SellingTree.IDao
                     using (var cmd = new NpgsqlCommand("SELECT * FROM blog;", conn))
                     {
                         var reader = cmd.ExecuteReader();
-                            while (reader.Read())
+                        while (reader.Read())
+                        {
+                            var blog = new Blog
                             {
-                                var blog = new Blog
-                                {
-                                    Title = reader.GetString(1),
-                                    Description = reader.GetString(2),
-                                    ImageLocation = reader.GetString(3),
-                                    Likes = reader.GetInt32(4),
-                                    Views = reader.GetInt32(5)
-                                };
-                                blogs.Add(blog);
-                            }
+                                Title = reader.GetString(1),
+                                Description = reader.GetString(2),
+                                ImageLocation = reader.GetString(3),
+                                Likes = reader.GetInt32(4),
+                                Views = reader.GetInt32(5)
+                            };
+                            blogs.Add(blog);
+                        }
                     }
                     conn.Close();
                     NpgsqlConnection.ClearPool(conn);
@@ -57,6 +57,31 @@ namespace SellingTree.IDao
                 Console.WriteLine($"Lỗi kết nối: {ex.Message}");
             }
             return blogs;
+        }
+        public void InsertBlog(Blog blog)
+        {
+            var connString = GetConnectionString();
+            try
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    // Thực thi một truy vấn mẫu
+                    using (var cmd = new NpgsqlCommand($"INSERT INTO blog (title, description, imagelocation, likes, views) VALUES ('{blog.Title}', '{blog.Description}', '{blog.ImageLocation}', {blog.Likes}, {blog.Views});", conn))
+                    {
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
         }
         private static string GetConnectionString()
         {
@@ -90,10 +115,13 @@ namespace SellingTree.IDao
                     Username = reader.GetString(1),
                     Password = reader.GetString(2),
                     Name = reader.GetString(3),
-                    ImageLocation = reader.GetString(4),
+                    ImageLocation = "https:/" +
+                                "/thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/avt/"+ reader.GetString(4),
                     Type = reader.GetString(5)
+
                 };
                 return user;
+
             }
             connection.Close();
             NpgsqlConnection.ClearPool(connection);
@@ -134,11 +162,11 @@ namespace SellingTree.IDao
 
                         conn.Close();
                         NpgsqlConnection.ClearPool(conn);
-                    } 
+                    }
                 }
 
                 using (var conn = new NpgsqlConnection(connString))
-                { 
+                {
                     conn.Open();
                     using (var cmd = new NpgsqlCommand("SELECT * FROM imagesources;", conn))
                     {
@@ -147,9 +175,9 @@ namespace SellingTree.IDao
                         {
                             int ID = reader.GetInt32(0);
                             String imagesource = "https:/" +
-                                "/thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/Untitled%20folder/" 
+                                "/thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/Untitled%20folder/"
                                 + reader.GetString(1);
-                            
+
                             if (products[ID - 1].ImageSources == null)
                                 products[ID - 1].ImageSources = new ObservableCollection<String>();
                             products[ID - 1].ImageSources.Add(imagesource);
@@ -186,7 +214,7 @@ namespace SellingTree.IDao
                         Debug.WriteLine("Kết nối thành công!");
 
                         // Thực thi một truy vấn mẫu
-                        using (var cmd = new NpgsqlCommand($"SELECT users.name, users.avatar, date, content, score FROM product JOIN reviews ON product.name = @Name AND reviews.id = product.id JOIN users ON reviews.userid = users.userid; ", conn)) 
+                        using (var cmd = new NpgsqlCommand($"SELECT users.name, users.avatar, date, content, score FROM product JOIN reviews ON product.name = @Name AND reviews.id = product.id JOIN users ON reviews.userid = users.userid; ", conn))
                         {
 
                             cmd.Parameters.AddWithValue("name", product.Name);
@@ -221,6 +249,222 @@ namespace SellingTree.IDao
             }
         }
     }
+    public class PostgreDaoOrder : IDaoOrder
+    {
+        public List<Order> GetOrders()
+        {
+            var connString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
+            var orders = new List<Order>();
+            try
 
-   
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    // Thực thi một truy vấn mẫu
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM orderproduct;", conn))
+                    {
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            var order = new Order
+                            {
+                                OrderID = reader.GetInt32(0),
+                                UserID = reader.GetInt32(1),
+                                OrderDate = reader.GetDateTime(2),
+                                TotalPrice = reader.GetInt32(3),
+                            };
+                            orders.Add(order);
+                        }
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+            return orders;
+
+        }
+        public List<Order> GetOrdersForCustomer(int customerID)
+        {
+            var connString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
+            var orders = new List<Order>();
+            try
+
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    // Thực thi một truy vấn mẫu
+                    using (var cmd = new NpgsqlCommand($"SELECT * FROM orderproduct WHERE userid = {customerID};", conn))
+                    {
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            var order = new Order
+                            {
+                                OrderID = reader.GetInt32(0),
+                                UserID = reader.GetInt32(1),
+                                OrderDate = reader.GetDateTime(2),
+                                TotalPrice = reader.GetInt32(3),
+                            };
+                            orders.Add(order);
+                        }
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+            return orders;
+        }
+        public void InsertOrder(Order order)
+        {
+            var connString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true;Timeout=60;CommandTimeout=120";
+            try
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    // Thực thi một truy vấn mẫu
+                    using (var cmd = new NpgsqlCommand($"INSERT INTO orderProduct (userid, time, totalprice) VALUES ({order.UserID}, '{order.OrderDate}', {order.TotalPrice});", conn))
+                    {
+                        
+                        cmd.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+            }
+            catch (Npgsql.NpgsqlException ex)
+            {
+                Console.WriteLine($"Lỗi PostgreSQL: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+
+        }
+    }
+    public class PostgreDaoDetail : IDaoDetail
+    {
+        public List<Detail> GetDetails()
+        {
+            var connString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
+            var orderDetails = new List<Detail>();
+            try
+
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    // Thực thi một truy vấn mẫu
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM detail;", conn))
+                    {
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            var orderDetail = new Detail
+                            {
+                                OrderID = reader.GetInt32(0),
+                                ProductID = reader.GetInt32(1),
+                                Quantity = reader.GetInt32(2),
+                                Price = reader.GetInt32(3),
+                            };
+                            orderDetails.Add(orderDetail);
+                        }
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+            return orderDetails;
+        }
+        public List<Detail> GetDetailsForOrder(int orderID)
+        {
+            var connString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
+            var orderDetails = new List<Detail>();
+            try
+
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    // Thực thi một truy vấn mẫu
+                    using (var cmd = new NpgsqlCommand($"SELECT * FROM detail WHERE orderid = {orderID};", conn))
+                    {
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            var orderDetail = new Detail
+                            {
+                                OrderID = reader.GetInt32(0),
+                                ProductID = reader.GetInt32(1),
+                                Quantity = reader.GetInt32(2),
+                                Price = reader.GetInt32(3),
+                            };
+                            orderDetails.Add(orderDetail);
+                        }
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+            return orderDetails;
+        }
+        public void InsertDetail(Detail orderDetail)
+        {
+            var connString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
+            try
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    // Thực thi một truy vấn mẫu
+                    using (var cmd = new NpgsqlCommand($"INSERT INTO detail (orderid, productid, quantity, price) VALUES ({orderDetail.OrderID}, {orderDetail.ProductID}, {orderDetail.Quantity}, {orderDetail.Price});", conn))
+                    {
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+        }
+    }
 }
