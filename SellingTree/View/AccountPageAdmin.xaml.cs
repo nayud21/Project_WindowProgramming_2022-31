@@ -16,7 +16,6 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -25,9 +24,9 @@ namespace SellingTree.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AccountPage : Page
+    public sealed partial class AccountPageAdmin : Page
     {
-        public AccountPage()
+        public AccountPageAdmin()
         {
             this.InitializeComponent();
             if (SessionManager.IsLoggedIn())
@@ -37,13 +36,14 @@ namespace SellingTree.View
                 LoadOrders();
             }
         }
+
         private void LoadOrders()
         {
             IDaoOrder daoOrder = new PostgreDaoOrder();
-            var orders = daoOrder.GetOrdersForCustomer(SessionManager.CurrentUser.UserId);
-            
+            var orders = daoOrder.GetOrders();
             ordersListView.ItemsSource = orders;
         }
+
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             // Logout the user

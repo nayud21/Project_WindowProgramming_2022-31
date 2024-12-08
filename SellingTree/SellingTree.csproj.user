@@ -5,6 +5,15 @@
     <None Update="App.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Update="View\MainViewAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AccountPageAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ShopCartAdminView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\DictionaryPage.xaml">
       <SubType>Designer</SubType>
     </Page>

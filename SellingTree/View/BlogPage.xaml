@@ -42,6 +42,7 @@
                                 >
                             <Grid Margin="0,12,0,12" 
                               AutomationProperties.Name="{x:Bind Title}"
+                                  
                               >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" MinWidth="100" MaxWidth="150"/>
@@ -64,7 +65,7 @@
                                     <!-- Sử dụng TextFillColorPrimaryBrush cho các TextBlock -->
                                     <TextBlock Text="{x:Bind Title}" 
                                            Style="{ThemeResource TitleTextBlockStyle}"
-                                           Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
+                                           Foreground="Black"
                                            HorizontalAlignment="Left" Margin="0,0,0,6" LineHeight="20"/>
 
                                     <TextBlock Text="{x:Bind Description}" FontFamily="Segoe UI" FontWeight="Normal"

@@ -20,6 +20,7 @@
 		<None Remove="BlogPostPage.xaml" />
 		<None Remove="GroupCollectionDetails.xaml" />
 		<None Remove="View\AccountPage.xaml" />
+		<None Remove="View\AccountPageAdmin.xaml" />
 		<None Remove="View\ChatPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
@@ -42,6 +43,8 @@
 		<None Remove="CollectionPage.xaml" />
 		<None Remove="View\DictionaryPage.xaml" />
 		<None Remove="View\LoginPage.xaml" />
+		<None Remove="View\MainViewAdmin.xaml" />
+		<None Remove="View\ShopCartAdminView.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -111,6 +114,15 @@
 		<None Update="Assets\ShippingIcon.jpg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<Page Update="View\MainViewAdmin.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\AccountPageAdmin.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\ShopCartAdminView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
 		<Page Update="View\DictionaryPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
