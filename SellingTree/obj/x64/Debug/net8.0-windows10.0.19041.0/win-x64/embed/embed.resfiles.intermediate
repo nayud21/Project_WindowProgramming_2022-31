@@ -1,0 +1,14 @@
+App.xbf
+MainWindow.xbf
+View\AccountPage.xbf
+View\BlogPage.xbf
+View\BlogPostPage.xbf
+View\ChatPage.xbf
+View\CollectionPage.xbf
+View\DictionaryPage.xbf
+View\GroupCollectionDetails.xbf
+View\LoginPage.xbf
+View\MainView.xbf
+View\NavigationBarView.xbf
+View\ProductView.xbf
+View\ShopCartView.xbf

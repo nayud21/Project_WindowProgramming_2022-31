@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="SellingTree.NavigationBarView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SellingTree"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <local:IntToVisibilityIConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <Grid Background="Green">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="0">
+            <Button x:Name="MainPageButton" Margin="10,0,0,0" Click="MainPageButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE80F;" />
+                    <TextBlock Margin="10,0,0,0" Text="Home"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="ShopListButton" Margin="10,0,0,0" Click="ShopListButton_Clicked">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE7BF;" />
+                    <TextBlock Margin="0,0,0,0" Text="Giỏ hàng"/>
+                    <InfoBadge Background="Red"
+                               Value="{Binding Count}" HorizontalAlignment="Right" VerticalAlignment="Top"
+                               Visibility="{Binding Count, Converter={StaticResource VisibilityConverter}}">
+                        <InfoBadge.IconSource>
+                            <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xF13C;" />
+                        </InfoBadge.IconSource>
+                    </InfoBadge>
+
+                </StackPanel>
+            </Button>
+            <Button x:Name="blogButton" Click="blogButton_Click" Margin="10,0,0,0">Blog</Button>
+            <Button x:Name="chatButton" Click="chatButton_Click" Margin="10,0,0,0">Chat</Button>
+            <Button x:Name="collectionButton" Click="collectionButton_Click" Margin="10,0,0,0">Collection</Button>
+            <Button x:Name="dictionaryButton" Click="dictionaryButton_Click" Margin="10,0,0,0">Dictionary</Button>
+        </StackPanel>
+        <Button x:Name="accountButton" Click="accountButton_Click" Margin="10,0,10,0" Grid.Column="1" >Account</Button>
+    </Grid>
+</Page>
