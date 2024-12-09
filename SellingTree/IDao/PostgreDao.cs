@@ -150,6 +150,7 @@ namespace SellingTree.IDao
                         {
                             var product = new Product()
                             {
+                                PID  = reader.GetInt32(0),
                                 Name = reader.GetString(1),
                                 Description = reader.GetString(2),
                                 ImageSource = reader.GetString(3),

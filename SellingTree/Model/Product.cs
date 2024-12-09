@@ -5,6 +5,7 @@ namespace SellingTree.Model
 {
     public class Product : Plant
     {
+        public int PID { get; set; }
         public string ImageSource { get; set; }
 
         public ObservableCollection<String> ImageSources { get; set; }
