@@ -85,5 +85,10 @@ namespace SellingTree
         {
             MainWindow.Instance.SetFrame(typeof(DictionaryPage));
         }
+
+        private void moreOption_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.SetFrame(typeof(MoreOptionPage));
+        }
     }
 }
