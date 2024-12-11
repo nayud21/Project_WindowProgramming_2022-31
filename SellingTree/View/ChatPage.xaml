@@ -5,112 +5,77 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SellingTree.View"
     xmlns:local2="using:SellingTree.Model"
+    xmlns:vm="using:SellingTree.ViewModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <vm:MessageViewModel />
+    </Page.DataContext>
+
     <Page.Resources>
-        <local:HorizontalAlignmentConverter x:Key="HorizontalAlignmentConverter"/>
-        <local:MarginConverter x:Key="MarginConverter"/>
-        <local:MessageBackgroundConverter x:Key="MessageBackgroundConverter"/>
+        <DataTemplate x:Key="UserMessageTemplate">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <Ellipse Width="40" Height="40" Fill="Gray" Margin="0,0,10,0"/>
+                <StackPanel>
+                    <Border Background="LightGray" Padding="10" CornerRadius="10">
+                        <TextBlock Text="{Binding Content}" />
+                    </Border>
+                    <TextBlock Text="{Binding Timestamp}" FontStyle="Italic" FontSize="12" Foreground="White"/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="AdminMessageTemplate">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                <StackPanel>
+                    <Border Background="LightBlue" Padding="10" CornerRadius="10">
+                        <TextBlock Text="{Binding Content}" />
+                    </Border>
+                    <TextBlock Text="{Binding Timestamp}" FontStyle="Italic" FontSize="12" Foreground="White"/>
+                </StackPanel>
+                <Ellipse Width="40" Height="40" Fill="Gray" Margin="10,0,0,0"/>
+            </StackPanel>
+        </DataTemplate>
+        <local:MessageTemplateSelector x:Key="MessageTemplateSelector"
+                                       UserMessageTemplate="{StaticResource UserMessageTemplate}"
+                                       AdminMessageTemplate="{StaticResource AdminMessageTemplate}" />
     </Page.Resources>
 
-    <Grid Padding="12" >
-        <!-- Cấu trúc cột -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <!-- Cột thứ nhất: thông tin người dùng -->
-            <ColumnDefinition Width="*"/>
-            <!-- Cột thứ hai: khung chat -->
-        </Grid.ColumnDefinitions>
-
-        <!-- Cột thứ nhất: Thông tin người dùng -->
-        <StackPanel Grid.Column="0" Background="#003333" Padding="8" CornerRadius="10" Margin="0,0,12,0">
-            <TextBlock Text="Danh sách khách hàng" 
-            FontSize="20" 
-            FontWeight="Bold" 
-            Foreground="White"
-            Margin="0,0,0,10"/>
-            <!-- Thêm nội dung tùy ý, ví dụ danh sách bạn bè hoặc nhóm chat -->
-            <ListView x:Name="CustomerListView" 
-    Background="#027c68" Foreground="FloralWhite" SelectionChanged="CustomerListView_SelectionChanged">
-                <ListViewItem Content="Khách 1"/>
-                <ListViewItem Content="Khách 2"/>
-                <ListViewItem Content="Khách 3"/>
-            </ListView>
-        </StackPanel>
-
-        <!-- Cột thứ hai: Khung chat chính -->
-        <Grid Grid.Column="1">
-            <!-- Cấu trúc hàng trong cột thứ hai -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <!-- Hàng thứ nhất: Khu vực hiển thị tin nhắn -->
-                <RowDefinition Height="Auto"/>
-                <!-- Hàng thứ hai: Khu vực nhập tin nhắn -->
-            </Grid.RowDefinitions>
-
-            <!-- Khu vực hiển thị tin nhắn -->
-            <ListView x:Name="MessagesListView"
-            Grid.Row="0"
-            Background="#003333"
-            Margin="0,0,0,10"
-            IsItemClickEnabled="False"
-            SelectionMode="None"
-            ItemsSource="{Binding Messages}"
-            >
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="local2:Message">
-                        <StackPanel Orientation="Horizontal"
-                        Margin="{Binding Sender, Converter={StaticResource MarginConverter}}"
-                        HorizontalAlignment="{Binding Sender, Converter={StaticResource HorizontalAlignmentConverter}}"
-                        >
-                            <Border Background="{x:Bind Sender, Converter={StaticResource MessageBackgroundConverter}}"
-                        CornerRadius="15"
-                        Padding="10"
-                        MaxWidth="250">
-                                <StackPanel>
-                                    <TextBlock Text="{x:Bind Content}"
-                                    TextWrapping="Wrap"
-                                    Foreground="White"/>
-                                    <TextBlock Text="{x:Bind Timestamp}"
-                                    FontSize="10"
-                                    Foreground="White"
-                                    HorizontalAlignment="Right"
-                                    Margin="0,5,0,0"/>
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <!-- Khu vực nhập tin nhắn -->
-            <Grid Grid.Row="1" 
-            Background="#003333" Padding="10" 
-            CornerRadius="15" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBox 
-                Grid.Column="0"   
-                x:Name="MessageTextBox"
-                PlaceholderText="Type here"
-                Background="Transparent"
-                Foreground="#b0e892"
-                BorderThickness="0"
-                Margin="5,0,5,0"
-                VerticalAlignment="Center"
-                />
-                <Button Grid.Column="1"
-        Background="#009933" Click="SendButton_Click">
-                    <FontIcon Glyph="&#xE724;" FontSize="20" Foreground="#b0e892" FontWeight="Bold" />
-                </Button>
-            </Grid>
-        </Grid>
+    <Grid>
+        <SplitView DisplayMode="Inline" IsPaneOpen="True" OpenPaneLength="300">
+            <SplitView.Pane>
+                <ListView ItemsSource="{Binding MessagesGroupedByCustomer}" SelectionChanged="OnCustomerSelected" Background="#003333">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="10">
+                                <Ellipse Width="40" Height="40" Fill="Gray" Margin="0,0,10,0"/>
+                                <TextBlock Text="{Binding Key}" x:Name="cusName" FontWeight="Bold" FontSize="16" Foreground="White"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ListView ItemsSource="{Binding SelectedCustomerMessages}" Grid.Row="0" Background="#003333">
+                        <ListView.ItemTemplateSelector>
+                            <StaticResource ResourceKey="MessageTemplateSelector" />
+                        </ListView.ItemTemplateSelector>
+                    </ListView>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10" HorizontalAlignment="Right">
+                        <TextBox x:Name="MessageInput" Width="Auto" HorizontalAlignment="Stretch" Margin="0,0,10,0" PlaceholderText="Type a message..." />
+                        <Button Content="Send" Click="OnSendButtonClick" />
+                    </StackPanel>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+        
     </Grid>
-
 
 </Page>

@@ -16,7 +16,9 @@ namespace SellingTree.IDao
     public interface IDaoMessage
     {
         List<Message> GetMessages();
-        List<Message> GetMessagesForCustomer(string customerName);
+        List<Message> GetMessagesForCustomer(int customerID);
+        Dictionary<int, List<Message>> GetMessagesGroupedByCustomer();
+        public void InsertMessage(Message message);
 
     }
     internal abstract class IDaoCollection
