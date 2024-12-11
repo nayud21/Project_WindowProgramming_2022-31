@@ -46,8 +46,7 @@ namespace SellingTree.View
         }
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
-            // Logout the user
-            SessionManager.Logout();
+            NavigationBarView.instance.logOut_Click(sender, e);
 
             // Navigate back to LoginPage
             this.Frame.Navigate(typeof(LoginPage));
