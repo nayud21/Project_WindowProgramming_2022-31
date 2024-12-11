@@ -62,9 +62,19 @@ namespace SellingTree
 
         private void chatButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Instance.SetFrame(typeof(ChatPage));
-            ShopListButton.IsEnabled = false;
-            ShopListButton.Visibility = Visibility.Visible;
+            if(SessionManager.IsLoggedIn())
+            {
+                if (SessionManager.IsAdmin())
+                {
+                    MainWindow.Instance.SetFrame(typeof(ChatPage));
+                }
+                else
+                    MainWindow.Instance.SetFrame(typeof(ChatPageCus));
+            }
+            else
+            {
+                MainWindow.Instance.SetFrame(typeof(LoginPage));
+            }
         }
 
         private void collectionButton_Click(object sender, RoutedEventArgs e)

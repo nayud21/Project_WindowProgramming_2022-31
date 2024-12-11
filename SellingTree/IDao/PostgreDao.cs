@@ -116,7 +116,7 @@ namespace SellingTree.IDao
                     Password = reader.GetString(2),
                     Name = reader.GetString(3),
                     ImageLocation = "https:/" +
-                                "/thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/avt/"+ reader.GetString(4),
+                                "/thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/avt/" + reader.GetString(4),
                     Type = reader.GetString(5)
 
                 };
@@ -386,7 +386,7 @@ namespace SellingTree.IDao
                     // Thực thi một truy vấn mẫu
                     using (var cmd = new NpgsqlCommand($"INSERT INTO orderProduct (userid, time, totalprice) VALUES ({order.UserID}, '{order.OrderDate}', {order.TotalPrice});", conn))
                     {
-                        
+
                         cmd.ExecuteNonQuery();
                     }
                     conn.Close();
@@ -508,6 +508,156 @@ namespace SellingTree.IDao
             {
                 Console.WriteLine($"Lỗi kết nối: {ex.Message}");
             }
+        }
+    }
+    public class PostgreDaoMessage : IDaoMessage
+    {
+        public List<Message> GetMessages()
+        {
+            var connString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
+            var messages = new List<Message>();
+            try
+
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    // Thực thi một truy vấn mẫu
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM messages ORDER BY timestamp", conn))
+                    {
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            var message = new Message
+                            {
+                                Sender = reader.GetString(0),
+                                Content = reader.GetString(1),
+                                Timestamp = reader.GetDateTime(2),
+                                CustomerID = reader.GetInt32(3)
+                            };
+                            messages.Add(message);
+                        }
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+            return messages;
+        }
+        public List<Message> GetMessagesForCustomer(int customerID)
+        {
+            var connString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
+            var messages = new List<Message>();
+            try
+
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    // Thực thi một truy vấn mẫu
+                    using (var cmd = new NpgsqlCommand($"SELECT * FROM messages WHERE messid = {customerID} ORDER BY timestamp", conn))
+                    {
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            var message = new Message
+                            {
+                                Sender = reader.GetString(0),
+                                Content = reader.GetString(1),
+                                Timestamp = reader.GetDateTime(2),
+                            };
+                            messages.Add(message);
+                        }
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+            return messages;
+        }
+        public Dictionary<int, List<Message>> GetMessagesGroupedByCustomer()
+        {
+            var connString = GetConnectionString();
+            var messagesGroupedByCustomer = new Dictionary<int, List<Message>>();
+            try
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM messages ORDER BY timestamp", conn))
+                    {
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            var message = new Message
+                            {
+                                Sender = reader.GetString(0),
+                                Content = reader.GetString(1),
+                                Timestamp = reader.GetDateTime(2),
+                                CustomerID = reader.GetInt32(3),
+                                Name = reader.GetString(4)
+                            };
+
+                            if (!messagesGroupedByCustomer.ContainsKey(message.CustomerID))
+                            {
+                                messagesGroupedByCustomer[message.CustomerID] = new List<Message>();
+                            }
+                            messagesGroupedByCustomer[message.CustomerID].Add(message);
+                        }
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+            return messagesGroupedByCustomer;
+        }
+        public void InsertMessage(Message message)
+        {
+            var connString = GetConnectionString();
+            try
+            {
+                using (var conn = new NpgsqlConnection(connString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("Kết nối thành công!");
+
+                    using (var cmd = new NpgsqlCommand($"INSERT INTO messages (sender, content, timestamp, messid, name) VALUES ('{message.Sender}', '{message.Content}', '{message.Timestamp}', {message.CustomerID}, '{message.Name}');", conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                    NpgsqlConnection.ClearPool(conn);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi kết nối: {ex.Message}");
+            }
+        }
+        private static string GetConnectionString()
+        {
+            return "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
         }
     }
 }

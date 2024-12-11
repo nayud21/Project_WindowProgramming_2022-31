@@ -42,6 +42,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<None Remove="CollectionPage.xaml" />
+		<None Remove="View\ChatPageCus.xaml" />
 		<None Remove="View\DictionaryPage.xaml" />
 		<None Remove="View\LoginPage.xaml" />
 		<None Remove="View\MainViewAdmin.xaml" />
@@ -126,22 +127,25 @@
 		<None Update="Assets\ShippingIcon.jpg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+    <Page Update="View\ChatPageCus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\ReviewsAndPayBack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\MoreOptionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\MoreOption\RentHostPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\MoreOption\OrderPlantPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\MoreOption\NavigationBarChildPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
 
-		<Page Update="View\ReviewsAndPayBack.xaml">
-
-		<Page Update="View\MoreOptionPage.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Update="View\MoreOption\RentHostPage.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Update="View\MoreOption\OrderPlantPage.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Update="View\MoreOption\NavigationBarChildPage.xaml">
-
-		  <Generator>MSBuild:Compile</Generator>
-		</Page>
 		<Page Update="View\MainViewAdmin.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
