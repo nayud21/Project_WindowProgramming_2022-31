@@ -15,12 +15,18 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
 	<ItemGroup>
+		<None Remove="Assets\back2.jpg" />
 		<None Remove="BlogPage.xaml" />
 		<None Remove="BlogPostPage.xaml" />
 		<None Remove="GroupCollectionDetails.xaml" />
+		<None Remove="View\AccountPage.xaml" />
+		<None Remove="View\AccountPageAdmin.xaml" />
+		<None Remove="View\BlogPageAdmin.xaml" />
 		<None Remove="View\ChatPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
+		<Content Remove="Assets\emojis.txt" />
+		<Content Remove="Assets\login-pic.jpg" />
 		<Content Remove="Assets\Picture1.jpg" />
 		<Content Remove="Assets\Picture10.jpg" />
 		<Content Remove="Assets\Picture11.jpg" />
@@ -37,6 +43,21 @@
 	</ItemGroup>
 	<ItemGroup>
 		<None Remove="CollectionPage.xaml" />
+		<None Remove="View\ChatPageCus.xaml" />
+		<None Remove="View\DictionaryPage.xaml" />
+		<None Remove="View\LoginPage.xaml" />
+		<None Remove="View\MainViewAdmin.xaml" />
+
+		<None Remove="View\ReviewsAndPayBack.xaml" />
+
+		<None Remove="View\MoreOptionPage.xaml" />
+		<None Remove="View\MoreOption\NavigationBarChildPage.xaml" />
+		<None Remove="View\MoreOption\OrderPlantPage.xaml" />
+		<None Remove="View\MoreOption\RentHostPage.xaml" />
+
+		<None Remove="View\ShopCartAdminView.xaml" />
+
+		<None Remove="View\SignUpPage.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -52,6 +73,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.756" />
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.240923002" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Npgsql" Version="9.0.1" />
 		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
 		<Manifest Include="$(ApplicationManifest)" />
 	</ItemGroup>
@@ -65,6 +88,9 @@
 		<ProjectCapability Include="Msix" />
 	</ItemGroup>
 	<ItemGroup>
+		<None Update="Assets\emojis.txt">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 		<None Update="Assets\Picture1.jpg">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
@@ -104,6 +130,49 @@
 		<None Update="Assets\ShippingIcon.jpg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<Page Update="View\SignUpPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\BlogPageAdmin.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+    <Page Update="View\ChatPageCus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\ReviewsAndPayBack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\MoreOptionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\MoreOption\RentHostPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\MoreOption\OrderPlantPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="View\MoreOption\NavigationBarChildPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+
+		<Page Update="View\MainViewAdmin.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\AccountPageAdmin.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\ShopCartAdminView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\DictionaryPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\AccountPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\LoginPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
 		<Page Update="GroupCollectionDetails.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
@@ -123,9 +192,6 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="View\" />
-	</ItemGroup>
-	<ItemGroup>
 		<Content Update="Assets\blog01.jpg">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
@@ -140,6 +206,36 @@
 		</Content>
 		<Content Update="Assets\blog05.jpg">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<None Update="Assets\login-pic.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<Content Update="Assets\Picture13.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\Picture14.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\Picture15.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\Picture16.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\Picture17.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\Picture18.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\Picture19.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\Picture20.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\Picture21.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
 	<ItemGroup>

@@ -11,6 +11,7 @@
     <Page.Resources>
         <local:IntToVNDIConverter x:Key="MoneyConverter"/>
         <local:QuantityToStringIConverter x:Key="QuantityConverter"/>
+        <local:TextToPopupTextConverter x:Key="PopupConverter"/>
     </Page.Resources>
     <Grid Background="LightGray">
         <Grid Background="White" Width="1000" Margin="0,20,0,20">
@@ -25,9 +26,9 @@
                         <StackPanel Orientation="Vertical" Width="200">
                             <Grid>
                                 <Image Source="{Binding ImageSource}" Height="160" Width="160"
-                                   Loaded="Image_Loaded" Tapped="Image_Tapped"
+                                   Tapped="Image_Tapped" Tag="{Binding ImageSource}"
                                     PointerEntered="OnPointerEntered" PointerExited="OnPointerExited"/>
-                                <Button Background="White" Click="ButtonBuy_Clicked" Loaded="Button_Loaded"
+                                <Button Background="White" Click="ButtonBuy_Clicked" Tag="{Binding ImageSource}"
                                     HorizontalAlignment="Right" VerticalAlignment="Bottom">
                                     <FontIcon Glyph="&#xE7BF;"/>
                                 </Button>
@@ -45,8 +46,10 @@
                             
                             <Popup  IsOpen="False" Loaded="Popup_Loaded">
                                 <Border Background="White" BorderBrush="Black" BorderThickness="1" 
-                                    Padding="10">
-                                    <TextBlock Text="{Binding Description}"/>
+                                    Padding="5">
+                                    <TextBlock Text= "{Binding Description, 
+                                        Converter = {StaticResource PopupConverter}}" 
+                                               TextWrapping="Wrap" MaxWidth="300"/>
                                 </Border>
                             </Popup>
 

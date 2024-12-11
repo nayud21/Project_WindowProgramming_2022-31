@@ -3,14 +3,14 @@ using System.Collections.ObjectModel;
 
 namespace SellingTree.Model
 {
-    public class Product
+    public class Product : Plant
     {
+        public int PID { get; set; }
         public string ImageSource { get; set; }
 
         public ObservableCollection<String> ImageSources { get; set; }
-        public string Name { get; set; }
+        = new ObservableCollection<String> ();
         public int Price { get; set; }
-        public string Description { get; set; }
         public int Sold { get; set; }
         public int Stored { get; set; }
     }

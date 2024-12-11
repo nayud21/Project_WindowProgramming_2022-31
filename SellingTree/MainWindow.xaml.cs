@@ -31,6 +31,7 @@ namespace SellingTree
             this.InitializeComponent();
             Frame1.Navigate(typeof(NavigationBarView));
             Frame2.Navigate(typeof(MainView));
+            
             Instance = this;
         }
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -41,13 +42,22 @@ namespace SellingTree
         {
             
         }
-        public void SetFrame(Type type, Product product = null)
+        public Type GetFrame() => Frame2.Content as Type;
+
+        public void SetFrame(Type type, Product product = null, float Average = -1)
         {
+            if (Average != -1)
+                Frame2.Content = new ReviewsAndPayBack(product, Average);
+            else
             if (product == null) 
                 Frame2.Navigate(type);
             else 
                 Frame2.Content = new ProductView(product);
         }
-       
+
+        private void Window_Closed(object sender, WindowEventArgs args)
+        {
+            NavigationBarView.instance.logOut_Click(sender, new RoutedEventArgs());
+        }
     }
 }

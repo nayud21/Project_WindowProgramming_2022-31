@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="SellingTree.View.SignUpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SellingTree.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Background>
+        <ImageBrush ImageSource="ms-appx:///Assets/back2.jpg" Stretch="UniformToFill" Opacity="0.5"/>
+    </Page.Background>
+    <Grid Background="White" Height="400" Width="800" CornerRadius="32">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="384"/>
+            <ColumnDefinition Width="416"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0" >
+            <TextBlock Text="Sign up" FontSize="30" Margin="10,10,10,10" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="errorTextBlock" Foreground="Red" TextWrapping="Wrap" Margin="30,10,10,10" />
+            <TextBox x:Name="nameTextBox" PlaceholderText="Name" Margin="10,10,10,10" Width="320" CornerRadius="10"/>
+            <TextBox x:Name="usernameTextBox" PlaceholderText="Username" Margin="10,10,10,10" Width="320" CornerRadius="10"/>
+            <PasswordBox x:Name="passwordBox" PlaceholderText="Password" Margin="10,10,10,10" Width="320" CornerRadius="10"/>
+            <PasswordBox x:Name="againpasswordBox" PlaceholderText="Again Password" Margin="10,10,10,10" Width="320" CornerRadius="10"/>
+            <Button x:Name="regisButton"
+                Margin="10,10,10,10" Click="regisButton_Click"
+                Width="320" Background="#3A5B22" 
+                Foreground="White" HorizontalAlignment="Center"
+                FontWeight="ExtraBold"
+                CornerRadius="10">
+                <StackPanel Orientation="Horizontal">
+                    <ProgressRing x:Name="loginRing" Visibility="Collapsed" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="signText" Text="Sign up" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Border  Grid.Column="1" CornerRadius="32">
+            <Image Source="ms-appx:///Assets/login-pic.jpg" Stretch="UniformToFill" />
+        </Border>
+    </Grid>
+</Page>

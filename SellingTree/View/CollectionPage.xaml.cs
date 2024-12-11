@@ -27,6 +27,7 @@ namespace SellingTree
     {
 
         GroupCollectionViewModel CollectionViewModel = new GroupCollectionViewModel();
+        
 
         Dictionary<String, int> hashGroup = new Dictionary<String, int>
         {

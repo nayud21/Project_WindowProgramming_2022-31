@@ -11,8 +11,7 @@ namespace SellingTree
 {
     class Review
     {
-        public String Username { get; set; }
-        public string AvatarSource { get; set; }
+        public User user {  get; set; }
         public int Score { get; set; }
 
         public String Date { get; set; }

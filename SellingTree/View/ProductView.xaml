@@ -51,12 +51,13 @@
                 </ScrollViewer>
             </Grid>
 
-            <Grid Grid.Column="1" Height="400" VerticalAlignment="Top" Margin="0,10,0,0">
+            <Grid Grid.Column="1" Margin="0,10,0,10" RowSpacing="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
@@ -81,12 +82,13 @@
                                Foreground="Red" FontFamily="Sitka" VerticalAlignment="Center"
                            FontSize="26"/>
                 </Border>
-                <TextBlock Text="{Binding Product.Description}" Grid.Row="3" Margin="5,0,0,0"/>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="3">
+                <TextBlock Text="{Binding Product.Description}" Grid.Row="3" Margin="5,0,10,0" 
+                           TextWrapping="Wrap" LineHeight="23"/>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="4">
                     <Image Source="ms-appx:///Assets/ShippingIcon.jpg" Width="30" Height="30"/>
                     <TextBlock Text="Giao hàng miễn phí toàn quốc" Margin="10,0,0,0"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="4">
+                <StackPanel Orientation="Horizontal" Grid.Row="5">
                     <TextBlock Text="Số lượng: " VerticalAlignment="Center" Margin="0,0,10,0"/>
                     <NumberBox x:Name="QuantityBox" SpinButtonPlacementMode="Inline" 
                            Value="1" Minimum="1" Height="40" VerticalAlignment="Center"
@@ -97,7 +99,7 @@
                     </TextBlock>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Grid.Row="5">
+                <StackPanel Orientation="Horizontal" Grid.Row="6">
                     <Button Click="ShopList_Added">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE7BF;" />
@@ -112,6 +114,8 @@
         <Grid Background="White" Width="1000" Margin="0,10,0,30" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
@@ -136,7 +140,7 @@
                            FontSize="16" HorizontalAlignment="Center" />
             </Border>
 
-            <Grid  Grid.Row="2">
+            <Grid Grid.Row="2">
                 <ItemsControl ItemsSource="{Binding ItemsData}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -145,11 +149,10 @@
                                     <StackPanel Orientation="Horizontal">
                                         <Border Width="40" Height="40" CornerRadius="20" 
                                                 Background="Transparent">
-                                            <Image Source="{Binding AvatarSource}" Width="40" Height="40" 
-                                                Stretch="UniformToFill" />
+                                            <PersonPicture ProfilePicture="{Binding user.ImageLocation}" Width="40" Height="40"/>
                                         </Border>
                                         <StackPanel Orientation="Vertical" Margin="8,0,0,0">
-                                            <TextBlock Text="{Binding Username}" FontSize="10"/>
+                                            <TextBlock Text="{Binding user.Name}" FontSize="10"/>
                                             <RatingControl Value="{Binding Score}" MaxRating="5" 
                                                            IsReadOnly="True" HorizontalAlignment="Left"/>
 
@@ -164,6 +167,12 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
 
+            </Grid>
+        
+        <TextBox Grid.Row="3" x:Name="errorTextBox"/>
+        <Grid Grid.Row="4"  HorizontalAlignment="Center">
+            
+            <Button x:Name="NewReviewButton" Content="TẠO ĐÁNH GIÁ" Foreground="White" Background="Green" Click="NewReview_Clicked"/>
             </Grid>
         </Grid>
     </Grid>

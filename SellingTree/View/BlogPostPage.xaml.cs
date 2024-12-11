@@ -12,6 +12,8 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using SellingTree.IDao;
+using SellingTree.Model;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -29,7 +31,23 @@ namespace SellingTree
         }
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            // Xử lý khi nhấn nút "Đăng Bài"
+            string title = TitleTextBox.Text;
+            string description = ContentTextBox.Text;
+            string imageLocation = "https://thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/Blog/blog01.jpg";
+            int likes = 0;
+            int views = 0;
+
+            //Lưu vào cơ sở dữ liệu
+            IDaoBlog dao = new PostgreDaoBlog();
+            dao.InsertBlog(new Blog
+            {
+                Title = title,
+                Description = description,
+                ImageLocation = imageLocation,
+                Likes = likes,
+                Views = views
+            });
+            Frame.GoBack();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

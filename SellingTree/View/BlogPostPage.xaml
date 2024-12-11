@@ -11,11 +11,10 @@
     <Page.Resources>
         <Style x:Key="CustomTextBoxStyle" TargetType="TextBox">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{ThemeResource SolidBackgroundFillColorBaseAltBrush}"/>
+            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="BorderBrush" Value="Gray"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="CornerRadius" Value="12"/>
-            
             <Setter Property="PlaceholderForeground" Value="DarkGray"/>
         </Style>
     </Page.Resources>

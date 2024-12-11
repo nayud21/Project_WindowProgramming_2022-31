@@ -9,9 +9,15 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    
+    <Page.Resources>
+        <local:IntToVisibilityIConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
     <Grid Background="Green">
-        <StackPanel Orientation="Horizontal">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="0">
             <Button x:Name="MainPageButton" Margin="10,0,0,0" Click="MainPageButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <FontIcon Glyph="&#xE80F;" />
@@ -21,15 +27,40 @@
             <Button x:Name="ShopListButton" Margin="10,0,0,0" Click="ShopListButton_Clicked">
                 <StackPanel Orientation="Horizontal">
                     <FontIcon Glyph="&#xE7BF;" />
-                    <TextBlock Margin="0,0,0,0">
-                        <Run Text="Giỏ hàng ( "/><Run Text="{Binding Count, Mode=OneWay}"/>
-                        <Run Text=")"/>
-                    </TextBlock>
+                    <TextBlock Margin="0,0,0,0" Text="Giỏ hàng"/>
+                    <InfoBadge Background="Green"
+                               Value="{Binding Count, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Top"
+                        Visibility="{Binding Count, Converter={StaticResource VisibilityConverter}}">
+                        
+                        <InfoBadge.IconSource>
+                            <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xF13C;" />
+                        </InfoBadge.IconSource>
+                    </InfoBadge>
+
                 </StackPanel>
             </Button>
             <Button x:Name="blogButton" Click="blogButton_Click" Margin="10,0,0,0">Blog</Button>
             <Button x:Name="chatButton" Click="chatButton_Click" Margin="10,0,0,0">Chat</Button>
             <Button x:Name="collectionButton" Click="collectionButton_Click" Margin="10,0,0,0">Collection</Button>
+            <Button x:Name="dictionaryButton" Click="dictionaryButton_Click" Margin="10,0,0,0">Dictionary</Button>
+            <Button x:Name="moreOption" Click="moreOption_Click" Margin="10,0,0,0">More Option</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+            <DropDownButton x:Name="UserDropDown" Visibility="Collapsed">
+                <DropDownButton.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <PersonPicture x:Name="userImage" Width="20" Height="20"/>
+                        <TextBlock x:Name="UserName" Text="Name" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DropDownButton.Content>
+                <DropDownButton.Flyout>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuFlyoutItem Text="Danh sách" Click="accountPage_Click"/>
+                        <MenuFlyoutItem Text="Đăng xuất" Click="logOut_Click"/>
+                    </MenuFlyout>
+                </DropDownButton.Flyout>
+            </DropDownButton>
+            <Button x:Name="accountButton" Click="accountButton_Click" Margin="10,0,10,0">Account</Button>
         </StackPanel>
     </Grid>
 </Page>

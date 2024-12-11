@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="SellingTree.View.AccountPageAdmin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SellingTree.Model"
+    xmlns:local2="using:SellingTree.Model"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Account Information Section -->
+        <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
+            <Image x:Name="avatarImage" Width="100" Height="100" Margin="10"/>
+            <TextBlock Text="Account" FontSize="30" Margin="10" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="usernameTextBlock" Margin="10" HorizontalAlignment="Center"/>
+            <Button x:Name="logoutButton" Content="Logout" Margin="10" HorizontalAlignment="Center" Click="logoutButton_Click"/>
+        </StackPanel>
+
+        <!-- Orders Management Section -->
+        <StackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
+            <TextBlock Text="Quản lí đơn hàng" FontSize="30" Margin="10" HorizontalAlignment="Center"/>
+            <ListView x:Name="ordersListView" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Order">
+                        <Border BorderThickness="1" BorderBrush="Gray" Margin="5" Padding="10" CornerRadius="10">
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Order ID:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{x:Bind OrderID}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Order Date:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{x:Bind OrderDate}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Total Price:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{x:Bind TotalPrice}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <!-- Products Management Section -->
+        <StackPanel Orientation="Vertical" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
+            <TextBlock Text="Quản lí sản phẩm" FontSize="30" Margin="10" HorizontalAlignment="Center"/>
+            <Button x:Name="addProductButton" Content="Thêm sản phẩm" Margin="10" HorizontalAlignment="Center" Click="AddProductButton_Click"/>
+            <ListView x:Name="productsListView" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Product">
+                        <Border BorderThickness="1" BorderBrush="Gray" Margin="5" Padding="10" CornerRadius="10">
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Product ID:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{x:Bind PID}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Product Name:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{x:Bind Name}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Price:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{x:Bind Price}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content="Xóa" Click="DeleteProductButton_Click" DataContext="{x:Bind}" Margin="5"/>
+                                    <Button Content="Sửa" Click="EditProductButton_Click" DataContext="{x:Bind}" Margin="5"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <!-- Add Product Dialog -->
+        <ContentDialog x:Name="addProductDialog" Title="Thêm sản phẩm" PrimaryButtonText="Thêm" SecondaryButtonText="Hủy" PrimaryButtonClick="AddProductDialog_PrimaryButtonClick">
+            <StackPanel>
+                <TextBox x:Name="addProductNameTextBox" Header="Tên sản phẩm" Margin="0,10,0,0"/>
+                <TextBox x:Name="addProductDescriptionTextBox" Header="Mô tả" Margin="0,10,0,0"/> 
+                <TextBox x:Name="addProductPriceTextBox" Header="Giá" Margin="0,10,0,0"/>
+                <TextBox x:Name="addProductImageTextBox" Header="Link ảnh" Margin="0,10,0,0"/>
+                <TextBox x:Name="addProductStoreTextBox"  Header="Số lượng" Margin="0,10,0,0"/>
+            </StackPanel>
+        </ContentDialog>
+
+        <!-- Edit Product Dialog -->
+        <ContentDialog x:Name="editProductDialog" Title="Sửa sản phẩm" PrimaryButtonText="Lưu" SecondaryButtonText="Hủy" PrimaryButtonClick="EditProductDialog_PrimaryButtonClick">
+            <StackPanel>
+                <TextBox x:Name="editProductNameTextBox" Header="Tên sản phẩm" Margin="0,10,0,0"/>
+                <TextBox x:Name="editProductDescriptionTextBox" Header="Mô tả" Margin="0,10,0,0"/>
+                <TextBox x:Name="editProductPriceTextBox" Header="Giá" Margin="0,10,0,0"/>
+                <TextBox x:Name="editProductStoreTextBox"  Header="Số lượng" Margin="0,10,0,0"/>
+            </StackPanel>
+        </ContentDialog>
+
+        <!-- Delete Product Dialog -->
+        <ContentDialog x:Name="deleteProductDialog" Title="Xóa sản phẩm" PrimaryButtonText="Xóa" SecondaryButtonText="Hủy" PrimaryButtonClick="DeleteProductDialog_PrimaryButtonClick">
+            <TextBlock>Bạn có chắc chắn muốn xóa sản phẩm này không?</TextBlock>
+            
+        </ContentDialog>
+    </Grid>
+</Page>

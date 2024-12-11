@@ -49,7 +49,7 @@
             <TextBlock x:Name="Cost" Grid.Column="3" Grid.Row="3" 
                        VerticalAlignment="Center" HorizontalAlignment="Left"
                        Text="{Binding TotalValue, Mode=TwoWay, Converter={StaticResource MoneyConverter}}"/>
-            <Button Grid.Column="4" Grid.Row="3" Background="Green">Mua hàng</Button>
+            <Button Grid.Column="4" Grid.Row="3" Background="Green" x:Name="pay" Click="pay_Click">Mua hàng</Button>
 
             <ItemsControl ItemsSource="{Binding Items}" Grid.Row="1" Grid.ColumnSpan="5">
                 <ItemsControl.ItemTemplate>
@@ -73,9 +73,10 @@
                                             VerticalAlignment="Center"/>
                                 </StackPanel>
                             </StackPanel>
-                            <TextBlock Text="{Binding product.Price, Converter={StaticResource MoneyConverter}}" VerticalAlignment="Center" Grid.Column="1"/>
+                            <TextBlock Text="{Binding product.Price, Converter={StaticResource MoneyConverter}}" 
+                                       VerticalAlignment="Center" Grid.Column="1"/>
                             <NumberBox Value="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                       Minimum="0" Width="60"  SpinButtonPlacementMode="Compact"
+                                       Minimum="1" Width="60"  SpinButtonPlacementMode="Compact"
                                        HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="2"/>
 
                             <TextBlock Text="{Binding Cost, Mode = TwoWay, Converter={StaticResource MoneyConverter}}" 

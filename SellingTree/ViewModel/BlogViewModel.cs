@@ -5,15 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using SellingTree.Model;
 using SellingTree.IDao;
+using System.Collections.ObjectModel;
 namespace SellingTree.ViewModel
 {
     public class BlogViewModel
     {
-        public List<Blog> Blogs { get; set; }
+        public ObservableCollection<Blog> Blogs { get; set; }
+
         public BlogViewModel()
         {
-            SellingTree.IDao.IDaoBlog dao = new MockDaoBlog();
-            Blogs = dao.GetBlogs();
+            SellingTree.IDao.IDaoBlog dao = new PostgreDaoBlog();
+            var blogs = dao.GetBlogs();
+            Blogs = new ObservableCollection<Blog>(blogs);
         }
+
     }
 }

@@ -9,31 +9,42 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:Name="grid1">
+    <Grid x:Name="grid1" Margin="0,30,0,0" ColumnSpacing="50">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="600"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="0" ColumnSpacing="5" RowSpacing="5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="300"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Row="0" Grid.Column="0" Source="{x:Bind Collection.ListImages[0]}"/>
-            <Image Grid.Row="0" Grid.Column="1" Source="{x:Bind Collection.ListImages[1]}"/>
-            <Image Grid.Row="1" Grid.Column="0" Source="{x:Bind Collection.ListImages[2]}"/>
-            <Image Grid.Row="1" Grid.Column="1" Source="{x:Bind Collection.ListImages[3]}"/>
+            <Image x:Name="image1" Grid.Row="0" Grid.Column="0" Source="{x:Bind Collection.ProductCollection[0].Image}" Tag="0" PointerPressed="Image_PointerPressed"/>
+            <Image x:Name="image2" Grid.Row="0" Grid.Column="1" Source="{x:Bind Collection.ProductCollection[1].Image}" Tag="1" PointerPressed="Image_PointerPressed"/>
+            <Image x:Name="image3" Grid.Row="1" Grid.Column="0" Source="{x:Bind Collection.ProductCollection[2].Image}" Tag="2" PointerPressed="Image_PointerPressed"/>
+            <Image x:Name="image4" Grid.Row="1" Grid.Column="1" Source="{x:Bind Collection.ProductCollection[3].Image}" Tag="3" PointerPressed="Image_PointerPressed"/>
 
         </Grid>
-        
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" Spacing="40" Width="800">
+            <StackPanel Orientation="Vertical" Spacing="10">
+                <TextBlock Text="Mô tả" FontWeight="Bold"/>
+                <TextBlock x:Name="description" Text=""/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Spacing="10">
+                <TextBlock Text="Ý Nghĩa" FontWeight="Bold"/>
+                <TextBlock x:Name="meaning" Text=""/>
+            </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Page>
