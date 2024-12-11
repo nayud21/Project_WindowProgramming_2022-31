@@ -5,6 +5,18 @@
     <None Update="App.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Update="View\MoreOptionPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MoreOption\RentHostPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MoreOption\OrderPlantPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MoreOption\NavigationBarChildPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\MainViewAdmin.xaml">
       <SubType>Designer</SubType>
     </Page>
