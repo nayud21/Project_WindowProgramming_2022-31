@@ -43,6 +43,7 @@
             <Button x:Name="chatButton" Click="chatButton_Click" Margin="10,0,0,0">Chat</Button>
             <Button x:Name="collectionButton" Click="collectionButton_Click" Margin="10,0,0,0">Collection</Button>
             <Button x:Name="dictionaryButton" Click="dictionaryButton_Click" Margin="10,0,0,0">Dictionary</Button>
+            <Button x:Name="moreOption" Click="moreOption_Click" Margin="10,0,0,0">More Option</Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
             <DropDownButton x:Name="UserDropDown" Visibility="Collapsed">
