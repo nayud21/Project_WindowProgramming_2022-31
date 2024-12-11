@@ -18,15 +18,20 @@
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" Grid.Column="0" > 
             <TextBlock Text="Login" FontSize="30" Margin="10,10,10,10" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="errorTextBlock" Foreground="Red" TextWrapping="Wrap" Margin="30,10,10,10" />
             <TextBox x:Name="usernameTextBox" PlaceholderText="Username" Margin="10,10,10,10" Width="320" CornerRadius="10"/>
             <PasswordBox x:Name="passwordBox" PlaceholderText="Password" Margin="10,10,10,10" Width="320" CornerRadius="10"/>
-            <Button x:Name="loginButton" Content="Login" 
+            <Button x:Name="loginButton"
                     Margin="10,10,10,10" Click="loginButton_Click" 
                     Width="320" Background="#3A5B22" 
                     Foreground="White" HorizontalAlignment="Center"
                     FontWeight="ExtraBold"
-                    CornerRadius="10"
-                    />
+                    CornerRadius="10">
+                <StackPanel Orientation="Horizontal">
+                    <ProgressRing x:Name="loginRing" Visibility="Collapsed" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="loginText" Text="Login" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
         <Border  Grid.Column="1" CornerRadius="32">
         <Image Source="ms-appx:///Assets/login-pic.jpg" Stretch="UniformToFill" />

@@ -22,7 +22,7 @@ namespace SellingTree.Model
                 _product = ProductHandle.findProductByName(nameProduct);
             }
             catch { }
-            _image = new BitmapImage(new Uri("ms-appx:///Assets/ShippingIcon.jpg"));
+            _image = new BitmapImage(new Uri(_product.ImageSource));
             this._meaning = meaning;
         }
 

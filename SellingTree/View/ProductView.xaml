@@ -116,6 +116,8 @@
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <Border Margin="5,10,50,10" Background="LightYellow" Padding="5,5,0,5">
@@ -138,7 +140,7 @@
                            FontSize="16" HorizontalAlignment="Center" />
             </Border>
 
-            <Grid  Grid.Row="2">
+            <Grid Grid.Row="2">
                 <ItemsControl ItemsSource="{Binding ItemsData}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -165,6 +167,12 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
 
+            </Grid>
+        
+        <TextBox Grid.Row="3" x:Name="errorTextBox"/>
+        <Grid Grid.Row="4"  HorizontalAlignment="Center">
+            
+            <Button x:Name="NewReviewButton" Content="TẠO ĐÁNH GIÁ" Foreground="White" Background="Green" Click="NewReview_Clicked"/>
             </Grid>
         </Grid>
     </Grid>

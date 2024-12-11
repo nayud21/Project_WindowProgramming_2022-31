@@ -15,6 +15,8 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using SellingTree.Model;
 using System.Diagnostics;
+using Microsoft.UI.Xaml.Media.Imaging;
+using SellingTree.IDao;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -25,53 +27,37 @@ namespace SellingTree
     /// </summary>
     public sealed partial class NavigationBarView : Page
     {
+        public static NavigationBarView instance;
+        public PostgreDaoUser _postgreDaoUser;
         public NavigationBarView()
         {
             this.InitializeComponent();
             DataContext = ShopListViewModel.instance;
-           
+
+            instance = this;
+            _postgreDaoUser = new PostgreDaoUser();
+
         }
 
         private void ShopListButton_Clicked(object sender, RoutedEventArgs e)
-
         {
-            if ( !SessionManager.IsLoggedIn() || SessionManager.CurrentUser.Type=="user")
-            {
-
-                MainWindow.Instance.SetFrame(typeof(ShopCartView));
-                //ShopListButton.IsEnabled = false;
-                //ShopListButton.Visibility = Visibility.Collapsed;
-
-            }
-            else
-            {
-                MainWindow.Instance.SetFrame(typeof(ShopCartAdminView));
-            }
+            MainWindow.Instance.SetFrame(typeof(ShopCartView));
+            ShopListButton.IsEnabled = false;
+            ShopListButton.Visibility = Visibility.Collapsed;
         }
 
         private void MainPageButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!SessionManager.IsLoggedIn() || SessionManager.CurrentUser.Type == "user")
-            {
-
-                MainWindow.Instance.SetFrame(typeof(MainView));
-                //ShopListButton.IsEnabled = false;
-                //ShopListButton.Visibility = Visibility.Collapsed;
-
-            }
-            else
-            {
-                MainWindow.Instance.SetFrame(typeof(MainView));
-            }
-         
-            
+            MainWindow.Instance.SetFrame(typeof(MainView));
+            ShopListButton.IsEnabled = true;
+            ShopListButton.Visibility = Visibility.Visible;
         }
 
         private void blogButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.Instance.SetFrame(typeof(BlogPage));
-            //ShopListButton.IsEnabled = false;
-            //ShopListButton.Visibility = Visibility.Visible;
+            ShopListButton.IsEnabled = false;
+            ShopListButton.Visibility = Visibility.Visible;
         }
 
         private void chatButton_Click(object sender, RoutedEventArgs e)
@@ -89,27 +75,21 @@ namespace SellingTree
             {
                 MainWindow.Instance.SetFrame(typeof(LoginPage));
             }
-           
         }
 
         private void collectionButton_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Collection Button Clicked");
             MainWindow.Instance.SetFrame(typeof(CollectionPage));
-           // ShopListButton.IsEnabled = false;
-           //ShopListButton.Visibility = Visibility.Visible;
+            // ShopListButton.IsEnabled = false;
+            //ShopListButton.Visibility = Visibility.Visible;
         }
 
         private void accountButton_Click(object sender, RoutedEventArgs e)
         {
             if (SessionManager.IsLoggedIn())
             {
-                if (SessionManager.IsAdmin())
-                {
-                    MainWindow.Instance.SetFrame(typeof(AccountPageAdmin));
-                }
-                else
-                    MainWindow.Instance.SetFrame(typeof(AccountPage));
+                MainWindow.Instance.SetFrame(typeof(AccountPage));
             }
             else
             {
@@ -122,6 +102,37 @@ namespace SellingTree
         private void dictionaryButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.Instance.SetFrame(typeof(DictionaryPage));
+        }
+
+        public void setUser(User user)
+        {
+            UserDropDown.Visibility = Visibility.Visible;
+            accountButton.Visibility = Visibility.Collapsed;
+            UserName.Text = user.Name;
+            //userImage.ProfilePicture = new BitmapImage(new Uri(user.ImageLocation));
+        }
+
+        private void accountPage_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.SetFrame(typeof(AccountPage));
+        }
+
+        public void logOut_Click(object sender, RoutedEventArgs e)
+        {
+            if (SessionManager.CurrentUser != null)
+            {
+                _postgreDaoUser.Logout(SessionManager.CurrentUser.UserId);
+                SessionManager.Logout();
+            }
+            UserDropDown.Visibility = Visibility.Collapsed;
+            accountButton.Visibility = Visibility.Visible;
+
+
+
+        private void moreOption_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.SetFrame(typeof(MoreOptionPage));
+
         }
     }
 }

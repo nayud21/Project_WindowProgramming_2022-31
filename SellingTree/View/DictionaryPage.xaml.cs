@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 using SellingTree.Model;
 using System;
@@ -28,7 +29,7 @@ namespace SellingTree.View
         private readonly PlantService _plantService;
 
         private int pageIn = 1;
-        private string _currentSearchTerm = null;
+        private string _currentSearchTerm = "";
 
         public DictionaryPage()
         {
@@ -69,16 +70,22 @@ namespace SellingTree.View
             var selectedPlant = PlantList.SelectedItem as PlantDictionary;
             if (selectedPlant != null)
             {
-                try
-                {
-                    // Lấy chi tiết về cây đã chọn từ API
-                    var plantDetail = await _plantService.GetPlantByIdAsync(selectedPlant.Id);
-                    PlantInfo.Text = $"{plantDetail.CommonName}\n{plantDetail.ScientificName}\nFamily: {plantDetail.Family}";
-                }
-                catch (Exception ex)
-                {
-                    PlantInfo.Text = $"Error loading plant details: {ex.Message}";
-                }
+                PlantInfo.Text = $"Common Name: {selectedPlant.CommonName}\n" +
+                 $"Scientific Name: {selectedPlant.ScientificName}\n" +
+                 $"Year: {selectedPlant.Year}\n" +
+                 $"Bibliography: {selectedPlant.Bibliography}\n" +
+                 $"Author: {selectedPlant.Author}\n" +
+                 $"Status: {selectedPlant.Status}\n" +
+                 $"Rank: {selectedPlant.Rank}\n" +
+                 $"Family Common Name: {selectedPlant.FamilyCommonName}\n" +
+                 $"Genus ID: {selectedPlant.genus_id}\n" +
+                 "\nSynonyms:\n" +
+                 $"Genus: {selectedPlant.Genus}\n" +
+                 $"Family: {selectedPlant.Family}\n";
+
+                BitmapImage bitmapImage = new BitmapImage();
+                bitmapImage.UriSource = new Uri(selectedPlant.ImageUrl);
+                ImageInfo.Source = bitmapImage;
             }
         }
 
@@ -128,6 +135,7 @@ namespace SellingTree.View
             string searchTerm = SearchBox.Text; // Lấy từ khóa tìm kiếm
             pageIn = 1;
             pageNum.Text = pageIn.ToString();
+            _currentSearchTerm = searchTerm.ToLower();
             await LoadPlants();
         }
     }
