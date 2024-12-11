@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -33,6 +33,10 @@ namespace SellingTree.View
 
         private async void loginButton_Click(object sender, RoutedEventArgs e)
         {
+            loginButton.IsEnabled = false;
+            loginRing.Visibility = Visibility.Visible;
+            loginText.Text = "Login in...";
+            errorTextBlock.Text = "";
             string username = usernameTextBox.Text;
             string password = passwordBox.Password;
 
@@ -46,17 +50,23 @@ namespace SellingTree.View
                 {
                     // Navigate to AccountPageAdmin
                     this.Frame.Navigate(typeof(AccountPageAdmin));
+
                 }
                 else
                 {
                     // Navigate to AccountPage
                     this.Frame.Navigate(typeof(AccountPage));
                 }
+                NavigationBarView.instance.setUser(user);
+                
             }
             else
             {
                 // Show error message
-            
+                loginRing.Visibility = Visibility.Collapsed;
+                errorTextBlock.Text = "Lỗi! Tên đăng nhập hoặc mật khẩu sai hoặc đã có người đăng nhập!";
+                loginText.Text = "Login";
+                loginButton.IsEnabled = true;
             }
         }
     }

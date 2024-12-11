@@ -12,62 +12,20 @@ namespace SellingTree
     class ShopListViewModel : INotifyPropertyChanged
     {
         public static ShopListViewModel instance = new ShopListViewModel();
-        private FullObservableCollection<PageChanger> pageChangerButton = PageChanger.getPageChanger(1, 1);
-
-        public FullObservableCollection<PageChanger> PageChangerButton
-        {
-            get => pageChangerButton;
-            set
-            {
-                pageChangerButton = value;
-                OnPropertyChanged(nameof(PageChangerButton));
-            }
-
-        }
+        public FullObservableCollection<PageChanger> PageChangerButton { get; set; } = PageChanger.getPageChanger(1,1);
         private List<MyShoppingItem> ItemsData { get; set; }
+        public FullObservableCollection<MyShoppingItem> Items { get; set; }
 
-        public FullObservableCollection<MyShoppingItem> items;
-        public FullObservableCollection<MyShoppingItem> Items
-        {
-            get => items;
-            set
-            {
-                items = value;
-                OnPropertyChanged(nameof(Items));
-            }
-        }
-
-        private int MaxValue;
-        public int _count;
-        public int Count
-        {
-            get => _count;
-            set
-            {
-                _count = value;
-                OnPropertyChanged(nameof(Count));
-            }
-        }
-
-        public int _currentPage;
-        public int CurrentPage
-        {
-            get => _currentPage;
-            set
-            {
-                _currentPage = value;
-                OnPropertyChanged(nameof(CurrentPage));
-            }
-        }
-
-        public int _selectedCount;
+        public int Count => ItemsData.Count;
+        public int CurrentPage { get; set; }
         public int SelectedCount
         {
-            get => _selectedCount;
-            set
+            get
             {
-                _selectedCount = value;
-                OnPropertyChanged(nameof(SelectedCount));
+                int Counting = 0;
+                foreach(var item in ItemsData)
+                    if(item.IsChecked) Counting++;
+                return Counting;
             }
         }
 
@@ -89,111 +47,90 @@ namespace SellingTree
                 foreach (var item in ItemsData)
                     item.IsChecked = value;
 
+                OnPropertyChanged(nameof(SelectedCount));
+                OnPropertyChanged(nameof(TotalValue));
                 IsUserActivity = false;
+
                 LoadData();
-
-
             }
         }
 
-        private int _totalValue = 0;
         public int TotalValue
         {
-            get => _totalValue; set
+            get
             {
-                _totalValue = value; OnPropertyChanged(nameof(TotalValue));
+                int Sum = 0;
+                foreach (var item in ItemsData)
+                    if (item.IsChecked)
+                        Sum += item.Cost;
+                return Sum;
             }
         }
-
         public ShopListViewModel()
         {
             Items = new FullObservableCollection<MyShoppingItem>();
             ItemsData = new List<MyShoppingItem>();
-            SelectedCount = Count = 0;
             CurrentPage = 1;
-            MaxValue = 0;
         }
-
         private void LoadPosition()
         {
-            for (int i = 0; i < ItemsData.Count; i++)
+            for (int i = 0; i < Count; i++)
                 ItemsData[i].Position = i;
         }
-
         public void DeleteItem(String Tag)
         {
             int index = int.Parse(Tag);
-            if (ItemsData[index].IsChecked)
-            {
-                SelectedCount--;
-                TotalValue -= ItemsData[index].Cost;
-            }
-
             ItemsData.RemoveAt(index);
-            Count--;
-
+            
             LoadPosition();
-
             if (CurrentPage >= MaxPage())
             {
                 CurrentPage = MaxPage();
                 LoadPage();
             }
-
             CheckPage();
+            LoadData();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void LoadData()
         {
+            OnPropertyChanged(nameof(Count));
+            OnPropertyChanged(nameof(TotalValue));
+            OnPropertyChanged(nameof(SelectedCount));
             if (IsUserActivity) return;
-            Count = ItemsData.Count;
             IsUserActivity = true;
-            SelectedCount = 0;
-            TotalValue = 0;
             IsSelected = true;
 
             foreach (var item in ItemsData)
-                if (item.IsChecked == true)
-                {
-                    SelectedCount++;
-                    TotalValue += item.Cost;
-                }
-                else IsSelected = false;
+                if (item.IsChecked != true)
+                    IsSelected = false;
 
             IsUserActivity = false;
-
-        }
-        private int MaxPage()
+        }        private int MaxPage()
         {
             return (int)Math.Max(Math.Ceiling(ItemsData.Count / 5.0), 1);
         }
-
         public void Add(Product product, int quantity = 1)
         {
-            /*bool isAdded = false;
-            foreach (var item in Items)
+            bool isAdded = false;
+            foreach (var item in ItemsData)
                 if (item.product == product)
                 {
                     item.Quantity += quantity;
                     isAdded = true;
                 }
 
-            if (!isAdded) */
+            if (!isAdded) 
             ItemsData.Add(new MyShoppingItem(product, quantity) { Position = Items.Count });
-
-            MaxValue += ItemsData.Last().Cost;
-            TotalValue += ItemsData.Last().Cost;
-            SelectedCount++; Count++;
 
             if (CurrentPage == MaxPage())
                 LoadPage();
             if (Count % 5 == 1)
                 CheckPage();
+            LoadData();
         }
-
-
         private void LoadPage()
         {
             Items = PageChanger.LoadPage(CurrentPage, ItemsData);
@@ -202,7 +139,6 @@ namespace SellingTree
         {
             PageChangerButton = PageChanger.getPageChanger(CurrentPage, MaxPage());
         }
-
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -216,9 +152,7 @@ namespace SellingTree
                     MainWindow.Instance.SetFrame(typeof(ProductView), item.product);
                     break;
                 }
-
-        }
-
+        } 
         internal void ChangePage(String Page)
         {
             int ThisPage = int.Parse(Page);
@@ -259,16 +193,16 @@ namespace SellingTree
                 //    daoOrderDetail.InsertDetail(detail);
                 //}
                 ItemsData.Clear();
+ 
                 LoadPage();
                 CheckPage();
                 LoadData();
-
-
             }
             else
             {
                 MainWindow.Instance.SetFrame(typeof(LoginPage));
             }
         }
+
     }
 }

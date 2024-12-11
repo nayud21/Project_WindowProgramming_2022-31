@@ -24,6 +24,7 @@
 		<None Remove="View\ChatPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
+		<Content Remove="Assets\emojis.txt" />
 		<Content Remove="Assets\login-pic.jpg" />
 		<Content Remove="Assets\Picture1.jpg" />
 		<Content Remove="Assets\Picture10.jpg" />
@@ -44,10 +45,14 @@
 		<None Remove="View\DictionaryPage.xaml" />
 		<None Remove="View\LoginPage.xaml" />
 		<None Remove="View\MainViewAdmin.xaml" />
+
+		<None Remove="View\ReviewsAndPayBack.xaml" />
+
 		<None Remove="View\MoreOptionPage.xaml" />
 		<None Remove="View\MoreOption\NavigationBarChildPage.xaml" />
 		<None Remove="View\MoreOption\OrderPlantPage.xaml" />
 		<None Remove="View\MoreOption\RentHostPage.xaml" />
+
 		<None Remove="View\ShopCartAdminView.xaml" />
 	</ItemGroup>
 
@@ -79,6 +84,9 @@
 		<ProjectCapability Include="Msix" />
 	</ItemGroup>
 	<ItemGroup>
+		<None Update="Assets\emojis.txt">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 		<None Update="Assets\Picture1.jpg">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
@@ -118,6 +126,9 @@
 		<None Update="Assets\ShippingIcon.jpg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+
+		<Page Update="View\ReviewsAndPayBack.xaml">
+
 		<Page Update="View\MoreOptionPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
@@ -128,6 +139,7 @@
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Update="View\MoreOption\NavigationBarChildPage.xaml">
+
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Update="View\MainViewAdmin.xaml">
