@@ -69,5 +69,10 @@ namespace SellingTree.View
                 loginButton.IsEnabled = true;
             }
         }
+
+        private void signupButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SignUpPage));
+        }
     }
 }

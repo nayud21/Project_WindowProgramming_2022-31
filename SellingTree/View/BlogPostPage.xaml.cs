@@ -47,6 +47,7 @@ namespace SellingTree
                 Likes = likes,
                 Views = views
             });
+            Frame.GoBack();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

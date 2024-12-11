@@ -21,6 +21,7 @@
 		<None Remove="GroupCollectionDetails.xaml" />
 		<None Remove="View\AccountPage.xaml" />
 		<None Remove="View\AccountPageAdmin.xaml" />
+		<None Remove="View\BlogPageAdmin.xaml" />
 		<None Remove="View\ChatPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
@@ -55,6 +56,8 @@
 		<None Remove="View\MoreOption\RentHostPage.xaml" />
 
 		<None Remove="View\ShopCartAdminView.xaml" />
+
+		<None Remove="View\SignUpPage.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -127,6 +130,12 @@
 		<None Update="Assets\ShippingIcon.jpg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<Page Update="View\SignUpPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\BlogPageAdmin.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
     <Page Update="View\ChatPageCus.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

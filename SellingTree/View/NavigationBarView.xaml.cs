@@ -41,9 +41,18 @@ namespace SellingTree
 
         private void ShopListButton_Clicked(object sender, RoutedEventArgs e)
         {
-            MainWindow.Instance.SetFrame(typeof(ShopCartView));
-            ShopListButton.IsEnabled = false;
-            ShopListButton.Visibility = Visibility.Collapsed;
+            if (!SessionManager.IsLoggedIn() || SessionManager.CurrentUser.Type == "user")
+            {
+
+                MainWindow.Instance.SetFrame(typeof(ShopCartView));
+                //ShopListButton.IsEnabled = false;
+                //ShopListButton.Visibility = Visibility.Collapsed;
+
+            }
+            else
+            {
+                MainWindow.Instance.SetFrame(typeof(ShopCartAdminView));
+            }
         }
 
         private void MainPageButton_Click(object sender, RoutedEventArgs e)
@@ -55,14 +64,20 @@ namespace SellingTree
 
         private void blogButton_Click(object sender, RoutedEventArgs e)
         {
+            if (SessionManager.IsLoggedIn())
+            {
+                if (SessionManager.IsAdmin())
+                    MainWindow.Instance.SetFrame(typeof(BlogPageAdmin));
+                else
+                    MainWindow.Instance.SetFrame(typeof(BlogPage));
+            }
+            else
             MainWindow.Instance.SetFrame(typeof(BlogPage));
-            ShopListButton.IsEnabled = false;
-            ShopListButton.Visibility = Visibility.Visible;
         }
 
         private void chatButton_Click(object sender, RoutedEventArgs e)
         {
-            if(SessionManager.IsLoggedIn())
+            if (SessionManager.IsLoggedIn())
             {
                 if (SessionManager.IsAdmin())
                 {
@@ -114,7 +129,10 @@ namespace SellingTree
 
         private void accountPage_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Instance.SetFrame(typeof(AccountPage));
+            if (!SessionManager.IsAdmin())
+                MainWindow.Instance.SetFrame(typeof(AccountPage));
+            else
+                MainWindow.Instance.SetFrame(typeof(AccountPageAdmin));
         }
 
         public void logOut_Click(object sender, RoutedEventArgs e)
@@ -129,10 +147,12 @@ namespace SellingTree
 
 
 
+           
+        }
         private void moreOption_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.Instance.SetFrame(typeof(MoreOptionPage));
 
         }
-    }
+    } 
 }

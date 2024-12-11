@@ -1,3 +1,4 @@
+using Npgsql.Replication.PgOutput.Messages;
 using SellingTree.Model;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace SellingTree.IDao
     {
         List<Blog> GetBlogs();
         public void InsertBlog(Blog blog);
+        public void DeleteBlog(Blog blog);
     }
     public interface IDaoMessage
     {
@@ -28,10 +30,16 @@ namespace SellingTree.IDao
             return PostgreDaoCollection.GetAllProduct();
         }
     }
-
+    public interface IDaoProduct
+    {
+        public void InsertProduct(Product product);
+        public void DeleteProduct(Product product);
+        public void UpdateProduct(Product product);
+    }
     public interface IDaoUser
     {
         List<User> GetUsers();
+        public void InsertUser(User user);
     }
     public interface IDaoOrder
     {
