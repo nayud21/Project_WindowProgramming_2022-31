@@ -49,5 +49,12 @@ namespace SellingTree
             MainViewViewModel.instance.OpenProduct(sender as Image);
         }
 
+        private void PageChangerButton_Clicked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            if (b.Style == PageChanger.accentButtonStyle || b.Content.ToString() == "...")
+                return;
+            MainViewViewModel.instance.ChangePage(b.Content as string);
+        }
     }
 }

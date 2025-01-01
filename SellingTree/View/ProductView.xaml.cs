@@ -6,6 +6,7 @@ using SellingTree.IDao;
 using SellingTree.Model;
 using System;
 using System.Collections.Generic;
+using Windows.Media.Core;
 using Windows.Services.Store;
 
 namespace SellingTree
@@ -59,6 +60,12 @@ namespace SellingTree
                 }
             MainWindow.Instance.SetFrame(typeof(ReviewsAndPayBack), Product, float.Parse(reviews.AverageScore));
 
+        }
+
+        private void Video_Loaded(object sender, RoutedEventArgs e)
+        {
+            var Media = sender as MediaPlayerElement;
+            Media.Source = MediaSource.CreateFromUri(new Uri(Media.Tag as String));
         }
     }
 }

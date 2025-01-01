@@ -16,6 +16,7 @@ namespace SellingTree
 
         public String Date { get; set; }
         public String Content { get; set; }
+        public List<MediaOrImage> MediaList { get; set; }
     }
     class Reviews
     {

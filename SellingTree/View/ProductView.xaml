@@ -12,6 +12,7 @@
     <Page.Resources>
         <local:IntToVNDIConverter x:Key="MoneyConverter"/>
         <local:QuantityToStringIConverter x:Key="QuantityConverter"/>
+        <local:IntToVisibilityIConverter x:Key="VisibilityConverter"/>
     </Page.Resources>
     <Grid Background="LightGray">
         <Grid.RowDefinitions>
@@ -161,6 +162,23 @@
                                     </StackPanel>
 
                                     <TextBlock Text="{Binding Content}" FontFamily="Sitka" Margin="0,3,0,0"/>
+                                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled">
+                                        <ItemsControl x:Name="HorizontalItemsControl" ItemsSource="{Binding MediaList}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="local:MediaOrImage">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="{Binding content}" Visibility="{Binding isImage, Converter={StaticResource VisibilityConverter}}" Width="100" Height="100" Margin="0,0,5,0"/>
+                                                        <MediaPlayerElement Tag="{Binding content}" Visibility="{Binding isVideo, Converter={StaticResource VisibilityConverter}}" AutoPlay="True" Width="100" Height="100" Margin="0,0,5,0" Loaded="Video_Loaded"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </ScrollViewer>
                                 </StackPanel>
                             </Border>
                         </DataTemplate>
@@ -169,7 +187,7 @@
 
             </Grid>
         
-        <TextBox Grid.Row="3" x:Name="errorTextBox"/>
+        <TextBlock Grid.Row="3" x:Name="errorTextBox"/>
         <Grid Grid.Row="4"  HorizontalAlignment="Center">
             
             <Button x:Name="NewReviewButton" Content="TẠO ĐÁNH GIÁ" Foreground="White" Background="Green" Click="NewReview_Clicked"/>

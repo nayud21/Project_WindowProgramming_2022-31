@@ -10,19 +10,30 @@ using System.Threading.Tasks;
 using SellingTree.Model;
 using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml.Media;
+using System.ComponentModel;
 
 
 namespace SellingTree
 {
-    internal class MainViewViewModel
+    internal class MainViewViewModel : INotifyPropertyChanged
     {
         public static MainViewViewModel instance = new MainViewViewModel();
+
         public List<Popup> Popups = new List<Popup>();
-        public ObservableCollection<Product> products { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public FullObservableCollection<Product> products { get; set; }
+
+        public int CurrentPage { get; set; }
+
+        public FullObservableCollection<PageChanger> PageChangerButton { get; set; }
         public MainViewViewModel()
         {
-            products = IDao.IDaoCollection.GetAllProduct();
-           
+            var result = IDao.IDaoCollection.GetProductAtPage(1);
+            products = result.Item1;
+            PageChangerButton = PageChanger.getPageChanger(1, (int)Math.Ceiling(result.Item2/16.0));
+                       
         }
         public void Add(Popup popup)
         {
@@ -91,6 +102,13 @@ namespace SellingTree
                     return;
                 }
 
+        }
+
+        internal void ChangePage(String ButtonName)
+        {
+            var result = IDao.PostgreDaoCollection.GetProductAtPage(int.Parse(ButtonName));
+            products = result.Item1;
+            PageChangerButton = PageChanger.getPageChanger(int.Parse(ButtonName), (int)Math.Ceiling(result.Item2/16.0));
         }
     }
 }
