@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Npgsql.PostgresTypes;
 using SellingTree.Model;
 using SellingTree.ViewModel;
 
@@ -10,16 +12,16 @@ namespace SellingTree.Helper
 {
     public class ProductHandle
     {
-
+        static ObservableCollection<Product> p = IDao.IDaoCollection.GetAllProduct();
         public static Product findProductByName(String name)
         {
             Product ans = null;
 
-            MainViewViewModel productsViewModel = new MainViewViewModel();
-            for(int i = 0; i < productsViewModel.products.Count; i++)
+            for (int i = 0; i < p.Count; i++)
             {
-                if (productsViewModel.products[i].Name == name) { 
-                    ans = productsViewModel.products[i];
+                if (p[i].Name == name)
+                {
+                    ans = p[i];
                 }
             }
 
