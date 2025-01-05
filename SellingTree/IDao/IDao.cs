@@ -56,6 +56,6 @@ namespace SellingTree.IDao
     {
         List<Detail> GetDetails();
         List<Detail> GetDetailsForOrder(int orderID);
-        public void InsertDetail(Detail detail);
+        public void InsertDetail(List<Detail> detail, User user, DateTime date);
     }
 }

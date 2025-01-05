@@ -44,6 +44,7 @@
 	<ItemGroup>
 		<None Remove="CollectionPage.xaml" />
 		<None Remove="View\ChatPageCus.xaml" />
+		<None Remove="View\DetailView.xaml" />
 		<None Remove="View\DictionaryPage.xaml" />
 		<None Remove="View\LoginPage.xaml" />
 		<None Remove="View\MainViewAdmin.xaml" />
@@ -130,6 +131,9 @@
 		<None Update="Assets\ShippingIcon.jpg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<Page Update="View\DetailView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
 		<Page Update="View\SignUpPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
