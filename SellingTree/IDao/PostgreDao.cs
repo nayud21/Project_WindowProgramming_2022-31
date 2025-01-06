@@ -12,6 +12,7 @@ using Microsoft.UI.Xaml.Controls;
 using Npgsql;
 using SellingTree.Model;
 using System.IO;
+using System.Reflection;
 
 namespace SellingTree.IDao
 {
@@ -396,7 +397,7 @@ namespace SellingTree.IDao
                                     ImageLocation = "https://thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/avt/" + reader.GetString(1),
                                 };
 
-                                if (reader.GetInt32(6) / 4 /2 == 1)
+                                if (reader.GetInt32(6) % 4 /2 == 1)
                                 {
                                     user.Name = "Người dùng ẩn danh";
                                     user.ImageLocation = "";
@@ -406,9 +407,16 @@ namespace SellingTree.IDao
                                     user = user,
                                     Date = reader.GetString(2),
                                     Content = reader.GetString(3),
-                                    Score = reader.GetInt32(4),
+                                    Score = reader.GetInt32(4), 
                                 };
+                                if (reader.IsDBNull(5))
+                                {
+                                    review.MediaList = new List<MediaOrImage>();
+                                    reviews.Add(review);
+                                    continue;
+                                }
                                 String temp = reader.GetString(5);
+                                
                                 MediaOrImage m = new MediaOrImage("https://thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/Reviews/" +
                                                                         temp);
                                 if (temp[^3..] == "mp4")
@@ -441,12 +449,11 @@ namespace SellingTree.IDao
         }
 
 
-        public static async Task AddReview(User user, Product p, String content, List<MediaOrImage> m, int Value, int Mode)
+        public static async Task AddReview(User user, Product p, String content, List<MediaOrImage> m, int Value, String date, int Mode)
         {
             var reviews = new List<Review>();
             try
             {
-                var date = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 using (var conn = new NpgsqlConnection(connString))
                 {
                     conn.Open();
@@ -458,7 +465,7 @@ namespace SellingTree.IDao
 
 
                         cmd.Parameters.AddWithValue("userId", user.UserId);
-                        cmd.Parameters.AddWithValue("date", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                        cmd.Parameters.AddWithValue("date", date);
                         cmd.Parameters.AddWithValue("userId", user.UserId);
                         cmd.Parameters.AddWithValue("date", date);
                         cmd.Parameters.AddWithValue("PId", p.PID);
@@ -474,10 +481,13 @@ namespace SellingTree.IDao
                 {
                     conn.Open();
                     var command = "INSERT INTO reviewimages(userid, id, date, images) VALUES ";
-
-                    foreach (var item in m)
+                    
+                    for (int i= 0; i < m.Count; i++)
                     {
-                        command += $"({user.UserId},{p.PID}, \'{date}\', \'{Path.GetFileName(item.content)}\'),";
+                        var item = m[i];
+                        String newFileName = $"{SessionManager.CurrentUser.UserId}_{date}_{i}{Path.GetExtension(item.content)}";
+                        
+                        command += $"({user.UserId},{p.PID}, \'{date}\', \'{newFileName}\'),";
                     }
 
                     command = command[0..^1] + ';';
@@ -1007,7 +1017,7 @@ namespace SellingTree.IDao
             }
             var fileContent = new ByteArrayContent(await File.ReadAllBytesAsync(filePath));
             var temp = Path.GetExtension(filePath);
-            fileContent.Headers.ContentType = new MediaTypeHeaderValue($"video/{temp[1..^0]}"); // Adjust MIME type as necessary
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue($"video/mp4"); // Adjust MIME type as necessary
 
             try
             {
