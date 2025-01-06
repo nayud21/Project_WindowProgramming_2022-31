@@ -5,6 +5,9 @@
     <None Update="App.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Update="View\GuideCategory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\DetailView.xaml">
       <SubType>Designer</SubType>
     </Page>
