@@ -53,8 +53,12 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Previous" Click="PreviousOrderPage_Click" />
+                <TextBlock x:Name="orderPageTextBlock" Text="Page 1" Margin="10,0" VerticalAlignment="Center"/>
+                <Button Content="Next" Click="NextOrderPage_Click" />
+            </StackPanel>
         </StackPanel>
-
         <!-- Products Management Section -->
         <StackPanel Orientation="Vertical" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
             <TextBlock Text="Quản lí sản phẩm" FontSize="30" Margin="10" HorizontalAlignment="Center"/>
@@ -89,6 +93,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Previous" Click="PreviousProductPage_Click" />
+                <TextBlock x:Name="productPageTextBlock" Text="Page 1" Margin="10,0" VerticalAlignment="Center"/>
+                <Button Content="Next" Click="NextProductPage_Click" />
+            </StackPanel>
         </StackPanel>
         <!-- Add Product Dialog -->
         <ContentDialog x:Name="addProductDialog" Title="Thêm sản phẩm" PrimaryButtonText="Thêm" SecondaryButtonText="Hủy" PrimaryButtonClick="AddProductDialog_PrimaryButtonClick">

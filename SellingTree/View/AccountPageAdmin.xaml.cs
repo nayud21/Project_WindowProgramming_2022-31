@@ -33,6 +33,7 @@ namespace SellingTree.View
     public sealed partial class AccountPageAdmin : Page
     {
         public ObservableCollection<Product> Products { get; set; }
+        public ObservableCollection<Order> Orders { get; set; }
         public AccountPageAdmin()
         {
             this.InitializeComponent();
@@ -45,16 +46,27 @@ namespace SellingTree.View
             }
         }
 
+        private const int PageSize = 6;
+        private int currentOrderPage = 1;
+        private int currentProductPage = 1;
+
         private void LoadOrders()
         {
             IDaoOrder daoOrder = new PostgreDaoOrder();
-            var orders = daoOrder.GetOrders();
+            var orders = daoOrder.GetOrders()
+                                 .Skip((currentOrderPage - 1) * PageSize)
+                                 .Take(PageSize)
+                                 .ToList();
             ordersListView.ItemsSource = orders;
         }
+
         private void LoadProducts()
         {
-            Products = PostgreDaoCollection.GetAllProduct();
-            productsListView.ItemsSource = Products;
+            var products = PostgreDaoCollection.GetAllProduct()
+                                               .Skip((currentProductPage - 1) * PageSize)
+                                               .Take(PageSize)
+                                               .ToList();
+            productsListView.ItemsSource = products;
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
@@ -198,6 +210,49 @@ namespace SellingTree.View
                 }
 
             }
+        }
+        private void PreviousOrderPage_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentOrderPage > 1)
+            {
+                currentOrderPage--;
+                LoadOrders();
+                UpdateOrderPageText();
+            }
+        }
+
+        private void NextOrderPage_Click(object sender, RoutedEventArgs e)
+        {
+            currentOrderPage++;
+            LoadOrders();
+            UpdateOrderPageText();
+        }
+
+        private void PreviousProductPage_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentProductPage > 1)
+            {
+                currentProductPage--;
+                LoadProducts();
+                UpdateProductPageText();
+            }
+        }
+
+        private void NextProductPage_Click(object sender, RoutedEventArgs e)
+        {
+            currentProductPage++;
+            LoadProducts();
+            UpdateProductPageText();
+        }
+
+        private void UpdateOrderPageText()
+        {
+            orderPageTextBlock.Text = $"Page {currentOrderPage}";
+        }
+
+        private void UpdateProductPageText()
+        {
+            productPageTextBlock.Text = $"Page {currentProductPage}";
         }
     }
 }
