@@ -29,10 +29,36 @@ namespace SellingTree
         {
             this.InitializeComponent();
         }
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        private async void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             string title = TitleTextBox.Text;
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                ContentDialog noTitleDialog = new ContentDialog
+                {
+                    Title = "Thiếu thông tin",
+                    Content = "Tiêu đề của Blog không được bỏ trống.",
+                    CloseButtonText = "OK",
+                    XamlRoot = this.Content.XamlRoot // Ensure the XamlRoot is set
+                };
+
+                await noTitleDialog.ShowAsync();
+                return;
+            }
             string description = ContentTextBox.Text;
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                ContentDialog noContentDialog = new ContentDialog
+                {
+                    Title = "Thiếu thông tin",
+                    Content = "Nội dung của Blog không được bỏ trống.",
+                    CloseButtonText = "OK",
+                    XamlRoot = this.Content.XamlRoot // Ensure the XamlRoot is set
+                };
+
+                await noContentDialog.ShowAsync();
+                return;
+            }
             string imageLocation = "https://thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/Blog/blog01.jpg";
             int likes = 0;
             int views = 0;

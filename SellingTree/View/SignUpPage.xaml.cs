@@ -13,8 +13,8 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using SellingTree.IDao;
-using SellingTree.Model;    
-
+using SellingTree.Model;
+using System.Threading.Tasks;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -30,7 +30,7 @@ namespace SellingTree.View
             this.InitializeComponent();
         }
 
-        private void regisButton_Click(object sender, RoutedEventArgs e)
+        private async void regisButton_Click(object sender, RoutedEventArgs e)
         {
             PostgreDaoUser postgreDaoUser = new PostgreDaoUser();
             string password = passwordBox.Password;
@@ -49,8 +49,20 @@ namespace SellingTree.View
                 Type = "user",
                 ImageLocation = "customer-avatar.png"
             } );
-
+            await ShowSuccessDialog();
             this.Frame.Navigate(typeof(LoginPage));
+        }
+        private async Task ShowSuccessDialog()
+        {
+            ContentDialog successDialog = new ContentDialog
+            {
+                Title = "Registration Successful",
+                Content = "Your account has been created successfully.",
+                CloseButtonText = "OK",
+                XamlRoot = this.Content.XamlRoot
+            };
+
+            await successDialog.ShowAsync();
         }
     }
 }
