@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="SellingTree.View.AccountPage"
+    x:Class="SellingTree.AccountPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SellingTree.Model"
+    xmlns:local2="using:SellingTree"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <local2:IntToVNDIConverter x:Key="MoneyConverter"/>
+    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
+        
 
         <!-- Customer Information Section -->
         <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
@@ -25,7 +30,7 @@
         <!-- Order History Section -->
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
             <TextBlock Text="Lịch sử mua hàng" FontSize="24" Margin="10" HorizontalAlignment="Center"/>
-            <ListView x:Name="ordersListView" Margin="10">
+            <ListView x:Name="ordersListView" SelectionChanged="SelectionChanged" Margin="10">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:Order">
                         <Border BorderThickness="1" BorderBrush="Gray" Margin="5" Padding="10" CornerRadius="10">
@@ -44,7 +49,7 @@
                                 <TextBlock Text="Order Date:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
                                 <TextBlock Text="{x:Bind OrderDate}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
                                 <TextBlock Text="Total Price:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{x:Bind TotalPrice}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{x:Bind TotalPrice, Converter={StaticResource MoneyConverter}}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"/>
                             </Grid>
                         </Border>
                     </DataTemplate>

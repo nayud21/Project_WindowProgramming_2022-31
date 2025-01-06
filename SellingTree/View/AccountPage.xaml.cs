@@ -8,6 +8,7 @@ using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 using SellingTree.IDao;
 using SellingTree.Model;
+using SellingTree.View;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,7 +21,7 @@ using Windows.Foundation.Collections;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace SellingTree.View
+namespace SellingTree
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -50,6 +51,13 @@ namespace SellingTree.View
 
             // Navigate back to LoginPage
             this.Frame.Navigate(typeof(LoginPage));
+        }
+
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var order = ordersListView.SelectedItem as Order;
+            var dao = new PostgreDaoDetail();
+            MainWindow.Instance.SetFrame(typeof(DetailView), details: dao.GetDetailsForOrder(order.OrderID));
         }
     }
 }

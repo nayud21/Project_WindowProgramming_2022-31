@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using SellingTree.IDao;
 using SellingTree.View;
+using Microsoft.UI.Xaml.Controls;
 namespace SellingTree
 
 {
@@ -108,7 +109,8 @@ namespace SellingTree
                     IsSelected = false;
 
             IsUserActivity = false;
-        }        private int MaxPage()
+        }
+        private int MaxPage()
         {
             return (int)Math.Max(Math.Ceiling(ItemsData.Count / 5.0), 1);
         }
@@ -164,7 +166,7 @@ namespace SellingTree
             }
         }
         // tôi muốn thêm hàm Pay() để thực hiện thanh toán
-        internal void Pay()
+        internal async void Pay()
         {
             // tôi muốn thực hiiện thanh toán bằng cách ghi vào database 1 order mới với tổng giá và ghi chi tiết các product vào detail
             // sau đó xóa hết các sản phẩm trong giỏ hàng
@@ -172,31 +174,41 @@ namespace SellingTree
             {
                 // tôi muốn thực hiện thanh toán bằng cách ghi vào database 1 order mới với tổng giá và ghi chi tiết các product vào detail
                 // sau đó xóa hết các sản phẩm trong giỏ hàng
+                DateTime date = DateTime.Now;
                 Order order = new Order()
                 {
                     TotalPrice = TotalValue,
                     UserID = SessionManager.CurrentUser.UserId,
-                    OrderDate = DateTime.Now
+                    OrderDate = date
                 };
                 IDaoOrder daoOrder = new PostgreDaoOrder();
                 daoOrder.InsertOrder(order);
+
                 IDaoDetail daoOrderDetail = new PostgreDaoDetail();
-                //foreach (var item in ItemsData)
-                //{
-                //    Detail detail = new Detail()
-                //    {
-                //        OrderID = order.OrderID,
-                //        ProductID = item.product.ProductID,
-                //        Quantity = item.Quantity,
-                //        Price = item.product.Price
-                //    };
-                //    daoOrderDetail.InsertDetail(detail);
-                //}
-                ItemsData.Clear();
+                List<Detail> details = new List<Detail>();
+
+                for (int i = 0; i < ItemsData.Count;)
+                    if (ItemsData[i].IsChecked)
+                    {
+                        Detail detail = new Detail()
+                        {
+                            ProductID = ItemsData[i].product.PID,
+                            Quantity = ItemsData[i].Quantity,
+                            Price = ItemsData[i].product.Price
+                        };
+                        details.Add(detail);
+                        ItemsData.Remove(ItemsData[i]);
+                    }
+                    else i++;
+
+                daoOrderDetail.InsertDetail(details, SessionManager.CurrentUser, date);
  
                 LoadPage();
                 CheckPage();
                 LoadData();
+                var dialog = new ContentDialog 
+                { Title = "Alert", Content = "This is an alert message.", CloseButtonText = "OK" }; 
+                await dialog.ShowAsync();
             }
             else
             {

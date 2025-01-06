@@ -382,18 +382,25 @@ namespace SellingTree.IDao
                         Debug.WriteLine("Kết nối thành công!");
 
                         // Thực thi một truy vấn mẫu
-                        using (var cmd = new NpgsqlCommand($"SELECT u.name, u.avatar, r.date, content, score, images FROM reviews r JOIN users u ON r.id = @id AND r.userid = u.userid LEFT JOIN reviewimages ri ON ri.userid = r.userid AND ri.id= r.id AND ri.date = r.date ; ", conn))
+                        using (var cmd = new NpgsqlCommand($"SELECT u.name, u.avatar, r.date, content, score, images, mode FROM reviews r JOIN users u ON r.id = @id AND r.userid = u.userid LEFT JOIN reviewimages ri ON ri.userid = r.userid AND ri.id= r.id AND ri.date = r.date ; ", conn))
                         {
 
                             cmd.Parameters.AddWithValue("id", product.PID);
                             var reader = cmd.ExecuteReader();
                             while (reader.Read())
                             {
+                                
                                 User user = new User()
                                 {
                                     Name = reader.GetString(0),
                                     ImageLocation = "https://thfctareaaikcsvjyrzn.supabase.co/storage/v1/object/public/assets/avt/" + reader.GetString(1),
                                 };
+
+                                if (reader.GetInt32(6) / 4 /2 == 1)
+                                {
+                                    user.Name = "Người dùng ẩn danh";
+                                    user.ImageLocation = "";
+                                }   
                                 Review review = new Review()
                                 {
                                     user = user,
@@ -434,7 +441,7 @@ namespace SellingTree.IDao
         }
 
 
-        public static async Task AddReview(User user, Product p, String content, List<MediaOrImage> m, int Value)
+        public static async Task AddReview(User user, Product p, String content, List<MediaOrImage> m, int Value, int Mode)
         {
             var reviews = new List<Review>();
             try
@@ -446,7 +453,7 @@ namespace SellingTree.IDao
                     Debug.WriteLine("Kết nối thành công!");
 
                     // Thực thi một truy vấn mẫu
-                    using (var cmd = new NpgsqlCommand("INSERT INTO reviews (userid, id, date, content, score) VALUES (@userId, @PId, @date, @content, @Score);", conn))
+                    using (var cmd = new NpgsqlCommand("INSERT INTO reviews (userid, id, date, content, score, mode) VALUES (@userId, @PId, @date, @content, @Score, @mode);", conn))
                     {
 
 
@@ -457,6 +464,7 @@ namespace SellingTree.IDao
                         cmd.Parameters.AddWithValue("PId", p.PID);
                         cmd.Parameters.AddWithValue("content", content);
                         cmd.Parameters.AddWithValue("Score", Value);
+                        cmd.Parameters.AddWithValue("mode", Mode);
                         var reader = await cmd.ExecuteNonQueryAsync();
                     }
                     conn.Close();
@@ -624,7 +632,7 @@ namespace SellingTree.IDao
                         {
                             var orderDetail = new Detail
                             {
-                                OrderID = reader.GetInt32(0),
+                                //OrderID = reader.GetInt32(0),
                                 ProductID = reader.GetInt32(1),
                                 Quantity = reader.GetInt32(2),
                                 Price = reader.GetInt32(3),
@@ -656,17 +664,17 @@ namespace SellingTree.IDao
                     Debug.WriteLine("Kết nối thành công!");
 
                     // Thực thi một truy vấn mẫu
-                    using (var cmd = new NpgsqlCommand($"SELECT * FROM detail WHERE orderid = {orderID};", conn))
+                    using (var cmd = new NpgsqlCommand($"SELECT d.* FROM detail d JOIN orderproduct o ON o.userid = d.userid AND o.time = d.date WHERE id = {orderID};", conn))
                     {
                         var reader = cmd.ExecuteReader();
                         while (reader.Read())
                         {
                             var orderDetail = new Detail
                             {
-                                OrderID = reader.GetInt32(0),
-                                ProductID = reader.GetInt32(1),
-                                Quantity = reader.GetInt32(2),
-                                Price = reader.GetInt32(3),
+                                //OrderID = reader.GetInt32(0),
+                                ProductID = reader.GetInt32(0),
+                                Quantity = reader.GetInt32(1),
+                                Price = reader.GetInt32(2),
                             };
                             orderDetails.Add(orderDetail);
                         }
@@ -682,7 +690,7 @@ namespace SellingTree.IDao
             }
             return orderDetails;
         }
-        public void InsertDetail(Detail orderDetail)
+        public void InsertDetail(List<Detail> orderDetail, User user, DateTime date)
         {
             var connString = "Host=aws-0-us-east-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.thfctareaaikcsvjyrzn;Password=$#F3E*c5w5hcG*e;SslMode=Require;Trust Server Certificate=true";
             try
@@ -692,8 +700,15 @@ namespace SellingTree.IDao
                     conn.Open();
                     Debug.WriteLine("Kết nối thành công!");
 
+                    String command = "INSERT INTO detail (productid, userid, date, quantity, price) VALUES";
+
+                    foreach (var detail in orderDetail)
+                        command += $"({detail.ProductID}, {user.UserId}, '{date}', {detail.Quantity}, {detail.Price}),";
+
+                    command = command[0..^1] + ';';
+
                     // Thực thi một truy vấn mẫu
-                    using (var cmd = new NpgsqlCommand($"INSERT INTO detail (orderid, productid, quantity, price) VALUES ({orderDetail.OrderID}, {orderDetail.ProductID}, {orderDetail.Quantity}, {orderDetail.Price});", conn))
+                    using (var cmd = new NpgsqlCommand(command, conn))
                     {
                         cmd.ExecuteNonQuery();
 

@@ -31,7 +31,7 @@ namespace SellingTree
             this.InitializeComponent();
             Frame1.Navigate(typeof(NavigationBarView));
             Frame2.Navigate(typeof(MainView));
-            
+
             Instance = this;
         }
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -44,8 +44,12 @@ namespace SellingTree
         }
         public Type GetFrame() => Frame2.Content as Type;
 
-        public void SetFrame(Type type, Product product = null, float Average = -1)
+        public void SetFrame(Type type, Product product = null, float Average = -1, List<Detail> details = null)
         {
+            if (details != null)
+            
+                Frame2.Content = new DetailView(details);
+            else
             if (Average != -1)
                 Frame2.Content = new ReviewsAndPayBack(product, Average);
             else

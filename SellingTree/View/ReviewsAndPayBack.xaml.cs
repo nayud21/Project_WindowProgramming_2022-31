@@ -43,12 +43,27 @@ namespace SellingTree
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
-    public class ReviewsAndPayBackViewModel
+    public class ReviewsAndPayBackViewModel:INotifyPropertyChanged
     {
+        public ReviewsAndPayBackViewModel()
+        {
+            Task();
+        }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public async void Task()
+        { // Load the file from the app's assets folder
+            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/emojis.txt"));
+
+            // Read all lines from the file asynchronously
+            var lines = await Windows.Storage.FileIO.ReadLinesAsync(file);
+
+            // Populate the ObservableCollection with the lines from the file
+            EmojisList = new ObservableCollection<string>(lines);
+        }
         public List<MediaOrImage> MediaItems { get; set; } = new List<MediaOrImage>();
-        public ObservableCollection<String> EmojisList { get; set; } = new ObservableCollection<string>
-            ( File.ReadAllLines("mssp://Assets/emojis.txt"));
+        public ObservableCollection<String> EmojisList { get; set; }    
 
     }
     public sealed partial class ReviewsAndPayBack : Page
@@ -76,7 +91,7 @@ namespace SellingTree
                 new SolidColorBrush(Colors.Green), new SolidColorBrush(Colors.Green),
                 new SolidColorBrush(Colors.Yellow) };
 
-            ratingControl.Value = Math.Min((int)ratingControl.Value, 1);
+            ratingControl.Value = Math.Max((int)ratingControl.Value, 1);
             Rating.Text = rating[(int)ratingControl.Value - 1];
             Rating.Foreground = foreground[(int)ratingControl.Value - 1];
         }
@@ -96,7 +111,11 @@ namespace SellingTree
 
             SendRing.Visibility = Visibility.Visible;
             SendButton.IsEnabled = false;
-            await PostgreDaoCollection.AddReview(SessionManager.CurrentUser, p, TextBox.Text.ToString(), viewModel.MediaItems, (int)Math.Min(ratingControl.Value, 1));
+            int Mode = 0;
+            if (Toggle1.IsOn) Mode += 4;
+            if (Toggle2.IsOn) Mode += 2;
+            if (Toggle3.IsOn) Mode += 1;
+            await PostgreDaoCollection.AddReview(SessionManager.CurrentUser, p, TextBox.Text.ToString(), viewModel.MediaItems, (int)Math.Min(ratingControl.Value, 1), Mode);
             foreach (var item in viewModel.MediaItems)
                 if (item.isVideo == 1)
                 {

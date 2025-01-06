@@ -27,6 +27,16 @@ namespace SellingTree.Helper
 
             return ans;
         }
+        public static Product findProductById(int id)
+        {
+            for (int i = 0; i < p.Count; i++)
+            {
+                if (p[i].PID == id)
+                    return p[i];
+            }
+
+            return null;
+        }
 
     }
 }
