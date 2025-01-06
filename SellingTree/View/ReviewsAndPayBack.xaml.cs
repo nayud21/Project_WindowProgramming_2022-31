@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.Gaming.Input.ForceFeedback;
 using System.Threading.Tasks;
+using Windows.Security.Authentication.OnlineId;
 
 
 // To learn more about WinUI, the WinUI project structure,
@@ -115,18 +116,25 @@ namespace SellingTree
             if (Toggle1.IsOn) Mode += 4;
             if (Toggle2.IsOn) Mode += 2;
             if (Toggle3.IsOn) Mode += 1;
-            await PostgreDaoCollection.AddReview(SessionManager.CurrentUser, p, TextBox.Text.ToString(), viewModel.MediaItems, (int)Math.Min(ratingControl.Value, 1), Mode);
-            foreach (var item in viewModel.MediaItems)
+
+            var date = DateTime.Now.ToString("dd_MM_yyyy_HH:mm:ss");
+            await PostgreDaoCollection.AddReview(SessionManager.CurrentUser, p, TextBox.Text.ToString(), viewModel.MediaItems, (int)Math.Min(ratingControl.Value, 1), date, Mode);
+            
+            for (int index = 0; index < viewModel.MediaItems.Count; index ++)
+                {
+                var item = viewModel.MediaItems[index];
+                String newFileName = $"{SessionManager.CurrentUser.UserId}_{date}_{index}{Path.GetExtension(item.content)}";
                 if (item.isVideo == 1)
                 {
-                    IDao.SupabaseStorageService.getInstance().UploadVideoAsync(item.content, "Reviews");
-
+                    IDao.SupabaseStorageService.getInstance().UploadVideoAsync(item.content, "Reviews", newFileName);
                 }
                 else
                 {
-                    SupabaseStorageService.getInstance().UploadImageAsync(item.content, "Reviews");
+                    SupabaseStorageService.getInstance().UploadImageAsync(item.content, "Reviews", newFileName);
                 }
+            }
             SendRing.Visibility = Visibility.Collapsed;
+            
 
 
         }
@@ -156,28 +164,24 @@ namespace SellingTree
                     Source = bitmapImage,
                     Width = 120,
                     Height = 120,
-                    Margin = new Thickness(5)
                 };
 
-                var deleteButton = new Button
+                var deleteButton = new Image
                 {
-                    Content = "x",
+                    Source = new BitmapImage(new Uri("ms-appx:///Assets/exit.png")),
                     Width = 20,
                     Height = 20,
                     VerticalAlignment = VerticalAlignment.Top,
                     HorizontalAlignment = HorizontalAlignment.Right,
-                    Background = new SolidColorBrush(Colors.Red),
-                    Foreground = new SolidColorBrush(Colors.White)
                 };
-                var imageStackPanel = new StackPanel
-                {
-                    Width = 120,
+                var imageStackPanel = new Grid
+                { 
+                    Width = 140,
                     Height = 120,
-                    Margin = new Thickness(5),
                     Children = { image, deleteButton }
                 };
 
-                deleteButton.Click += (s, args) =>
+                deleteButton.Tapped += (s, args) =>
                 {
                     ImageContainer.Children.Remove(imageStackPanel);
                     viewModel.MediaItems.Remove(viewModel.MediaItems.FirstOrDefault(m => m.content == file.Path));
@@ -203,8 +207,6 @@ namespace SellingTree
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.VideosLibrary;
             openPicker.FileTypeFilter.Add(".mp4");
-            openPicker.FileTypeFilter.Add(".mkv");
-            openPicker.FileTypeFilter.Add(".wmv");
             var file = await openPicker.PickSingleFileAsync();
             if (file != null)
             {
@@ -214,9 +216,32 @@ namespace SellingTree
                     Width = 120,
                     Height = 120,
                     AutoPlay = true,
-                    Margin = new Thickness(5)
                 };
-                ImageContainer.Children.Add(mediaPlayer);
+
+                var deleteButton = new Image
+                {
+                    Source = new BitmapImage(new Uri("ms-appx:///Assets/exit.png")),
+                    Width = 20,
+                    Height = 20,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Right,
+                };
+                var imageStackPanel = new Grid
+                {
+                    Width = 140,
+                    Height = 120,
+                    Children = { mediaPlayer, deleteButton }
+                };
+
+                deleteButton.Tapped += (s, args) =>
+                {
+                    ImageContainer.Children.Remove(imageStackPanel);
+                    viewModel.MediaItems.Remove(viewModel.MediaItems.FirstOrDefault(m => m.content == file.Path));
+                };
+
+                ImageContainer.Children.Add(imageStackPanel);
+                viewModel.MediaItems.Add(new MediaOrImage(file.Path, true));
+
             }
         }
 
