@@ -206,8 +206,13 @@ namespace SellingTree
                 LoadPage();
                 CheckPage();
                 LoadData();
-                var dialog = new ContentDialog 
-                { Title = "Alert", Content = "This is an alert message.", CloseButtonText = "OK" }; 
+                var dialog = new ContentDialog
+                {
+                    Title = "Alert",
+                    Content = "Thanh toán thành công",
+                    CloseButtonText = "OK",
+                    XamlRoot = MainWindow.Instance.Content.XamlRoot // Set the XamlRoot property
+                };
                 await dialog.ShowAsync();
             }
             else

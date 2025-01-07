@@ -73,6 +73,14 @@ namespace SellingTree
                 Likes = likes,
                 Views = views
             });
+            ContentDialog successDialog = new ContentDialog
+            {
+                Title = "Thành công",
+                Content = "Đăng bài thành công.",
+                CloseButtonText = "OK",
+                XamlRoot = this.Content.XamlRoot // Ensure the XamlRoot is set
+            };
+            await successDialog.ShowAsync();
             Frame.GoBack();
         }
 

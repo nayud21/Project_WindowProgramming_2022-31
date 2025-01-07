@@ -33,6 +33,7 @@ namespace SellingTree
             var result = IDao.IDaoCollection.GetProductAtPage(1);
             products = result.Item1;
             PageChangerButton = PageChanger.getPageChanger(1, (int)Math.Ceiling(result.Item2/16.0));
+            Popups = new List<Popup>();
                        
         }
         public void Add(Popup popup)

@@ -26,6 +26,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Content Remove="Assets\emojis.txt" />
+		<Content Remove="Assets\exit.png" />
 		<Content Remove="Assets\login-pic.jpg" />
 		<Content Remove="Assets\Picture1.jpg" />
 		<Content Remove="Assets\Picture10.jpg" />
@@ -92,6 +93,9 @@
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="Assets\emojis.txt">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Assets\exit.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Update="Assets\Picture1.jpg">
