@@ -15,6 +15,7 @@ using Windows.Foundation.Collections;
 using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
 using Windows.UI.Popups;
+using Windows.Networking.Connectivity;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -37,10 +38,15 @@ namespace SellingTree.View
 
             try
             {
+
+                loadingRing.Visibility = Visibility.Visible;
+
                 await webView.EnsureCoreWebView2Async(null);
+                
                 webView.CoreWebView2.NavigationCompleted += CoreWebView2_NavigationCompleted;
                 //webView.CoreWebView2.NavigationFailed += CoreWebView2_NavigationFailed;
-                webView.CoreWebView2.Navigate("https://www.gardenia.net/guides");
+
+                navigateWebBrowser();
 
             }
             catch (Exception ex)
@@ -49,6 +55,10 @@ namespace SellingTree.View
                 System.Diagnostics.Debug.WriteLine($"Stack Trace: {ex.StackTrace}");
                 throw;  // Rethrow exception if you want it to propagate
             }
+            finally
+            {
+                loadingRing.Visibility = Visibility.Collapsed;
+            }
 
         }
 
@@ -56,27 +66,10 @@ namespace SellingTree.View
         {
             if (e.IsSuccess)
             {
-                string toastXmlString = @"
-                <toast>
-                    <visual>
-                        <binding template='ToastGeneric'>
-                            <text> 🍃 Guide Category Connect successful </text>
-                            <image placement=""appLogoOverride"" src='ms-appx:///Assets/toast_guide_category.png'/>
-                            <text placement=""attribution"" > DAD</text>
-                        </binding>
-                    </visual>
-                </toast>";
-
-                XmlDocument toastXml = new XmlDocument();
-                toastXml.LoadXml(toastXmlString);
-
-                ToastNotification toast = new ToastNotification(toastXml);
-
-                ToastNotificationManager.CreateToastNotifier().Show(toast);
+                System.Diagnostics.Debug.WriteLine("Navigation successful: " + e.WebErrorStatus);
             }
             else
             {
-
                 System.Diagnostics.Debug.WriteLine("Navigation failed: " + e.WebErrorStatus);
             }
         }
@@ -86,11 +79,40 @@ namespace SellingTree.View
         //    System.Diagnostics.Debug.WriteLine("Failed to load page: " + e.WebErrorStatus);
         //}
 
+        private void showToast(string message)
+        {
+            string toastXmlString = $@"
+                <toast>
+                    <visual>
+                        <binding template='ToastGeneric'>
+                            <text> 🍃 {message} </text>
+                            <image placement=""appLogoOverride"" src='ms-appx:///Assets/toast_guide_category.png'/>
+                            <text placement=""attribution"" > DAD</text>
+                        </binding>
+                    </visual>
+                </toast>";
+
+            XmlDocument toastXml = new XmlDocument();
+            toastXml.LoadXml(toastXmlString);
+
+            ToastNotification toast = new ToastNotification(toastXml);
+
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+        }
+
+
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             if (webView.CoreWebView2.CanGoBack)
             {
                 webView.CoreWebView2.GoBack();
+            }
+        }
+        private void nextButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (webView.CoreWebView2.CanGoForward)
+            {
+                webView.CoreWebView2.GoForward();
             }
         }
 
@@ -99,7 +121,23 @@ namespace SellingTree.View
             webView.CoreWebView2.Reload();
         }
 
+        private bool IsNetworkAvailable()
+        {
+            var internetProfile = NetworkInformation.GetInternetConnectionProfile();
+            return internetProfile != null && internetProfile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+        }
 
-
+        private void navigateWebBrowser()
+        {
+            if (IsNetworkAvailable())
+            {
+                webView.CoreWebView2.Navigate("https://www.gardenia.net/guides");
+                showToast("Connect Guide Category successfully");
+            }
+            else
+            {
+                showToast("Connect Guide Category unsucessfully");
+            }
+        }
     }
 }
