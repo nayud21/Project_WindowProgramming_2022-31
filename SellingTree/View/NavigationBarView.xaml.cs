@@ -144,11 +144,14 @@ namespace SellingTree
             }
             UserDropDown.Visibility = Visibility.Collapsed;
             accountButton.Visibility = Visibility.Visible;
-
-
-
            
         }
+
+        private void guideCategory_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.SetFrame(typeof(GuideCategory));
+        }
+
         private void moreOption_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.Instance.SetFrame(typeof(MoreOptionPage));

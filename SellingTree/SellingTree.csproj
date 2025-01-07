@@ -44,7 +44,9 @@
 	<ItemGroup>
 		<None Remove="CollectionPage.xaml" />
 		<None Remove="View\ChatPageCus.xaml" />
+		<None Remove="View\DetailView.xaml" />
 		<None Remove="View\DictionaryPage.xaml" />
+		<None Remove="View\GuideCategory.xaml" />
 		<None Remove="View\LoginPage.xaml" />
 		<None Remove="View\MainViewAdmin.xaml" />
 
@@ -76,6 +78,7 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Npgsql" Version="9.0.1" />
 		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+		<PackageReference Include="Supabase" Version="1.1.1" />
 		<Manifest Include="$(ApplicationManifest)" />
 	</ItemGroup>
 
@@ -130,6 +133,12 @@
 		<None Update="Assets\ShippingIcon.jpg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<Page Update="View\GuideCategory.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Update="View\DetailView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
 		<Page Update="View\SignUpPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>

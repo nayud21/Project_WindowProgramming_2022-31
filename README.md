@@ -256,5 +256,5 @@ SellingTree/
 **Tổng số giờ**: 25.5 giờ
 **Tổng điểm tự đánh giá**: 10 điểm
 **Ưu điểm**: Chịu khó tìm hiểu, kiên trì trong công việc.
-**Khó khăn**:Do sử dụng database local nên nếu đường truyền không ổn định sẽ load lâu.
+**Khó khăn**:Do sử dụng database global nên nếu đường truyền không ổn định sẽ load lâu.
 

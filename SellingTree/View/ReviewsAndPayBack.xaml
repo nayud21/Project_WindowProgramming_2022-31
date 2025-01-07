@@ -56,7 +56,7 @@
             <Grid Grid.Row="2" Background="White">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="260"/>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="80"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
 
@@ -85,7 +85,8 @@
 
                 <Popup x:Name="EmojiPopUp" Grid.Column="1">
                     <Border BorderBrush="Black" BorderThickness="1" Background="White" LosingFocus="LoseFocus">
-                        <ItemsControl ItemsSource="{Binding EmojisList}">
+                        <StackPanel>
+                            <ItemsControl ItemsSource="{Binding EmojisList}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapGrid MaximumRowsOrColumns="6" ItemWidth="45" ItemHeight="45"/>
@@ -97,6 +98,7 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
+                        </StackPanel>
                     </Border>
                 </Popup>
 
@@ -122,9 +124,9 @@
                 <TextBlock Text="Đánh giá ẩn danh" x:Name="TextBlock2" Grid.Column="2" Margin="10,0,0,0" VerticalAlignment="Center"/>
                 <TextBlock Text="Công khai đánh giá" x:Name="TextBlock3" Grid.Row="1" Margin="10,0,0,0" VerticalAlignment="Center"/>
                 <TextBlock Text="Đổi hàng 1 - 1" x:Name="TextBlock4" Grid.Row="2" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <ToggleSwitch x:Name="Toggle1" Grid.Column="1"/>
-                <ToggleSwitch x:Name="Toggle2" Grid.Column="1" Grid.Row="1"/>
-                <ToggleSwitch x:Name="Toggle3" Grid.Column="1" Grid.Row="2"/>
+                <ToggleSwitch x:Name="Toggle1" Header="" Grid.Column="1"/>
+                <ToggleSwitch x:Name="Toggle2" Header="" Grid.Column="1" Grid.Row="1"/>
+                <ToggleSwitch x:Name="Toggle3" Header="" Grid.Column="1" Grid.Row="2"/>
                 <Button x:Name="SendButton" Background="Green" Foreground="White" Grid.Row="3" Grid.ColumnSpan="3" Margin="10,0,0,0"
                         Click="ButtonSend_Clicked">
                     <StackPanel Orientation="Horizontal">
