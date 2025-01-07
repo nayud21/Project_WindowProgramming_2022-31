@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="SellingTree.View.ChatPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SellingTree.View"
+    xmlns:local2="using:SellingTree.Model"
+    xmlns:vm="using:SellingTree.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:MessageViewModel />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <DataTemplate x:Key="UserMessageTemplate">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <Ellipse Width="40" Height="40" Fill="Gray" Margin="0,0,10,0"/>
+                <StackPanel>
+                    <Border Background="LightGray" Padding="10" CornerRadius="10">
+                        <TextBlock Text="{Binding Content}" />
+                    </Border>
+                    <TextBlock Text="{Binding Timestamp}" FontStyle="Italic" FontSize="12" Foreground="White"/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="AdminMessageTemplate">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                <StackPanel>
+                    <Border Background="LightBlue" Padding="10" CornerRadius="10">
+                        <TextBlock Text="{Binding Content}" />
+                    </Border>
+                    <TextBlock Text="{Binding Timestamp}" FontStyle="Italic" FontSize="12" Foreground="White"/>
+                </StackPanel>
+                <Ellipse Width="40" Height="40" Fill="Gray" Margin="10,0,0,0"/>
+            </StackPanel>
+        </DataTemplate>
+        <local:MessageTemplateSelector x:Key="MessageTemplateSelector"
+                                       UserMessageTemplate="{StaticResource UserMessageTemplate}"
+                                       AdminMessageTemplate="{StaticResource AdminMessageTemplate}" />
+    </Page.Resources>
+
+    <Grid>
+        <SplitView DisplayMode="Inline" IsPaneOpen="True" OpenPaneLength="300">
+            <SplitView.Pane>
+                <ListView x:ConnectionId='4' ItemsSource="{Binding MessagesGroupedByCustomer}"                                       Background="#003333">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="10">
+                                <Ellipse Width="40" Height="40" Fill="Gray" Margin="0,0,10,0"/>
+                                <TextBlock Text="{Binding Key}" x:Name="cusName" FontWeight="Bold" FontSize="16" Foreground="White"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ListView ItemsSource="{Binding SelectedCustomerMessages}" Grid.Row="0" Background="#003333">
+                        <ListView.ItemTemplateSelector>
+                            <StaticResource ResourceKey="MessageTemplateSelector" />
+                        </ListView.ItemTemplateSelector>
+                    </ListView>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10" HorizontalAlignment="Right">
+                        <TextBox x:ConnectionId='7' x:Name="MessageInput" Width="Auto" HorizontalAlignment="Stretch" Margin="0,0,10,0" PlaceholderText="Type a message..." />
+                        <Button x:ConnectionId='8' Content="Send"                           />
+                    </StackPanel>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+        
+    </Grid>
+
+</Page>
+

@@ -19,11 +19,17 @@
             <Button Name="backButton" Margin="10,0,0,0" Click="BackButton_Click">
                 <FontIcon Glyph="&#xE72B;"/>
             </Button>
+            <Button Name="nextButton" Margin="10,0,0,0" Click="nextButton_Click">
+                <FontIcon Glyph="&#xE72A;"/>
+            </Button>
             <Button Name="reloadButton" Margin="10,0,0,0" Click="ReloadButton_Click">
                 <FontIcon Glyph="&#xE72C;"/>
             </Button>
         </StackPanel>
+        
         <WebView2 Grid.Row="1" Name="webView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+        <ProgressRing Name="loadingRing" Grid.Row="1" IsActive="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="60"/>
 
     </Grid>
 </Page>

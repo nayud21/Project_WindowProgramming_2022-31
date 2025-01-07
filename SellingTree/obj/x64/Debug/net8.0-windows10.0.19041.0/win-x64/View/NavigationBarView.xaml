@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="SellingTree.NavigationBarView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SellingTree"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <local:IntToVisibilityIConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <Grid Background="Green">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="0">
+            <Button x:ConnectionId='8' x:Name="MainPageButton" Margin="10,0,0,0"                             >
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE80F;" />
+                    <TextBlock Margin="10,0,0,0" Text="Home"/>
+                </StackPanel>
+            </Button>
+            <Button x:ConnectionId='9' x:Name="ShopListButton" Margin="10,0,0,0"                               >
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE7BF;" />
+                    <TextBlock Margin="0,0,0,0" Text="Giỏ hàng"/>
+                    <InfoBadge Background="Green"
+                               Value="{Binding Count, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Top"
+                        Visibility="{Binding Count, Converter={StaticResource VisibilityConverter}}">
+                        
+                        <InfoBadge.IconSource>
+                            <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xF13C;" />
+                        </InfoBadge.IconSource>
+                    </InfoBadge>
+
+                </StackPanel>
+            </Button>
+            <Button x:ConnectionId='10' x:Name="blogButton"                          Margin="10,0,0,0">Blog</Button>
+            <Button x:ConnectionId='11' x:Name="chatButton"                          Margin="10,0,0,0">Chat</Button>
+            <Button x:ConnectionId='12' x:Name="collectionButton"                                Margin="10,0,0,0">Collection</Button>
+            <Button x:ConnectionId='13' x:Name="dictionaryButton"                                Margin="10,0,0,0">Dictionary</Button>
+            <Button x:ConnectionId='14' x:Name="guideCategory"                             Margin="10,0,0,0">Guide Category</Button>
+            <Button x:ConnectionId='15' x:Name="moreOption"                          Margin="10,0,0,0">More Option</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+            <DropDownButton x:ConnectionId='2' x:Name="UserDropDown" Visibility="Collapsed">
+                <DropDownButton.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <PersonPicture x:ConnectionId='4' x:Name="userImage" Width="20" Height="20"/>
+                        <TextBlock x:ConnectionId='5' x:Name="UserName" Text="Name" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DropDownButton.Content>
+                <DropDownButton.Flyout>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuFlyoutItem x:ConnectionId='6' Text="Danh sách"                          />
+                        <MenuFlyoutItem x:ConnectionId='7' Text="Đăng xuất"                     />
+                    </MenuFlyout>
+                </DropDownButton.Flyout>
+            </DropDownButton>
+            <Button x:ConnectionId='3' x:Name="accountButton"                             Margin="10,0,10,0">Account</Button>
+        </StackPanel>
+    </Grid>
+</Page>
+
